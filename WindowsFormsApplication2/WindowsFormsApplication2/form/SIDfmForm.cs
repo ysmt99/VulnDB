@@ -8,6 +8,7 @@ namespace WindowsFormsApplication2.form
 {
     class SIDfmForm
     {
+        // 
         public string ID { get; set; }
         public string タイトル { get; set; }
         public string CVE番号 { get; set; }
