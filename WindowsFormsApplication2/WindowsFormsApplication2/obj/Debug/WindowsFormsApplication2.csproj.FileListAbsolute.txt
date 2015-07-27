@@ -16,3 +16,6 @@ C:\07_dev\VisualStudioCommunity2013\sidfm\WindowsFormsApplication2\WindowsFormsA
 C:\07_dev\VisualStudioCommunity2013\sidfm\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\SIDfmContext.Properties.Resources.resources
 C:\07_dev\VisualStudioCommunity2013\sidfm\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\SIDfm.mdf
 C:\07_dev\VisualStudioCommunity2013\sidfm\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\SIDfm_log.ldf
+C:\13_git\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\SIDfmApp.exe.config
+C:\13_git\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\SIDfmApp.exe
+C:\13_git\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\SIDfmApp.pdb

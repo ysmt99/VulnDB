@@ -74,7 +74,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bean\SIDfmBean.cs" />
     <Compile Include="SIDfmSearch.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -104,7 +103,6 @@
       <DependentUpon>SIDfmContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="SIDfmCsvRegister.cs" />
-    <Compile Include="dao\SIDfmDao.cs" />
     <Compile Include="SIDfmDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
