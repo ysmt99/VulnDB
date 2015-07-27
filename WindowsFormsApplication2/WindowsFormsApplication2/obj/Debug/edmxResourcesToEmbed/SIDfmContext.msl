@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SIDfmModelStoreContainer" CdmEntityContainer="SIDfmEntities">
+    <EntitySetMapping Name="SIDfm">
+      <EntityTypeMapping TypeName="SIDfmModel.SIDfm">
+        <MappingFragment StoreEntitySet="SIDfm">
+          <ScalarProperty Name="SIDfmId" ColumnName="SIDfmId" />
+          <ScalarProperty Name="タイトル" ColumnName="タイトル" />
+          <ScalarProperty Name="CVE番号" ColumnName="CVE番号" />
+          <ScalarProperty Name="CVSS基本値" ColumnName="CVSS基本値" />
+          <ScalarProperty Name="攻撃元区分" ColumnName="攻撃元区分" />
+          <ScalarProperty Name="攻撃条件の複雑さ" ColumnName="攻撃条件の複雑さ" />
+          <ScalarProperty Name="攻撃前の認証要否" ColumnName="攻撃前の認証要否" />
+          <ScalarProperty Name="情報漏えい" ColumnName="情報漏えい" />
+          <ScalarProperty Name="情報改竄" ColumnName="情報改竄" />
+          <ScalarProperty Name="業務停止" ColumnName="業務停止" />
+          <ScalarProperty Name="攻撃コードの有無" ColumnName="攻撃コードの有無" />
+          <ScalarProperty Name="情報登録日" ColumnName="情報登録日" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
