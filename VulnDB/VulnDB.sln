@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VulnDB", "WindowsFormsApplication2\VulnDB.csproj", "{7D4A01CC-5E5D-4686-91EA-007EC868B6D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VulnDB", "VulnDB\VulnDB.csproj", "{7D4A01CC-5E5D-4686-91EA-007EC868B6D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
