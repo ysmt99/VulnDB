@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApplication2.form
+namespace VulnDB.form
 {
     class SIDfmForm
     {

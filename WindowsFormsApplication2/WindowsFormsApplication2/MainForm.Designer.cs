@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace VulnDB
 {
     partial class Form1
     {
@@ -33,9 +33,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sIDfmDataSet = new SIDfmContext.SIDfmDataSet();
-            this.sIDfmBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sIDfmTableAdapter = new SIDfmContext.SIDfmDataSetTableAdapters.SIDfmTableAdapter();
             this.sIDfmIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.タイトルDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cVE番号DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,9 +45,12 @@
             this.業務停止DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.攻撃コードの有無DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.情報登録日DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sIDfmBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sIDfmDataSet = new SIDfmContext.SIDfmDataSet();
+            this.sIDfmTableAdapter = new SIDfmContext.SIDfmDataSetTableAdapters.SIDfmTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -78,7 +78,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(628, 417);
+            this.textBox1.Size = new System.Drawing.Size(1219, 522);
             this.textBox1.TabIndex = 2;
             this.textBox1.Visible = false;
             // 
@@ -106,23 +106,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 29);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(617, 417);
+            this.dataGridView1.Size = new System.Drawing.Size(1208, 522);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.Visible = false;
-            // 
-            // sIDfmDataSet
-            // 
-            this.sIDfmDataSet.DataSetName = "SIDfmDataSet";
-            this.sIDfmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sIDfmBindingSource
-            // 
-            this.sIDfmBindingSource.DataMember = "SIDfm";
-            this.sIDfmBindingSource.DataSource = this.sIDfmDataSet;
-            // 
-            // sIDfmTableAdapter
-            // 
-            this.sIDfmTableAdapter.ClearBeforeFill = true;
             // 
             // sIDfmIdDataGridViewTextBoxColumn
             // 
@@ -196,11 +182,25 @@
             this.情報登録日DataGridViewTextBoxColumn.HeaderText = "情報登録日";
             this.情報登録日DataGridViewTextBoxColumn.Name = "情報登録日DataGridViewTextBoxColumn";
             // 
+            // sIDfmBindingSource
+            // 
+            this.sIDfmBindingSource.DataMember = "SIDfm";
+            this.sIDfmBindingSource.DataSource = this.sIDfmDataSet;
+            // 
+            // sIDfmDataSet
+            // 
+            this.sIDfmDataSet.DataSetName = "SIDfmDataSet";
+            this.sIDfmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sIDfmTableAdapter
+            // 
+            this.sIDfmTableAdapter.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 447);
+            this.ClientSize = new System.Drawing.Size(1220, 552);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -210,8 +210,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

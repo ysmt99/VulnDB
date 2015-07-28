@@ -8,10 +8,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsFormsApplication2.bean;
-using WindowsFormsApplication2.form;
+using VulnDB.form;
 
-namespace WindowsFormsApplication2
+namespace VulnDB
 {
     /// <summary>
     /// csvを読む

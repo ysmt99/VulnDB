@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace WindowsFormsApplication2
+namespace VulnDB
 {
     public partial class Form1 : Form
     {
