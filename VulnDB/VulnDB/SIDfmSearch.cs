@@ -18,7 +18,10 @@ namespace VulnDB
             {
                 using (SIDfmEntities en = new SIDfmEntities())
                 {
-                    return en.SIDfm.OrderBy(x=>x.SIDfmId).OrderBy(x=>x.CVE番号).ToList();
+                    //return (from x in en.SIDfm
+                    //       orderby x.情報登録日 descending, x.SIDfmId, x.CVE番号
+                    //       select x).ToList();
+                    return en.SIDfm.OrderBy(x=>x.CVE番号).OrderBy(x=>x.SIDfmId).OrderByDescending(x=>x.情報登録日).ToList();
                 }
             }
             catch (Exception e)
