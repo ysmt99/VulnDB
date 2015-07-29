@@ -28,26 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(2, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(136, 49);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "ファイル選択";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(493, 262);
+            this.ClientSize = new System.Drawing.Size(908, 487);
+            this.Controls.Add(this.button2);
             this.Name = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            //this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        //private SIDfmContext.SIDfmDataSet sIDfmDataSet;
-        private System.Windows.Forms.BindingSource sIDfmBindingSource;
-        //private SIDfmContext.SIDfmDataSetTableAdapters.SIDfmTableAdapter sIDfmTableAdapter;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
 
     }
 }
