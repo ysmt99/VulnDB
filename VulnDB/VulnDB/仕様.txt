@@ -24,3 +24,7 @@ SIDfm.edmx
 	SIDfm.tt ⇒ beanクラスファイルのテンプレート
 		SIDfm.cs(SIDfmクラス)
 		SIDfm1.cs
+
+データセットは不要
+xsdは何？
+
