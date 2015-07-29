@@ -24,26 +24,25 @@ namespace VulnDB
         //    //this.sIDfmTableAdapter1.Fill(this.sIDfmDataSet1.SIDfm);
         //}
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            //    {
-            //        SIDfmCsvRegister register = new SIDfmCsvRegister();
-            //        register.doRegist(openFileDialog1.FileName);
-            //        this.dataGridView1.Visible = true;
-            //        this.dataGridView1.DataSource = SIDfmSearch.search();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    this.textBox1.Visible = true;
-            //    this.textBox1.Text = ex.ToString();
-            //}
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    SIDfmCsvRegister register = new SIDfmCsvRegister();
+                    register.doRegist(openFileDialog1.FileName);
+                    this.dataGridView1.Visible = true;
+                    this.dataGridView1.DataSource = SIDfmSearch.search();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                this.textBox1.Visible = true;
+                this.textBox1.Text = ex.ToString();
+            }
 
         }
-
     }
 }
