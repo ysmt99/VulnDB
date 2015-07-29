@@ -8,6 +8,17 @@ namespace SIDfmContext.view
 {
     class SIDfmView:SIDfm
     {
+        public SIDfmView(SIDfm parent)
+        {
+            var t = typeof(SIDfm);
+            var proplist = t.GetProperties();
+            foreach (var prop in proplist)
+            {
+                prop.SetValue(this, prop.GetValue(parent),null);
+            }
+        }
+
+
         /*
         public 攻撃元_区分 攻撃元 { get; set; }
         public 攻撃成立条件_区分 攻撃成立条件 { get; set; }
