@@ -18,13 +18,15 @@ namespace SIDfmContext
         public string タイトル { get; set; }
         public string CVE番号 { get; set; }
         public Nullable<decimal> CVSS基本値 { get; set; }
-        public Nullable<int> 攻撃元区分 { get; set; }
-        public Nullable<int> 攻撃条件の複雑さ { get; set; }
-        public Nullable<int> 攻撃前の認証要否 { get; set; }
-        public Nullable<int> 情報漏えい { get; set; }
-        public Nullable<int> 情報改竄 { get; set; }
-        public Nullable<int> 業務停止 { get; set; }
+        public Nullable<decimal> 攻撃元 { get; set; }
+        public Nullable<decimal> 攻撃成立条件 { get; set; }
+        public Nullable<decimal> 攻撃前の認証 { get; set; }
+        public Nullable<decimal> 情報漏えい { get; set; }
+        public Nullable<decimal> 情報改ざん { get; set; }
+        public Nullable<decimal> 業務停止 { get; set; }
         public Nullable<int> 攻撃コードの有無 { get; set; }
         public Nullable<System.DateTime> 情報登録日 { get; set; }
+        public Nullable<System.DateTime> INSERT_DATE { get; set; }
+        public Nullable<System.DateTime> UPDATE_DATE { get; set; }
     }
 }

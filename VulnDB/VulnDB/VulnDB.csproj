@@ -74,6 +74,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SIDfm.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfm.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIDfm.cs">
+      <DependentUpon>SIDfm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIDfm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfm.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SIDfm1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfm.tt</DependentUpon>
+    </Compile>
     <Compile Include="SIDfmSearch.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -84,33 +102,8 @@
     <Compile Include="form\SIDfmForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SIDfm.cs">
-      <DependentUpon>SIDfmContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SIDfmContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SIDfmContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SIDfmContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmContext.edmx</DependentUpon>
-    </Compile>
     <Compile Include="SIDfmCsvRegister.cs" />
-    <Compile Include="SIDfmDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="view\SIDfmView.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -131,33 +124,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="SIDfmContext.edmx">
+    <EntityDeploy Include="SIDfm.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SIDfmContext.Designer.cs</LastGenOutput>
+      <LastGenOutput>SIDfm.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="SIDfmContext.Context.tt">
+    <None Include="SIDfm.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfmContext.edmx</DependentUpon>
-      <LastGenOutput>SIDfmContext.Context.cs</LastGenOutput>
+      <DependentUpon>SIDfm.edmx</DependentUpon>
+      <LastGenOutput>SIDfm.Context.cs</LastGenOutput>
     </None>
-    <None Include="SIDfmContext.edmx.diagram">
-      <DependentUpon>SIDfmContext.edmx</DependentUpon>
+    <None Include="SIDfm.edmx.diagram">
+      <DependentUpon>SIDfm.edmx</DependentUpon>
     </None>
-    <None Include="SIDfmContext.tt">
+    <None Include="SIDfm.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfmContext.edmx</DependentUpon>
-      <LastGenOutput>SIDfmContext.cs</LastGenOutput>
-    </None>
-    <None Include="SIDfmDataSet.xsc">
-      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SIDfmDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SIDfmDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SIDfmDataSet.xss">
-      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
+      <DependentUpon>SIDfm.edmx</DependentUpon>
+      <LastGenOutput>SIDfm1.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +176,7 @@
       <DependentUpon>SIDfm.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="仕様.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

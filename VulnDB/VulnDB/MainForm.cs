@@ -11,9 +11,9 @@ using System.IO;
 
 namespace VulnDB
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -42,6 +42,13 @@ namespace VulnDB
                 this.textBox1.Visible = true;
                 this.textBox1.Text = ex.ToString();
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            // TODO: このコード行はデータを 'sIDfmDataSet1.SIDfm' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+            this.sIDfmTableAdapter1.Fill(this.sIDfmDataSet1.SIDfm);
+
         }
 
     }

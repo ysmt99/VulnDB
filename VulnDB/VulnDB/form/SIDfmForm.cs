@@ -19,15 +19,15 @@ namespace VulnDB.form
         public string 攻撃成立条件_難しい { get; set; }
         public string 攻撃成立条件_やや難 { get; set; }
         public string 攻撃成立条件_簡単 { get; set; }
-        public string 攻撃前の認証の有無_複数 { get; set; }
-        public string 攻撃前の認証の有無_単一 { get; set; }
-        public string 攻撃前の認証の有無_不要 { get; set; }
-        public string 情報漏洩_影響無し { get; set; }
-        public string 情報漏洩_部分的 { get; set; }
-        public string 情報漏洩_全面的 { get; set; }
-        public string 情報改竄_影響無し { get; set; }
-        public string 情報改竄_部分的 { get; set; }
-        public string 情報改竄_全面的 { get; set; }
+        public string 攻撃前の認証_複数 { get; set; }
+        public string 攻撃前の認証_単一 { get; set; }
+        public string 攻撃前の認証_不要 { get; set; }
+        public string 情報漏えい_影響無し { get; set; }
+        public string 情報漏えい_部分的 { get; set; }
+        public string 情報漏えい_全面的 { get; set; }
+        public string 情報改ざん_影響無し { get; set; }
+        public string 情報改ざん_部分的 { get; set; }
+        public string 情報改ざん_全面的 { get; set; }
         public string 業務妨害_影響無し { get; set; }
         public string 業務妨害_部分的 { get; set; }
         public string 業務妨害_全面的 { get; set; }
@@ -48,15 +48,15 @@ namespace VulnDB.form
             攻撃成立条件_難しい = ss[i++];
             攻撃成立条件_やや難 = ss[i++];
             攻撃成立条件_簡単 = ss[i++];
-            攻撃前の認証の有無_複数 = ss[i++];
-            攻撃前の認証の有無_単一 = ss[i++];
-            攻撃前の認証の有無_不要 = ss[i++];
-            情報漏洩_影響無し = ss[i++];
-            情報漏洩_部分的 = ss[i++];
-            情報漏洩_全面的 = ss[i++];
-            情報改竄_影響無し = ss[i++];
-            情報改竄_部分的 = ss[i++];
-            情報改竄_全面的 = ss[i++];
+            攻撃前の認証_複数 = ss[i++];
+            攻撃前の認証_単一 = ss[i++];
+            攻撃前の認証_不要 = ss[i++];
+            情報漏えい_影響無し = ss[i++];
+            情報漏えい_部分的 = ss[i++];
+            情報漏えい_全面的 = ss[i++];
+            情報改ざん_影響無し = ss[i++];
+            情報改ざん_部分的 = ss[i++];
+            情報改ざん_全面的 = ss[i++];
             業務妨害_影響無し = ss[i++];
             業務妨害_部分的 = ss[i++];
             業務妨害_全面的 = ss[i++];

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SIDfmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SIDfmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="SIDfm">
           <Key>
             <PropertyRef Name="SIDfmId" />
@@ -13,20 +13,23 @@
           <Property Name="SIDfmId" Type="int" Nullable="false" />
           <Property Name="タイトル" Type="nvarchar" MaxLength="256" />
           <Property Name="CVE番号" Type="char" MaxLength="16" Nullable="false" />
-          <Property Name="CVSS基本値" Type="decimal" Precision="17" Scale="1" />
-          <Property Name="攻撃元区分" Type="int" />
-          <Property Name="攻撃条件の複雑さ" Type="int" />
-          <Property Name="攻撃前の認証要否" Type="int" />
-          <Property Name="情報漏えい" Type="int" />
-          <Property Name="情報改竄" Type="int" />
-          <Property Name="業務停止" Type="int" />
+          <Property Name="CVSS基本値" Type="decimal" Precision="9" Scale="1" />
+          <Property Name="攻撃元" Type="decimal" Precision="9" Scale="1" />
+          <Property Name="攻撃成立条件" Type="decimal" Precision="9" Scale="1" />
+          <Property Name="攻撃前の認証" Type="decimal" Precision="9" Scale="1" />
+          <Property Name="情報漏えい" Type="decimal" Precision="9" Scale="1" />
+          <Property Name="情報改ざん" Type="decimal" Precision="9" Scale="1" />
+          <Property Name="業務停止" Type="decimal" Precision="9" Scale="1" />
           <Property Name="攻撃コードの有無" Type="int" />
           <Property Name="情報登録日" Type="date" />
+          <Property Name="INSERT_DATE" Type="datetime" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
         </EntityType>
         <EntityContainer Name="SIDfmModelStoreContainer">
           <EntitySet Name="SIDfm" EntityType="Self.SIDfm" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SIDfmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -38,15 +41,17 @@
           <Property Name="SIDfmId" Type="Int32" Nullable="false" />
           <Property Name="タイトル" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="CVE番号" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="CVSS基本値" Type="Decimal" Precision="17" Scale="1" />
-          <Property Name="攻撃元区分" Type="Int32" />
-          <Property Name="攻撃条件の複雑さ" Type="Int32" />
-          <Property Name="攻撃前の認証要否" Type="Int32" />
-          <Property Name="情報漏えい" Type="Int32" />
-          <Property Name="情報改竄" Type="Int32" />
-          <Property Name="業務停止" Type="Int32" />
+          <Property Name="CVSS基本値" Type="Decimal" Precision="9" Scale="1" />
+          <Property Name="攻撃元" Type="Decimal" Precision="9" Scale="1" />
+          <Property Name="攻撃成立条件" Type="Decimal" Precision="9" Scale="1" />
+          <Property Name="攻撃前の認証" Type="Decimal" Precision="9" Scale="1" />
+          <Property Name="情報漏えい" Type="Decimal" Precision="9" Scale="1" />
+          <Property Name="情報改ざん" Type="Decimal" Precision="9" Scale="1" />
+          <Property Name="業務停止" Type="Decimal" Precision="9" Scale="1" />
           <Property Name="攻撃コードの有無" Type="Int32" />
           <Property Name="情報登録日" Type="DateTime" Precision="0" />
+          <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="SIDfmEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SIDfm" EntityType="Self.SIDfm" />
@@ -64,14 +69,16 @@
                 <ScalarProperty Name="タイトル" ColumnName="タイトル" />
                 <ScalarProperty Name="CVE番号" ColumnName="CVE番号" />
                 <ScalarProperty Name="CVSS基本値" ColumnName="CVSS基本値" />
-                <ScalarProperty Name="攻撃元区分" ColumnName="攻撃元区分" />
-                <ScalarProperty Name="攻撃条件の複雑さ" ColumnName="攻撃条件の複雑さ" />
-                <ScalarProperty Name="攻撃前の認証要否" ColumnName="攻撃前の認証要否" />
+                <ScalarProperty Name="攻撃元" ColumnName="攻撃元" />
+                <ScalarProperty Name="攻撃成立条件" ColumnName="攻撃成立条件" />
+                <ScalarProperty Name="攻撃前の認証" ColumnName="攻撃前の認証" />
                 <ScalarProperty Name="情報漏えい" ColumnName="情報漏えい" />
-                <ScalarProperty Name="情報改竄" ColumnName="情報改竄" />
+                <ScalarProperty Name="情報改ざん" ColumnName="情報改ざん" />
                 <ScalarProperty Name="業務停止" ColumnName="業務停止" />
                 <ScalarProperty Name="攻撃コードの有無" ColumnName="攻撃コードの有無" />
                 <ScalarProperty Name="情報登録日" ColumnName="情報登録日" />
+                <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
