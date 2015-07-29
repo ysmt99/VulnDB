@@ -21,7 +21,7 @@ namespace VulnDB
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: このコード行はデータを 'sIDfmDataSet.SIDfm' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-            this.sIDfmTableAdapter.Fill(this.sIDfmDataSet.SIDfm);
+            //this.sIDfmTableAdapter.Fill(this.sIDfmDataSet.SIDfm);
 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace VulnDB
         private void MainForm_Load(object sender, EventArgs e)
         {
             // TODO: このコード行はデータを 'sIDfmDataSet1.SIDfm' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-            this.sIDfmTableAdapter1.Fill(this.sIDfmDataSet1.SIDfm);
+            //this.sIDfmTableAdapter1.Fill(this.sIDfmDataSet1.SIDfm);
 
         }
 

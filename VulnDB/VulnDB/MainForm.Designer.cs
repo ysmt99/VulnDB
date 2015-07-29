@@ -45,9 +45,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private SIDfmContext.SIDfmDataSet sIDfmDataSet;
+        //private SIDfmContext.SIDfmDataSet sIDfmDataSet;
         private System.Windows.Forms.BindingSource sIDfmBindingSource;
-        private SIDfmContext.SIDfmDataSetTableAdapters.SIDfmTableAdapter sIDfmTableAdapter;
+        //private SIDfmContext.SIDfmDataSetTableAdapters.SIDfmTableAdapter sIDfmTableAdapter;
 
     }
 }

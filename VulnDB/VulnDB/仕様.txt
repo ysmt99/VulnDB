@@ -14,18 +14,13 @@ CVSS基本値
 攻撃コードの有無
 情報登録日
 
-        public 攻撃元_区分 攻撃元 { get; set; }
-        public 攻撃成立条件_区分 攻撃成立条件 { get; set; }
-        public 攻撃前の認証の有無_区分 攻撃前の認証の有無 { get; set; }
-        public 情報漏洩_区分 情報漏洩 { get; set; }
-        public 情報改竄_区分 情報改竄 { get; set; }
-        public 業務妨害_区分 業務妨害 { get; set; }
-        public bool 攻撃コード有 { get; set; }
-        public DateTime 登録日付 { get; set; }
-
-        public enum 攻撃元_区分 { ローカル = 0x100, 隣接 = 0x010, ネットワーク = 0x001 }
-        public enum 攻撃成立条件_区分 { 難しい, やや難, 簡単 }
-        public enum 攻撃前の認証の有無_区分 { 複数, 単一, 不要 }
-        public enum 情報漏洩_区分 { 影響なし, 部分的, 全面的 }
-        public enum 情報改竄_区分 { 影響なし, 部分的, 全面的 }
-        public enum 業務妨害_区分 { 影響なし, 部分的, 全面的 }
+edmxを削除してプロジェクトから追加で作成した。
+＝＝＝＝＝ ADO.Net Entity Data Modelでできるもの ＝＝＝＝＝
+SIDfm.edmx
+	SIDfm.Context.tt ⇒ contextクラスファイルのテンプレート
+		SIDfm.Context.cs(SIDfmEntitiesクラス)
+	SIDfm.Disigner.cs
+	SIDfm.edmx.diagram
+	SIDfm.tt ⇒ beanクラスファイルのテンプレート
+		SIDfm.cs(SIDfmクラス)
+		SIDfm1.cs
