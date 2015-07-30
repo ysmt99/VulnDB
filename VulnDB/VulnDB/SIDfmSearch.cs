@@ -19,11 +19,12 @@ namespace VulnDB
             {
                 using (SIDfmEntities en = new SIDfmEntities())
                 {
-                    var beans =
-                     (from x in en.SIDfm
-                      orderby x.情報登録日 descending, x.SIDfmId, x.CVE番号
-                      select x);
+//                    List<SIDfm> beans =
+//                     (from x in en.SIDfm
+//                      orderby x.情報登録日 descending, x.SIDfmId, x.CVE番号
+//                      select x);
 
+                    List<SIDfm> beans = en.SIDfm.OrderBy(x => x.CVE番号).OrderBy(x => x.SIDfmId).OrderByDescending(x => x.情報登録日).ToList();
                     List<SIDfmView> views = new List<SIDfmView>();
                     foreach (var o in beans)
                     {
@@ -31,7 +32,6 @@ namespace VulnDB
                     }
 
                     return views;
-                    //return en.SIDfm.OrderBy(x => x.CVE番号).OrderBy(x => x.SIDfmId).OrderByDescending(x => x.情報登録日).ToList();
                 }
             }
             catch (Exception e)

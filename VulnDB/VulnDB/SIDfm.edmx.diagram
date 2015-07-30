@@ -4,8 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="67b05eb709ad420f878c79e76d4ff77b" Name="Diagram1" ZoomLevel="87">
-        <EntityTypeShape EntityType="SIDfmModel.SIDfm" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="3e72d5785e964080a029c1af718dd65f" Name="Diagram1">
+        <EntityTypeShape EntityType="SIDfmModel.Resource" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIDfmModel.SIDfm" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

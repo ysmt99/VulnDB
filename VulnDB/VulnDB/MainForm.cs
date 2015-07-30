@@ -34,6 +34,7 @@ namespace VulnDB
                     register.doRegist(openFileDialog1.FileName);
                     this.dataGridView1.Visible = true;
                     this.dataGridView1.DataSource = SIDfmSearch.search();
+                    MessageBox.Show("完了しました");
                 }
             }
             catch (Exception ex)
