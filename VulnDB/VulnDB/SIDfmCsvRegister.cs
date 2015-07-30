@@ -111,82 +111,40 @@ namespace VulnDB
                              sidfm.CVSS基本値 = Convert.ToDecimal(fields[(int)CSV列.CVSS基本値]);
 
                              // この3区分は通常いずれか1つだけが「1」で、それ以外は「0」が入っている。
-                             // 何かの間違いで複数列に「1」が入っている場合のために、
-                             // 危険度が高い値を後ろに置いて、上書きされるようにしている。
-                             if (fields[(int)CSV列.攻撃元_ローカル] == "1") {
-                                 sidfm.攻撃元 = 0.4m;
-                             } 
-                             if (fields[(int)CSV列.攻撃元_隣接] == "1") {
-                                 sidfm.攻撃元 = 0.6m;
-                             } 
-                             if (fields[(int)CSV列.攻撃元_ネットワーク] == "1") {
-                                 sidfm.攻撃元 = 1.0m;
-                             }
+                             sidfm.攻撃元 = setValue(
+                                 fields[(int)CSV列.攻撃元_ローカル],
+                                 fields[(int)CSV列.攻撃元_隣接],
+                                 fields[(int)CSV列.攻撃元_ネットワーク]);
+
                              // 攻撃成立条件
-                             if (fields[(int)CSV列.攻撃成立条件_難しい] == "1")
-                             {
-                                 sidfm.攻撃成立条件 = 0.4m;
-                             }
-                             if (fields[(int)CSV列.攻撃成立条件_やや難] == "1")
-                             {
-                                 sidfm.攻撃成立条件 = 0.6m;
-                             }
-                             if (fields[(int)CSV列.攻撃成立条件_簡単] == "1")
-                             {
-                                 sidfm.攻撃成立条件 = 0.7m;
-                             }
+                             sidfm.攻撃成立条件 = setValue(
+                                fields[(int)CSV列.攻撃成立条件_難しい],
+                                fields[(int)CSV列.攻撃成立条件_やや難],
+                                fields[(int)CSV列.攻撃成立条件_簡単]);
+
                              // 攻撃前の認証
-                             if (fields[(int)CSV列.攻撃前の認証_複数] == "1")
-                             {
-                                 sidfm.攻撃前の認証 = 0.5m;
-                             }
-                             if (fields[(int)CSV列.攻撃前の認証_単一] == "1")
-                             {
-                                 sidfm.攻撃前の認証 = 0.6m;
-                             }
-                             if (fields[(int)CSV列.攻撃前の認証_不要] == "1")
-                             {
-                                 sidfm.攻撃前の認証 = 0.7m;
-                             }
+                             sidfm.攻撃前の認証 = setValue(
+                                fields[(int)CSV列.攻撃前の認証_複数],
+                                fields[(int)CSV列.攻撃前の認証_単一],
+                                fields[(int)CSV列.攻撃前の認証_不要]);
+
                              // 情報漏えい
-                             if (fields[(int)CSV列.情報漏えい_影響無し] == "1")
-                             {
-                                 sidfm.情報漏えい = 0.0m;
-                             }
-                             if (fields[(int)CSV列.情報漏えい_部分的] == "1")
-                             {
-                                 sidfm.情報漏えい = 0.3m;
-                             }
-                             if (fields[(int)CSV列.情報漏えい_全面的] == "1")
-                             {
-                                 sidfm.情報漏えい = 0.7m;
-                             }
+                             sidfm.情報漏えい = setValue(
+                                fields[(int)CSV列.情報漏えい_影響無し],
+                                fields[(int)CSV列.情報漏えい_部分的],
+                                fields[(int)CSV列.情報漏えい_全面的]);
+
                              // 情報改ざん
-                             if (fields[(int)CSV列.情報改ざん_影響無し] == "1")
-                             {
-                                 sidfm.情報改ざん = 0.0m;
-                             }
-                             if (fields[(int)CSV列.情報改ざん_部分的] == "1")
-                             {
-                                 sidfm.情報改ざん = 0.3m;
-                             }
-                             if (fields[(int)CSV列.情報改ざん_全面的] == "1")
-                             {
-                                 sidfm.情報改ざん = 0.7m;
-                             }
+                             sidfm.情報改ざん = setValue(
+                                 fields[(int)CSV列.情報改ざん_影響無し],
+                                 fields[(int)CSV列.情報改ざん_部分的],
+                                 fields[(int)CSV列.情報改ざん_全面的]);
+
                              // 業務停止
-                             if (fields[(int)CSV列.業務停止_影響無し] == "1")
-                             {
-                                 sidfm.業務停止 = 0.0m;
-                             }
-                             if (fields[(int)CSV列.業務停止_部分的] == "1")
-                             {
-                                 sidfm.業務停止 = 0.3m;
-                             }
-                             if (fields[(int)CSV列.業務停止_全面的] == "1")
-                             {
-                                 sidfm.業務停止 = 0.7m;
-                             }
+                             sidfm.業務停止 = setValue(
+                                fields[(int)CSV列.業務停止_影響無し],
+                                fields[(int)CSV列.業務停止_部分的],
+                                fields[(int)CSV列.業務停止_全面的]);
                              
                              sidfm.攻撃コードの有無 = Int32.Parse(fields[(int)CSV列.攻撃コードの有無]);
                              sidfm.情報登録日 = DateTime.Parse(fields[(int)CSV列.情報登録日]);
@@ -205,7 +163,7 @@ namespace VulnDB
             }
         }    
 
-        // データ行は先頭列が数値の場合は正常なものと識別ｓる
+        // データ行は先頭列が数値の場合は正常なものと識別する
         bool isDataLine(string[] ss)
         {
             int dummy;
@@ -214,6 +172,10 @@ namespace VulnDB
         bool isNotDataLine(string[] ss)
         {
             return isDataLine(ss) ? false : true;
+        }
+        int setValue(string v1, string v2, string v3)
+        {
+            return Int32.Parse(v1) + Int32.Parse(v2) * 10 + Int32.Parse(v3) * 100;
         }
     }
 }

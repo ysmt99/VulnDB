@@ -14,12 +14,12 @@
           <Property Name="タイトル" Type="nvarchar" MaxLength="256" />
           <Property Name="CVE番号" Type="char" MaxLength="16" Nullable="false" />
           <Property Name="CVSS基本値" Type="decimal" Precision="9" Scale="1" />
-          <Property Name="攻撃元" Type="decimal" Precision="9" Scale="1" />
-          <Property Name="攻撃成立条件" Type="decimal" Precision="9" Scale="1" />
-          <Property Name="攻撃前の認証" Type="decimal" Precision="9" Scale="1" />
-          <Property Name="情報漏えい" Type="decimal" Precision="9" Scale="1" />
-          <Property Name="情報改ざん" Type="decimal" Precision="9" Scale="1" />
-          <Property Name="業務停止" Type="decimal" Precision="9" Scale="1" />
+          <Property Name="攻撃元" Type="int" />
+          <Property Name="攻撃成立条件" Type="int" />
+          <Property Name="攻撃前の認証" Type="int" />
+          <Property Name="情報漏えい" Type="int" />
+          <Property Name="情報改ざん" Type="int" />
+          <Property Name="業務停止" Type="int" />
           <Property Name="攻撃コードの有無" Type="int" />
           <Property Name="情報登録日" Type="date" />
           <Property Name="INSERT_DATE" Type="datetime" />
@@ -42,12 +42,12 @@
           <Property Name="タイトル" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="CVE番号" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="CVSS基本値" Type="Decimal" Precision="9" Scale="1" />
-          <Property Name="攻撃元" Type="Decimal" Precision="9" Scale="1" />
-          <Property Name="攻撃成立条件" Type="Decimal" Precision="9" Scale="1" />
-          <Property Name="攻撃前の認証" Type="Decimal" Precision="9" Scale="1" />
-          <Property Name="情報漏えい" Type="Decimal" Precision="9" Scale="1" />
-          <Property Name="情報改ざん" Type="Decimal" Precision="9" Scale="1" />
-          <Property Name="業務停止" Type="Decimal" Precision="9" Scale="1" />
+          <Property Name="攻撃元" Type="Int32" />
+          <Property Name="攻撃成立条件" Type="Int32" />
+          <Property Name="攻撃前の認証" Type="Int32" />
+          <Property Name="情報漏えい" Type="Int32" />
+          <Property Name="情報改ざん" Type="Int32" />
+          <Property Name="業務停止" Type="Int32" />
           <Property Name="攻撃コードの有無" Type="Int32" />
           <Property Name="情報登録日" Type="DateTime" Precision="0" />
           <Property Name="INSERT_DATE" Type="DateTime" Precision="3" />
