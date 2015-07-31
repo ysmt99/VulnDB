@@ -30,8 +30,10 @@ namespace VulnDB
             {
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
+                    this.button1.Refresh();
                     SIDfmCsvRegister register = new SIDfmCsvRegister();
                     register.doRegist(openFileDialog1.FileName);
+                    this.progressBar1.Visible = false;
                     this.dataGridView1.Visible = true;
                     this.dataGridView1.DataSource = SIDfmSearch.search();
                     MessageBox.Show("完了しました");
@@ -40,6 +42,7 @@ namespace VulnDB
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                this.progressBar1.Visible = false;
                 this.textBox1.Visible = true;
                 this.textBox1.Text = ex.ToString();
             }

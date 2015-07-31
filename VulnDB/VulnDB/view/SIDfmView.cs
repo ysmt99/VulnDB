@@ -97,5 +97,19 @@ namespace SIDfmContext.view
                 }
             }
         }
+        public new string 対象製品名
+        {
+            get
+            {
+                return base.対象製品名.Replace(Util.MULTIROW_DELIMITER,Util.MULTIROW_VIEW);
+            }
+        }
+        public new string 対象製品パッチ登録日
+        {
+            get
+            {
+                return base.対象製品パッチ登録日.Replace(Util.MULTIROW_DELIMITER, Util.MULTIROW_VIEW);
+            }
+        }
     }
 }

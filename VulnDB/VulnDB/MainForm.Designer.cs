@@ -35,6 +35,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.sIDfmViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmViewBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -82,9 +83,17 @@
             // 
             this.sIDfmViewBindingSource.DataSource = typeof(SIDfmContext.view.SIDfmView);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 80);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(884, 55);
+            this.progressBar1.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(908, 433);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -105,6 +114,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource sIDfmViewBindingSource;
+        private System.Windows.Forms.ProgressBar progressBar1;
 
     }
 }
