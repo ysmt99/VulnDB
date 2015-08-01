@@ -20,7 +20,7 @@ namespace SIDfmContext
             Const.入力規則 key2{get;set;}
             string toString() {
 
-            }
+            }  
         }
         class twoKeyValue
         {
