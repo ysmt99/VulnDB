@@ -8,7 +8,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VulnDB.form;
+using Tools;
+using CSV列 = VulnDB.Const.CSV列;
+using 入力規則 = VulnDB.Const.入力規則;
 
 namespace VulnDB
 {
@@ -35,65 +37,66 @@ namespace VulnDB
                 )
                 using (SIDfmEntities en = new SIDfmEntities())
                 {
-                    SIDfm obj;
-                    SIDfm baseObj;
-                    string[] fields;
+                    SIDfm obj;          // 現在のオブジェクト
+                    SIDfm objBefore;    // 変更前のオブジェクト
+                    string[] csvFields; // CSVの列（カンマ分割後）
+                    SIDfmForm form;     // カンマ区切りのデータをセットしたform
+                    int csv行番号 = 0;   // CSVファイルの行番号
+
                     int SIDfmId;
                     string CVE番号;
-                    Dictionary<string, string> 対象製品 = new Dictionary<string, string>();
-                    string itemName;
-                    string[] itemNameFields = new string[0];
-                    SIDfmForm form;
-                    int csv行番号 = 0;
-                    List<Dictionary<Const.CSV列, string>> errlist = new List<Dictionary<Const.CSV列, string>>();
-                    List<Dictionary<Const.CSV列, string>> allerrlist = new List<Dictionary<Const.CSV列, string>>();
+                    Dictionary<string,string> 対象製品名 = new Dictionary<string,string>();
 
-                    // csvファイルを全行読み込み
+                    ErrorOfLine errorOfLine;      // 書式エラーの格納
+                    ErrorOfAll errorOfAll = new ErrorOfAll();
+                    //Dictionary<int,ErrorsByForm> errorDic = new Dicionary<int,ErrorsByForm>();   // 書式エラーの格納（全行分）
+
+                    // csvファイルを1行ずつ読み込み
                     while (!file.EndOfData)
                     {
-                        fields = file.ReadFields();
+                        csvFields = file.ReadFields();
                         csv行番号++;
 
                         // 製品名が入っている見出し行
-                        if (isItemLine(fields))
+                        if (isItemLine(csvFields))
                         {
-                            fields.CopyTo(itemNameFields = new string[fields.Length], 0);
-                            for (int i = (int)Const.CSV列.アイテム1; i < fields.Length; i++)
+                            //csvFields.CopyTo(itemNameFields = new string[csvFields.Length], 0);
+                            for (int i = (int)CSV列.アイテム1; i < csvFields.Length; i++)
                             {
-                                // 対象製品名を取得
-                                itemName = fields[i];
-                                // 対象製品名をキーに対象製品見出し名を取得し、mapに格納
-                                var midashi = en.Resource.Where(x => x.対象製品名 == itemName);
+                                // 製品名のセット
+                                // CSVに入っている対象製品名がリソースマスタに登録されていたら、
+                                // 表示用の短縮名をセット。登録されていなかったらCSVの名称をセット。
+                                // 通常はリソースマスタに未登録の製品名が来ることはないが、
+                                // ・脆弱性情報の収集対象を変更するために、フィルタの追加削除を行った場合
+                                // ・SIDfm側の仕様変更
+                                // などの理由で来る場合があるかも。
+                                var midashi = en.Resource.Where(x => x.対象製品名 == csvFields[i]);
                                 if (midashi.Count() == 0)
-                                {
-                                    対象製品.Add(itemName, itemName);
+                                {   // なければCSVのテキストを登録
+                                    対象製品名[csvFields[i]] = csvFields[i];
                                 }
                                 else
-                                {
-                                    対象製品.Add(itemName, midashi.First().対象製品見出し名);
+                                {   // あれば見出し名を登録
+                                    対象製品名[csvFields[i]] = midashi.First().対象製品見出し名;
                                 }
                             }
                         }
                         // 先頭列が数値の行を「データ行」として扱う。
-                        else if (isDataLine(fields))
+                        else if (isDataLine(csvFields))
                         {
                             // フォームの中で必須条件と書式のチェックを行う
-                            form = new SIDfmForm(fields);
+                            form = new SIDfmForm(csvFields);
                             // ファイルの内容が条件を満たしていない場合は該当行を飛ばす(次の行に進む)
-                           // errlist = form.validateAll();
-                            
-                            if (errlist.Count() > 0)
+                            errorOfLine = form.validateFormCSV(csv行番号);
+                            // この行にエラーがあったらメッセージ保存
+                            if (ErrorsOfLine.hasError(error[csv行番号]))
                             {
-                                foreach (Dictionary<Const.CSV列, string> err in errlist)
-                                {
-                                    //logger.Info(String.Format("{0}行目：{1}",err.))
-                                }
-                                //logger.Info(errlist)
+                                errorDic[csv行番号] = error;
                                 continue;
                             }
 
-                            SIDfmId = Int32.Parse(fields[(int)Const.CSV列.SIDfmId]);
-                            CVE番号 = fields[(int)Const.CSV列.CVE番号];
+                            SIDfmId = Int32.Parse(csvFields[(int)CSV列.SIDfmId]);
+                            CVE番号 = csvFields[(int)CSV列.CVE番号];
                             // データ行なら処理を継続
                             // SIDfmId＋CVE番号が一意キーなので、同じデータが登録済の場合は上書きする。
                             // データがあったら更新
@@ -115,77 +118,77 @@ namespace VulnDB
                                 obj = rowdata.First();
                             }
 
-                            baseObj = Util.deepCopy(obj);
+                            objBefore = Util.deepCopy(obj);
 
                             // 新規、更新共通の更新
-                            obj.タイトル = fields[(int)Const.CSV列.タイトル];
-                            if (!String.IsNullOrEmpty(fields[(int)Const.CSV列.CVSS基本値]))
+                            obj.タイトル = csvFields[(int)CSV列.タイトル];
+                            if (!String.IsNullOrEmpty(csvFields[(int)CSV列.CVSS基本値]))
                             {
-                                obj.CVSS基本値 = Convert.ToDecimal(fields[(int)Const.CSV列.CVSS基本値]);
+                                obj.CVSS基本値 = Convert.ToDecimal(csvFields[(int)CSV列.CVSS基本値]);
                             }
 
                             // この3区分は通常いづれか1つだけが「1」で、それ以外は「0」が入っている。
                             // ただし、CVSS基準値が未設定の場合は値が入っていない状態になる
                             // 攻撃元
                             obj.攻撃元 = setValue(
-                                fields[(int)Const.CSV列.攻撃元_ローカル],
-                                fields[(int)Const.CSV列.攻撃元_隣接],
-                                fields[(int)Const.CSV列.攻撃元_ネットワーク]);
+                                csvFields[(int)CSV列.攻撃元_ローカル],
+                                csvFields[(int)CSV列.攻撃元_隣接],
+                                csvFields[(int)CSV列.攻撃元_ネットワーク]);
 
                             // 攻撃成立条件
                             obj.攻撃成立条件 = setValue(
-                               fields[(int)Const.CSV列.攻撃成立条件_難しい],
-                               fields[(int)Const.CSV列.攻撃成立条件_やや難],
-                               fields[(int)Const.CSV列.攻撃成立条件_簡単]);
+                               csvFields[(int)CSV列.攻撃成立条件_難しい],
+                               csvFields[(int)CSV列.攻撃成立条件_やや難],
+                               csvFields[(int)CSV列.攻撃成立条件_簡単]);
 
                             // 攻撃前の認証
                             obj.攻撃前の認証 = setValue(
-                               fields[(int)Const.CSV列.攻撃前の認証_複数],
-                               fields[(int)Const.CSV列.攻撃前の認証_単一],
-                               fields[(int)Const.CSV列.攻撃前の認証_不要]);
+                               csvFields[(int)CSV列.攻撃前の認証_複数],
+                               csvFields[(int)CSV列.攻撃前の認証_単一],
+                               csvFields[(int)CSV列.攻撃前の認証_不要]);
 
                             // 情報漏えい
                             obj.情報漏えい = setValue(
-                               fields[(int)Const.CSV列.情報漏えい_影響無し],
-                               fields[(int)Const.CSV列.情報漏えい_部分的],
-                               fields[(int)Const.CSV列.情報漏えい_全面的]);
+                               csvFields[(int)CSV列.情報漏えい_影響無し],
+                               csvFields[(int)CSV列.情報漏えい_部分的],
+                               csvFields[(int)CSV列.情報漏えい_全面的]);
 
                             // 情報改ざん
                             obj.情報改ざん = setValue(
-                                fields[(int)Const.CSV列.情報改ざん_影響無し],
-                                fields[(int)Const.CSV列.情報改ざん_部分的],
-                                fields[(int)Const.CSV列.情報改ざん_全面的]);
+                                csvFields[(int)CSV列.情報改ざん_影響無し],
+                                csvFields[(int)CSV列.情報改ざん_部分的],
+                                csvFields[(int)CSV列.情報改ざん_全面的]);
 
                             // 業務停止
                             obj.業務停止 = setValue(
-                               fields[(int)Const.CSV列.業務停止_影響無し],
-                               fields[(int)Const.CSV列.業務停止_部分的],
-                               fields[(int)Const.CSV列.業務停止_全面的]);
+                               csvFields[(int)CSV列.業務停止_影響無し],
+                               csvFields[(int)CSV列.業務停止_部分的],
+                               csvFields[(int)CSV列.業務停止_全面的]);
 
-                            if (!String.IsNullOrEmpty(fields[(int)Const.CSV列.攻撃コードの有無]))
+                            if (!String.IsNullOrEmpty(csvFields[(int)CSV列.攻撃コードの有無]))
                             {
-                                obj.攻撃コードの有無 = Int32.Parse(fields[(int)Const.CSV列.攻撃コードの有無]);
+                                obj.攻撃コードの有無 = Int32.Parse(csvFields[(int)CSV列.攻撃コードの有無]);
                             }
-                            if (!String.IsNullOrEmpty(fields[(int)Const.CSV列.情報登録日]))
+                            if (!String.IsNullOrEmpty(csvFields[(int)CSV列.情報登録日]))
                             {
-                                obj.情報登録日 = DateTime.Parse(fields[(int)Const.CSV列.情報登録日]);
+                                obj.情報登録日 = DateTime.Parse(csvFields[(int)CSV列.情報登録日]);
                             }
 
                             // ここから、対象製品＋登録日
-                            //items = fields.Skip((int)(CSV列.情報登録日 + 1)).Take((int)fields.Count() - (int)Const.CSV列.情報登録日).ToArray();
+                            //items = csvFields.Skip((int)(CSV列.情報登録日 + 1)).Take((int)csvFields.Count() - (int)CSV列.情報登録日).ToArray();
                             // 列数分まわる
-                            for (int i = (int)Const.CSV列.アイテム1; i < fields.Length; i++)
+                            for (int i = (int)CSV列.アイテム1; i < csvFields.Length; i++)
                             {
                                 // 対象製品パッチ登録日が入っている場合
-                                if (!String.IsNullOrEmpty(fields[i]))
+                                if (!String.IsNullOrEmpty(csvFields[i]))
                                 {
                                     obj.対象製品名 = Util.setMultiRow2SingleColumn(obj.対象製品名, 対象製品[itemNameFields[i]]);
-                                    obj.対象製品パッチ登録日 = Util.setMultiRow2SingleColumn(obj.対象製品パッチ登録日, fields[i]);
+                                    obj.対象製品パッチ登録日 = Util.setMultiRow2SingleColumn(obj.対象製品パッチ登録日, csvFields[i]);
                                 }
                             }
                             // データが変更されていたら更新日を入れて変更反映。
                             // 変更がない場合はDBに書き込みしない
-                            if (isChange(baseObj, obj))
+                            if (isChange(objBefore, obj))
                             {
                                 obj.UPDATE_DATE = DateTime.Now;
                                 en.SaveChanges();

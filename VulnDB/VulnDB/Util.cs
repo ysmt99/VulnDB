@@ -1,28 +1,30 @@
-﻿using System;
+﻿using SIDfmContext;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIDfmContext
+namespace Tools
 {
-    class Util
+    static class Util
     {
- //       public static T deepCopy<T>(T src)
- //       {
- //           T dest = default(T);
- ////わからん          T dest = new T<T>();
- //           var proplist = typeof(T).GetProperties();
- //           foreach (var prop in proplist)
- //           {
- //               prop.SetValue(dest, prop.GetValue(src), null);
- //           }
- //           return dest;
- //       }
-        public static SIDfm deepCopy(SIDfm src)
+        //public static SIDfm deepCopy(SIDfm src)
+        //{
+        //    SIDfm dest = new SIDfm();
+        //    var proplist = typeof(SIDfm).GetProperties();
+        //    foreach (var prop in proplist)
+        //    {
+        //        prop.SetValue(dest, prop.GetValue(src), null);
+        //    }
+        //    return dest;
+        //}
+        public static T deepCopy<T>(T src) where T: new()
         {
-            SIDfm dest = new SIDfm();
-            var proplist = typeof(SIDfm).GetProperties();
+            T dest = new T();
+            var proplist = typeof(T).GetProperties();
             foreach (var prop in proplist)
             {
                 prop.SetValue(dest, prop.GetValue(src), null);
@@ -89,6 +91,36 @@ namespace SIDfmContext
             {
                 return basetext + MULTIROW_DELIMITER + addtext;
             }
+        }
+        public static List<string> simpleDeepCopy(List<string> ss)
+        {
+            List<string> o = new List<string>();
+            foreach (string s in ss)
+            {
+                o.Add(s);
+            }
+            return o;
+        }
+
+        /// <summary>
+        /// ディープコピーを作成する。
+        /// クローンするクラスには SerializableAttribute 属性、
+        /// 不要なフィールドは NonSerializedAttribute 属性をつける。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static T CloneDeep<T>(this T target)
+        {
+            object clone = null;
+            using (MemoryStream stream = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(stream, target);
+                stream.Position = 0;
+                clone = formatter.Deserialize(stream);
+            }
+            return (T)clone;
         }
     }
 }

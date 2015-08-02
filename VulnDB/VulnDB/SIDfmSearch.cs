@@ -1,6 +1,5 @@
 ﻿using log4net;
 using SIDfmContext;
-using SIDfmContext.view;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIDfmContext
+namespace VulnDB
 {
     class Const
     {
@@ -21,9 +21,9 @@ namespace SIDfmContext
         public enum 業務停止key { 影響なし = 1, 部分的 = 10, 全面的 = 100 };
         public static Dictionary<業務停止key, Object> 業務停止 = new Dictionary<業務停止key, Object>();
 
-        public enum CSV列
+        public enum CSV列:int
         {
-            SIDfmId,            タイトル,            CVE番号,            CVSS基本値,
+            SIDfmId,                    タイトル,            CVE番号,            CVSS基本値,
             攻撃元_ローカル,            攻撃元_隣接,            攻撃元_ネットワーク,
             攻撃成立条件_難しい,            攻撃成立条件_やや難,            攻撃成立条件_簡単,
             攻撃前の認証_複数,            攻撃前の認証_単一,            攻撃前の認証_不要,

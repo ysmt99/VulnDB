@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.sIDfmViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -79,10 +76,6 @@
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.Visible = false;
             // 
-            // sIDfmViewBindingSource
-            // 
-            this.sIDfmViewBindingSource.DataSource = typeof(SIDfmContext.view.SIDfmView);
-            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 80);
@@ -101,7 +94,6 @@
             this.Name = "MainForm";
             this.Text = "脆弱性／パッチ管理DB";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmViewBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,7 +105,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource sIDfmViewBindingSource;
         private System.Windows.Forms.ProgressBar progressBar1;
 
     }
