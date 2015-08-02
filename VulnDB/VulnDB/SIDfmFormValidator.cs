@@ -28,7 +28,7 @@ namespace VulnDB
             ErrorOfColumn error = new ErrorOfColumn();
             foreach (入力規則 rule in rules)
             {
-                error.addError(this.column,validateByRule(column,rule,value));
+                error.addError(rule,validateByRule(column,rule,value));
             }
             return error;
         }
