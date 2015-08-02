@@ -78,14 +78,19 @@ namespace VulnDB
             }
             return null;
         }
-        public ErrorOfLine validateFormCSV(int lineNo)
+        public ErrorOfLine validateLine(int lineNo)
         {
             ErrorOfLine errorOfLine = new ErrorOfLine();
             ErrorOfColumn errorOfColumn;
-            foreach (SIDfmFormValidator v in validators)
-            {
-                errorOfColumn = v.validateByColumn(values[v.column]);
-                errorOfLine.addError(v.column, errorOfColumn);
+            SIDfmFormValidator validator;
+            foreach (CSV列 c in Enum.GetValues(typeof(CSV列)))
+            {   
+                validator = getValidator(c);
+                if (validator != null)
+                {
+                    errorOfColumn = validator.validateByColumn(values[c]);
+                    errorOfLine.addError(validator.column, errorOfColumn);
+                }
             }
             return errorOfLine;
         }

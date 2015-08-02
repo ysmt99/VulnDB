@@ -86,12 +86,11 @@ namespace VulnDB
                         {
                             // フォームの中で必須条件と書式のチェックを行う
                             form = new SIDfmForm(csvFields);
-                            // ファイルの内容が条件を満たしていない場合は該当行を飛ばす(次の行に進む)
-                            errorOfLine = form.validateFormCSV(csv行番号);
-                            // この行にエラーがあったらメッセージ保存
-                            if (ErrorsOfLine.hasError(error[csv行番号]))
+                            // 1行分の内容をチェック
+                            errorOfLine = form.validateLine(csv行番号);
+                            // この行にエラーがあったらこの行を飛ばして次に移動
+                            if (errorOfLine.hasError())
                             {
-                                errorDic[csv行番号] = error;
                                 continue;
                             }
 
