@@ -47,7 +47,7 @@ namespace VulnDB
                     string CVE番号;
                     Dictionary<string,string> 対象製品名 = new Dictionary<string,string>();
 
-                    ErrorOfLine errorOfLine;      // 書式エラーの格納
+                    ErrorOfForm errorOfLine;      // 書式エラーの格納
                     ErrorOfAll errorOfAll = new ErrorOfAll();
                     //Dictionary<int,ErrorsByForm> errorDic = new Dicionary<int,ErrorsByForm>();   // 書式エラーの格納（全行分）
 
@@ -87,7 +87,7 @@ namespace VulnDB
                             // フォームの中で必須条件と書式のチェックを行う
                             form = new SIDfmForm(csvFields);
                             // 1行分の内容をチェック
-                            errorOfLine = form.validateLine(csv行番号);
+                            errorOfLine = form.validate(csv行番号);
                             // この行にエラーがあったらこの行を飛ばして次に移動
                             if (errorOfLine.hasError())
                             {

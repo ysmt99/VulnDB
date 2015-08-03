@@ -118,7 +118,7 @@ namespace VulnDB
     // V⇒クラスのkey
     // T⇒ディクショナリのkey
     // K⇒ディクショナリのvalue
-    class KeyTree<V,T,K> :Dictionary<T,K>,IHasError where K:IHasError
+    public class KeyTree<V, T, K> : Dictionary<T, K>, IHasError where K : IHasError
     {
         public V key { set; get; }
         public KeyTree() { }
@@ -145,20 +145,38 @@ namespace VulnDB
             return false;
         }
     }
+    /// <summary>
+    /// 項目ごとの入力チェック
+    /// </summary>
+    /// <returns></returns>
+    public class Validator<VALIDATECLASS, KEY> where VALIDATECLASS : new()
+    {
+        public VALIDATECLASS validate(string value) {
+            VALIDATECLASS error = new VALIDATECLASS();
+            foreach (KEY key in Enum.GetValues(typeof(KEY)))
+            {
+                error.addError(key.validate(key,value));
+            }
+            return error;
+        }
+    }
+    // line clm,               clm,               clm,               clm
+    //      clm,rule,rule,rule,clm,rule,rule,rule,clm,rule,rule,rule,clm,rule,rule,rule
+
     public interface IHasError {
         bool hasError();
     }
 
-    class ErrorOfAll : KeyTree<int, int, ErrorOfLine>
+    public class ErrorOfAll : KeyTree<int, int, ErrorOfForm>
     {
     }
-    class ErrorOfLine : KeyTree<int, CSV列, ErrorOfColumn>
+    public class ErrorOfForm : KeyTree<int, CSV列, ErrorOfColumn>
     {
     }
-    class ErrorOfColumn: KeyTree<CSV列, 入力規則, ErrorString>
+    public class ErrorOfColumn : KeyTree<CSV列, 入力規則, ErrorOfRule>
     {
     }
-    class ErrorString: IHasError
+    public class ErrorOfRule : IHasError
     {
         public string s { get; set; }
         public bool hasError()

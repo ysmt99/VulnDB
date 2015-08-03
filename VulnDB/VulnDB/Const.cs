@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VulnDB
 {
-    class Const
+    public class Const
     {
         public enum 攻撃元key { ローカル = 1, 隣接 = 10, ネットワーク = 100 };
         public static Dictionary<攻撃元key, Object> 攻撃元 = new Dictionary<攻撃元key, Object>();

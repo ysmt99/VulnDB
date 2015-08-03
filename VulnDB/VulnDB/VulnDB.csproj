@@ -91,7 +91,7 @@
     <Compile Include="Const.cs" />
     <Compile Include="KeyPair.cs" />
     <Compile Include="MultiDictionary.cs" />
-    <Compile Include="SIDfmFormValidator.cs" />
+    <Compile Include="SIDfmValidator.cs" />
     <Compile Include="Resource.cs">
       <DependentUpon>SIDfm.tt</DependentUpon>
     </Compile>
