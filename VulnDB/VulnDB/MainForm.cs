@@ -32,7 +32,7 @@ namespace VulnDB
                 {
                     this.button1.Refresh();
                     SIDfmCsvRegister register = new SIDfmCsvRegister();
-                    register.doRegist(openFileDialog1.FileName);
+                    ErrorOfAll error = register.doRegist(openFileDialog1.FileName);
                     this.progressBar1.Visible = false;
                     this.dataGridView1.Visible = true;
                     this.dataGridView1.DataSource = SIDfmSearch.search();

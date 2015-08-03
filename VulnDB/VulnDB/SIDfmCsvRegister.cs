@@ -22,8 +22,9 @@ namespace VulnDB
     {
         readonly log4net.ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        internal void doRegist(string s)
+        internal ErrorOfAll doRegist(string s)
         {
+            ErrorOfAll errorOfAll = new ErrorOfAll();
             try
             {
                 using (
@@ -45,11 +46,13 @@ namespace VulnDB
 
                     int SIDfmId;
                     string CVE番号;
-                    Dictionary<string,string> 対象製品名 = new Dictionary<string,string>();
+                    Dictionary<int,string> 対象製品名 = new Dictionary<int,string>();
 
                     ErrorOfForm errorOfLine;      // 書式エラーの格納
-                    ErrorOfAll errorOfAll = new ErrorOfAll();
                     //Dictionary<int,ErrorsByForm> errorDic = new Dicionary<int,ErrorsByForm>();   // 書式エラーの格納（全行分）
+
+                    logger.Info("＝＝＝＝＝＝＝＝＝＝＝処理開始＝＝＝＝＝＝＝＝＝＝＝");
+                    logger.Info(String.Format("ファイル名：{0}",s));
 
                     // csvファイルを1行ずつ読み込み
                     while (!file.EndOfData)
@@ -70,14 +73,15 @@ namespace VulnDB
                                 // ・脆弱性情報の収集対象を変更するために、フィルタの追加削除を行った場合
                                 // ・SIDfm側の仕様変更
                                 // などの理由で来る場合があるかも。
-                                var midashi = en.Resource.Where(x => x.対象製品名 == csvFields[i]);
+                                string name = csvFields[i];
+                                var midashi = en.Resource.Where(x => x.対象製品名 == name);
                                 if (midashi.Count() == 0)
                                 {   // なければCSVのテキストを登録
-                                    対象製品名[csvFields[i]] = csvFields[i];
+                                    対象製品名[i] = csvFields[i];
                                 }
                                 else
                                 {   // あれば見出し名を登録
-                                    対象製品名[csvFields[i]] = midashi.First().対象製品見出し名;
+                                    対象製品名[i] = midashi.First().対象製品見出し名;
                                 }
                             }
                         }
@@ -91,6 +95,8 @@ namespace VulnDB
                             // この行にエラーがあったらこの行を飛ばして次に移動
                             if (errorOfLine.hasError())
                             {
+                                writeLog(errorOfLine);
+                                errorOfAll.addError(csv行番号, errorOfLine);
                                 continue;
                             }
 
@@ -181,7 +187,7 @@ namespace VulnDB
                                 // 対象製品パッチ登録日が入っている場合
                                 if (!String.IsNullOrEmpty(csvFields[i]))
                                 {
-                                    obj.対象製品名 = Util.setMultiRow2SingleColumn(obj.対象製品名, 対象製品[itemNameFields[i]]);
+                                    obj.対象製品名 = Util.setMultiRow2SingleColumn(obj.対象製品名, 対象製品名[i]);
                                     obj.対象製品パッチ登録日 = Util.setMultiRow2SingleColumn(obj.対象製品パッチ登録日, csvFields[i]);
                                 }
                             }
@@ -194,6 +200,7 @@ namespace VulnDB
                             }
                         }
                     }
+                    logger.Info(String.Format("読み込んだ行数：{0}行",csv行番号));                
                 }
             }
             catch (Exception e)
@@ -201,6 +208,8 @@ namespace VulnDB
                 logger.Error(e.ToString());
                 throw;
             }
+            logger.Info("＝＝＝＝＝＝＝＝＝＝＝処理終了＝＝＝＝＝＝＝＝＝＝＝");
+            return errorOfAll;
         }
 
         // データ行は先頭列が数値の場合は正常なものと識別する
@@ -246,6 +255,13 @@ namespace VulnDB
             if (before.対象製品パッチ登録日 != after.対象製品パッチ登録日) return true;
 
             return false;
+        }
+        void writeLog(ErrorOfForm error)
+        {
+            foreach (string s in error.getErrorMessages())
+            {
+                logger.Info(s);
+            }
         }
     }
 }

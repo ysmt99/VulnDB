@@ -20,10 +20,11 @@ namespace VulnDB
             }
         }
         public new string 攻撃元
-        { 
+        {
             get
             {
                 Dictionary<int, string> d = new Dictionary<int, string>();
+                d[0] = "";
                 d[1] = "ローカル";
                 d[10] = "隣接";
                 d[100] = "ネットワーク";
@@ -35,6 +36,7 @@ namespace VulnDB
             get
             {
                 Dictionary<int, string> d = new Dictionary<int, string>();
+                d[0] = "";
                 d[1] = "難しい";
                 d[10] = "やや難";
                 d[100] = "簡単";
@@ -46,6 +48,7 @@ namespace VulnDB
             get
             {
                 Dictionary<int, string> d = new Dictionary<int, string>();
+                d[0] = "";
                 d[1] = "複数";
                 d[10] = "単一";
                 d[100] = "不要";
@@ -57,6 +60,7 @@ namespace VulnDB
             get
             {
                 Dictionary<int, string> d = new Dictionary<int, string>();
+                d[0] = "";
                 d[1] = "影響なし";
                 d[10] = "部分的";
                 d[100] = "全面的";
@@ -68,6 +72,7 @@ namespace VulnDB
             get
             {
                 Dictionary<int, string> d = new Dictionary<int, string>();
+                d[0] = "";
                 d[1] = "影響なし";
                 d[10] = "部分的";
                 d[100] = "全面的";
@@ -79,6 +84,7 @@ namespace VulnDB
             get
             {
                 Dictionary<int, string> d = new Dictionary<int, string>();
+                d[0] = "";
                 d[1] = "影響なし";
                 d[10] = "部分的";
                 d[100] = "全面的";

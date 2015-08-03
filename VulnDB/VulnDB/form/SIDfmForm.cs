@@ -13,7 +13,7 @@ namespace VulnDB
     public class SIDfmForm
     {
         //List<SIDfmValidator> validators;
-        Dictionary<CSV列,string> values;
+        public Dictionary<CSV列,string> values{get; set;}
 
         public SIDfmForm()
         {
@@ -56,6 +56,7 @@ namespace VulnDB
         }
         public SIDfmForm(string[] ss)
         {
+            values = new Dictionary<CSV列,string>();
             // CSVファイルの値をセット
             foreach (CSV列 c in Enum.GetValues(typeof(CSV列)))
             {
@@ -64,7 +65,7 @@ namespace VulnDB
                 {
                     break;
                 }
-                values[c] = ss[(int)c];
+                values.Add(c, ss[(int)c]);
             }
         }
         //public SIDfmValidator getValidator(CSV列 key)

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CSV列 = VulnDB.Const.CSV列;
 using 入力規則 = VulnDB.Const.入力規則;
 
+
 namespace VulnDB
 {
     ///// <summary>
@@ -127,7 +128,7 @@ namespace VulnDB
         }
         public void addError(T key, K value)
         {
-            if (value != null)
+            if (value != null && value.hasError())
             {
                 this.Add(key,value);
             }
@@ -144,27 +145,38 @@ namespace VulnDB
             }
             return false;
         }
-    }
-    /// <summary>
-    /// 項目ごとの入力チェック
-    /// </summary>
-    /// <returns></returns>
-    public class Validator<VALIDATECLASS, KEY> where VALIDATECLASS : new()
-    {
-        public VALIDATECLASS validate(string value) {
-            VALIDATECLASS error = new VALIDATECLASS();
-            foreach (KEY key in Enum.GetValues(typeof(KEY)))
+        public List<string> getErrorMessages()
+        {
+            List<String> list = new List<string>();
+            List<T> keys = this.Keys.ToList();
+            foreach (T key in keys)
             {
-                error.addError(key.validate(key,value));
+                list.AddRange(this[key].getErrorMessages());
             }
-            return error;
+            return list;
         }
     }
+    ///// <summary>
+    ///// 項目ごとの入力チェック
+    ///// </summary>
+    ///// <returns></returns>
+    //public class Validator<VALIDATECLASS, KEY> where VALIDATECLASS : new()
+    //{
+    //    public VALIDATECLASS validate(string value) {
+    //        VALIDATECLASS error = new VALIDATECLASS();
+    //        foreach (KEY key in Enum.GetValues(typeof(KEY)))
+    //        {
+    //            error.addError(key.validate(key,value));
+    //        }
+    //        return error;
+    //    }
+    //}
     // line clm,               clm,               clm,               clm
     //      clm,rule,rule,rule,clm,rule,rule,rule,clm,rule,rule,rule,clm,rule,rule,rule
 
     public interface IHasError {
         bool hasError();
+        List<string> getErrorMessages();
     }
 
     public class ErrorOfAll : KeyTree<int, int, ErrorOfForm>
@@ -179,6 +191,11 @@ namespace VulnDB
     public class ErrorOfRule : IHasError
     {
         public string s { get; set; }
+        public ErrorOfRule() { }
+        public ErrorOfRule(string s)
+        {
+            this.s = s;
+        }
         public bool hasError()
         {
             if (String.IsNullOrEmpty(s))
@@ -186,6 +203,10 @@ namespace VulnDB
                 return false;
             }
             return true;
+        }
+        public List<string> getErrorMessages()
+        {
+            return new List<string>() {this.s};
         }
     }
 }
