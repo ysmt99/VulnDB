@@ -112,6 +112,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SIDfm.tt</DependentUpon>
     </Compile>
+    <Compile Include="SIDfmDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SIDfmValidator.cs" />
     <Compile Include="SIDfmSearch.cs" />
     <Compile Include="MainForm.cs">
@@ -167,6 +172,17 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SIDfm.edmx</DependentUpon>
       <LastGenOutput>SIDfm1.cs</LastGenOutput>
+    </None>
+    <None Include="SIDfmDataSet.xsc">
+      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SIDfmDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SIDfmDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SIDfmDataSet.xss">
+      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
     </None>
     <None Include="VulnDB_一時キー.pfx" />
   </ItemGroup>

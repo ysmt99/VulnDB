@@ -61,6 +61,12 @@ namespace VulnDB
         }
         public ErrorOfForm validate()
         {
+            List<string> list = new List<string>();
+            list.Add("行番号："+lineNo.ToString());
+            list.Add("SIDfm番号：" + form.values[CSV列.SIDfmId]);
+            list.Add("CVE番号：" + form.values[CSV列.CVE番号]);
+
+
             ErrorOfForm errorOfForm = new ErrorOfForm();
             foreach (CSV列 c in ValidateParams.param.Keys.ToList())
             {

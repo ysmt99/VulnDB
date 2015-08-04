@@ -20,49 +20,61 @@ namespace VulnDB
     /// </summary>
     class SIDfmCsvRegister
     {
+        struct 取込結果
+        {
+            public int csv行番号;          // CSVファイルの行番号
+            public int 商品件数;            // csvファイル内の商品情報の件数
+            public int 登録件数_新規;     // 正常に登録できた件数（新規）
+            public int 登録件数_更新;     // 更新した件数
+            public int 登録件数_未変更;    // 変更がないので登録しなかった件数
+            public int エラー件数;
+            public int 見出し件数;
+            public DateTime 処理開始日時;
+            public DateTime 処理終了日時;
+        }
         readonly log4net.ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        internal ErrorOfAll doRegist(string s)
+        internal List<string> doRegist(string s)
         {
-            ErrorOfAll errorOfAll = new ErrorOfAll();
-            try
-            {
-                using (
-                TextFieldParser file = new TextFieldParser(s, Encoding.GetEncoding(932))
+            取込結果 result = new 取込結果();
+            using (SIDfmEntities en = new SIDfmEntities())
+                try
                 {
-                    TextFieldType = FieldType.Delimited,    //フィールドが文字で区切られているとする
-                    Delimiters = new string[] { "," },      //区切り文字を,とする
-                    HasFieldsEnclosedInQuotes = true,       //フィールドを"で囲み、改行文字、区切り文字を含める
-                    TrimWhiteSpace = true                   //フィールドの前後からスペースを削除する
-                }
-                )
-                using (SIDfmEntities en = new SIDfmEntities())
-                {
+                    using (
+                    TextFieldParser file = new TextFieldParser(s, Encoding.GetEncoding(932))
+                    {
+                        TextFieldType = FieldType.Delimited,    //フィールドが文字で区切られているとする
+                        Delimiters = new string[] { "," },      //区切り文字を,とする
+                        HasFieldsEnclosedInQuotes = true,       //フィールドを"で囲み、改行文字、区切り文字を含める
+                        TrimWhiteSpace = true                   //フィールドの前後からスペースを削除する
+                    }
+                    )
+                    {
                     SIDfm obj;          // 現在のオブジェクト
                     SIDfm objBefore;    // 変更前のオブジェクト
                     string[] csvFields; // CSVの列（カンマ分割後）
                     SIDfmForm form;     // カンマ区切りのデータをセットしたform
-                    int csv行番号 = 0;   // CSVファイルの行番号
 
                     int SIDfmId;
                     string CVE番号;
                     Dictionary<int,string> 対象製品名 = new Dictionary<int,string>();
 
                     ErrorOfForm errorOfLine;      // 書式エラーの格納
-                    //Dictionary<int,ErrorsByForm> errorDic = new Dicionary<int,ErrorsByForm>();   // 書式エラーの格納（全行分）
 
                     logger.Info("＝＝＝＝＝＝＝＝＝＝＝処理開始＝＝＝＝＝＝＝＝＝＝＝");
                     logger.Info(String.Format("ファイル名：{0}",s));
+                    result.処理開始日時 = DateTime.Now;
 
                     // csvファイルを1行ずつ読み込み
                     while (!file.EndOfData)
                     {
                         csvFields = file.ReadFields();
-                        csv行番号++;
+                        result.csv行番号++;
 
                         // 製品名が入っている見出し行
                         if (isItemLine(csvFields))
                         {
+                            result.見出し件数++;
                             //csvFields.CopyTo(itemNameFields = new string[csvFields.Length], 0);
                             for (int i = (int)CSV列.アイテム1; i < csvFields.Length; i++)
                             {
@@ -88,15 +100,16 @@ namespace VulnDB
                         // 先頭列が数値の行を「データ行」として扱う。
                         else if (isDataLine(csvFields))
                         {
+                            result.商品件数++;
                             // フォームの中で必須条件と書式のチェックを行う
                             form = new SIDfmForm(csvFields);
                             // 1行分の内容をチェック
-                            errorOfLine = form.validate(csv行番号);
+                            errorOfLine = form.validate(result.csv行番号);
                             // この行にエラーがあったらこの行を飛ばして次に移動
                             if (errorOfLine.hasError())
                             {
+                                result.エラー件数++;
                                 writeLog(errorOfLine);
-                                errorOfAll.addError(csv行番号, errorOfLine);
                                 continue;
                             }
 
@@ -117,10 +130,14 @@ namespace VulnDB
                                 obj.CVE番号 = CVE番号;
                                 obj.INSERT_DATE = DateTime.Now;
                                 en.SIDfm.Add(obj);
+
+                                result.登録件数_新規++;
                             }
                             else
                             {
                                 obj = rowdata.First();
+
+                                result.登録件数_更新++;
                             }
 
                             objBefore = Util.deepCopy(obj);
@@ -196,23 +213,51 @@ namespace VulnDB
                             if (isChange(objBefore, obj))
                             {
                                 obj.UPDATE_DATE = DateTime.Now;
-                                en.SaveChanges();
+                                //en.SaveChanges();
+                            }
+                            else
+                            {
+                                result.登録件数_更新--;
+                                result.登録件数_未変更++;
                             }
                         }
+                        else
+                        {
+                            result.見出し件数++;
+                        }
                     }
-                    logger.Info(String.Format("読み込んだ行数：{0}行",csv行番号));                
                 }
+                //登録処理を実行。1件ずつCommitしないことで実行速度をあげる
+                en.SaveChanges();
             }
             catch (Exception e)
             {
                 logger.Error(e.ToString());
                 throw;
             }
-            logger.Info("＝＝＝＝＝＝＝＝＝＝＝処理終了＝＝＝＝＝＝＝＝＝＝＝");
-            return errorOfAll;
+
+            result.処理終了日時 = DateTime.Now;
+            List<string> errors = new List<string>();
+            errors.Add("＝＝＝＝＝＝＝＝＝＝＝処理結果＝＝＝＝＝＝＝＝＝＝＝");
+            errors.Add(
+                String.Format("処理時間：{2} ({0}～{1})",result.
+                    処理終了日時 - result.処理開始日時, result.処理終了日時, result.処理開始日時 ));
+            errors.Add(String.Format("ファイル行数：{0}件", result.csv行番号));
+            errors.Add(String.Format("登録失敗：{0}件", result.エラー件数));
+            errors.Add(String.Format("登録成功：{0}件（新規{1}件、更新{2}件、変更なし{3}件）",
+                result.商品件数, result.登録件数_新規, result.登録件数_更新, result.登録件数_未変更));
+            errors.Add(String.Format("見出し行：{0}件", result.見出し件数));
+            errors.Add("＝＝＝＝＝＝＝＝＝＝＝処理終了＝＝＝＝＝＝＝＝＝＝＝");
+
+            foreach (string xxx in errors)
+            {
+                logger.Info(xxx);
+            }
+            
+            return errors;
         }
 
-        // データ行は先頭列が数値の場合は正常なものと識別する
+        // csvレコードは、先頭列が数値の場合を正常なデータ行として識別する
         bool isDataLine(string[] ss)
         {
             int dummy;
