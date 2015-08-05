@@ -240,8 +240,8 @@ namespace VulnDB
             List<string> errors = new List<string>();
             errors.Add("＝＝＝＝＝＝＝＝＝＝＝処理結果＝＝＝＝＝＝＝＝＝＝＝");
             errors.Add(
-                String.Format("処理時間：{2} ({0}～{1})",result.
-                    処理終了日時 - result.処理開始日時, result.処理終了日時, result.処理開始日時 ));
+                String.Format("処理時間：{0} ({1}～{2})",
+                    result.処理終了日時.Subtract(result.処理開始日時).ToString(@"hh\:mm\:ss"), result.処理開始日時, result.処理終了日時));
             errors.Add(String.Format("ファイル行数：{0}件", result.csv行番号));
             errors.Add(String.Format("登録失敗：{0}件", result.エラー件数));
             errors.Add(String.Format("登録成功：{0}件（新規{1}件、更新{2}件、変更なし{3}件）",

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -8,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System;
 
 namespace VulnDB
 {
@@ -30,17 +30,17 @@ namespace VulnDB
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     this.button1.Refresh();
-                    SIDfmCsvRegister register = new SIDfmCsvRegister();
-                    List<string> errors = register.doRegist(openFileDialog1.FileName);
                     this.textBox1.Text = "登録処理中。。。";
                     textBox1.Refresh();
+
+                    SIDfmCsvRegister register = new SIDfmCsvRegister();
+                    List<string> errors = register.doRegist(openFileDialog1.FileName);
 
                     progressBar1.Minimum = 0;
                     progressBar1.Maximum = 10;
                     progressBar1.Value = 0;
-                    
+
                     //Invalidate(true);
-                    //時間のかかる処理を開始する
                     for (int i = 1; i <= 10; i++)
                     {
                         //progressBar1.Refresh();
@@ -49,11 +49,10 @@ namespace VulnDB
                         //progressBar1.Update();
 
                         //1秒間待機する（時間のかかる処理があるものとする）
-                        System.Threading.Thread.Sleep(1000);
+                        //                        System.Threading.Thread.Sleep(1000);
                         //ProgressBar1の値を変更する
                         progressBar1.Value = i;
-                    }                    
-                    
+                    }
                     //this.dataGridView1.Visible = true;
                     //this.dataGridView1.DataSource = SIDfmSearch.search();
                     MessageBox.Show("登録処理が完了しました。");
@@ -70,13 +69,22 @@ namespace VulnDB
                 Console.WriteLine(ex.Message);
                 this.textBox1.Text = ex.ToString();
             }
-
+            //tabControl1.sele
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 1;
+
+        }
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            string ss = "ss";
+            string s;
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string a;
+            string b;
+        }
     }
 }
