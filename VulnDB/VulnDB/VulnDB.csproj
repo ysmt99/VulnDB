@@ -184,7 +184,6 @@
     <None Include="SIDfmDataSet.xss">
       <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
     </None>
-    <None Include="VulnDB_一時キー.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

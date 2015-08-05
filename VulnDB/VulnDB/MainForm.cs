@@ -29,39 +29,12 @@ namespace VulnDB
             {
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    this.button1.Refresh();
+                    backgroundWorker1.RunWorkerAsync(openFileDialog1.FileName);
+                    backgroundWorker1.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
+                    backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
+
                     this.textBox1.Text = "登録処理中。。。";
-                    textBox1.Refresh();
-
-                    SIDfmCsvRegister register = new SIDfmCsvRegister();
-                    List<string> errors = register.doRegist(openFileDialog1.FileName);
-
-                    progressBar1.Minimum = 0;
-                    progressBar1.Maximum = 10;
-                    progressBar1.Value = 0;
-
-                    //Invalidate(true);
-                    for (int i = 1; i <= 10; i++)
-                    {
-                        //progressBar1.Refresh();
-                        tabControl1.Refresh();
-                        //progressBar1.Invalidate(true);
-                        //progressBar1.Update();
-
-                        //1秒間待機する（時間のかかる処理があるものとする）
-                        //                        System.Threading.Thread.Sleep(1000);
-                        //ProgressBar1の値を変更する
-                        progressBar1.Value = i;
-                    }
-                    //this.dataGridView1.Visible = true;
-                    //this.dataGridView1.DataSource = SIDfmSearch.search();
-                    MessageBox.Show("登録処理が完了しました。");
-                    string text = "";
-                    foreach (string s in errors)
-                    {
-                        text += s + "\r\n";
-                    }
-                    this.textBox1.Text = text;
+                    //Application.DoEvents();
                 }
             }
             catch (Exception ex)
@@ -69,22 +42,52 @@ namespace VulnDB
                 Console.WriteLine(ex.Message);
                 this.textBox1.Text = ex.ToString();
             }
-            //tabControl1.sele
         }
-        private void MainForm_Load(object sender, EventArgs e)
-        {
 
-        }
-        private void tabControl1_Click(object sender, EventArgs e)
+        void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            string ss = "ss";
-            string s;
+            progressBar1.Value += e.ProgressPercentage;
+            progressBar1.Maximum = (int)e.UserState;
+        }
+
+        void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("登録処理が完了しました。");
+            string text = "";
+            foreach (string s in (List<string>)e.Result)
+            {
+                text += s + "\r\n";
+            }
+            this.textBox1.Text = text;
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            SIDfmCsvRegister register = new SIDfmCsvRegister();
+            register.progressCountUp += progressCountUp;
+            //register.progressMax += progressMax;
+            List<string> errors = register.doRegist((string)e.Argument);
+            e.Result = errors;
+        }
+        private void progressCountUp(int i, int j)
+        {
+            backgroundWorker1.ReportProgress(i, j);
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string a;
-            string b;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+                this.dataGridView1.DataSource = SIDfmSearch.search();
+        }
+        //private void progressMax(int max)
+        //{
+        //    //backgroundWorker1.ReportProgress(1,1);
+        //    //progressBar1.Minimum = 0;
+        //    //progressBar1.Maximum = max;
+        //    //progressBar1.Value = 0;
+        //}
     }
 }

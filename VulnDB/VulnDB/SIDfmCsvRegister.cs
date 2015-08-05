@@ -37,9 +37,30 @@ namespace VulnDB
         internal List<string> doRegist(string s)
         {
             取込結果 result = new 取込結果();
+            int 行数 = 0;
             using (SIDfmEntities en = new SIDfmEntities())
                 try
                 {
+                    using (
+                        TextFieldParser file = new TextFieldParser(s, Encoding.GetEncoding(932)) {
+                            TextFieldType = FieldType.Delimited,    //フィールドが文字で区切られているとする
+                            Delimiters = new string[] { "," },      //区切り文字を,とする
+                            HasFieldsEnclosedInQuotes = true,       //フィールドを"で囲み、改行文字、区切り文字を含める
+                            TrimWhiteSpace = true                   //フィールドの前後からスペースを削除する
+                        }
+                    ){
+                        while (!file.EndOfData)
+                        {
+                            file.ReadFields();
+                            行数++;
+                        }
+                    }
+
+                    if (行数 <= 0) {
+                        return new List<string>();
+                    }
+                    //progressMax(行数);
+                    
                     using (
                     TextFieldParser file = new TextFieldParser(s, Encoding.GetEncoding(932))
                     {
@@ -68,6 +89,8 @@ namespace VulnDB
                     // csvファイルを1行ずつ読み込み
                     while (!file.EndOfData)
                     {
+                        progressCountUp(1,行数);
+
                         csvFields = file.ReadFields();
                         result.csv行番号++;
 
@@ -245,7 +268,7 @@ namespace VulnDB
             errors.Add(String.Format("ファイル行数：{0}件", result.csv行番号));
             errors.Add(String.Format("登録失敗：{0}件", result.エラー件数));
             errors.Add(String.Format("登録成功：{0}件（新規{1}件、更新{2}件、変更なし{3}件）",
-                result.商品件数, result.登録件数_新規, result.登録件数_更新, result.登録件数_未変更));
+                result.登録件数_新規+result.登録件数_更新+result.登録件数_未変更, result.登録件数_新規, result.登録件数_更新, result.登録件数_未変更));
             errors.Add(String.Format("見出し行：{0}件", result.見出し件数));
             errors.Add("＝＝＝＝＝＝＝＝＝＝＝処理終了＝＝＝＝＝＝＝＝＝＝＝");
 
@@ -308,5 +331,7 @@ namespace VulnDB
                 logger.Info(s);
             }
         }
+        public Action<int,int> progressCountUp;
+        //public Action<int> progressMax;
     }
 }
