@@ -19,90 +19,54 @@ namespace VulnDB
                 prop.SetValue(this, prop.GetValue(parent), null);
             }
         }
-        public new string 攻撃元
-        {
-            get
-            {
-                Dictionary<int, string> d = new Dictionary<int, string>();
-                d[0] = "";
-                d[1] = "ローカル";
-                d[10] = "隣接";
-                d[100] = "ネットワーク";
-                return d[(int)base.攻撃元];
-            }
-        }
-        public new string 攻撃成立条件
-        {
-            get
-            {
-                Dictionary<int, string> d = new Dictionary<int, string>();
-                d[0] = "";
-                d[1] = "難しい";
-                d[10] = "やや難";
-                d[100] = "簡単";
-                return d[(int)base.攻撃成立条件];
-            }
-        }
-        public new string 攻撃前の認証
-        {
-            get
-            {
-                Dictionary<int, string> d = new Dictionary<int, string>();
-                d[0] = "";
-                d[1] = "複数";
-                d[10] = "単一";
-                d[100] = "不要";
-                return d[(int)base.攻撃前の認証];
-            }
-        }
-        public new string 情報漏えい
-        {
-            get
-            {
-                Dictionary<int, string> d = new Dictionary<int, string>();
-                d[0] = "";
-                d[1] = "影響なし";
-                d[10] = "部分的";
-                d[100] = "全面的";
-                return d[(int)base.情報漏えい];
-            }
-        }
-        public new string 情報改ざん
-        {
-            get
-            {
-                Dictionary<int, string> d = new Dictionary<int, string>();
-                d[0] = "";
-                d[1] = "影響なし";
-                d[10] = "部分的";
-                d[100] = "全面的";
-                return d[(int)base.情報改ざん];
-            }
-        }
-        public new string 業務停止
-        {
-            get
-            {
-                Dictionary<int, string> d = new Dictionary<int, string>();
-                d[0] = "";
-                d[1] = "影響なし";
-                d[10] = "部分的";
-                d[100] = "全面的";
-                return d[(int)base.業務停止];
-            }
-        }
+
+        static Dictionary<int, string> 攻撃元map = new Dictionary<int, string>(){
+                {0,""},
+                {1,"ローカル"},
+                {10,"隣接"},
+                {100,"ネットワーク"}};
+        public new string 攻撃元 { get { return 攻撃元map[(int)base.攻撃元]; } }
+
+        static Dictionary<int, string> 攻撃成立条件map = new Dictionary<int, string>(){
+                {0,""},
+                {1,"難しい"},
+                {10,"やや難"},
+                {100,"簡単"}};
+        public new string 攻撃成立条件 { get { return 攻撃成立条件map[(int)base.攻撃成立条件]; } }
+
+        static Dictionary<int, string> 攻撃前の認証map = new Dictionary<int, string>(){
+                {0,""},
+                {1,"複数"},
+                {10,"単一"},
+                {100,"不要"}};
+        public new string 攻撃前の認証 { get { return 攻撃前の認証map[(int)base.攻撃前の認証]; } }
+
+        static Dictionary<int, string> 情報漏えいmap = new Dictionary<int, string>(){
+                {0,""},
+                {1,"影響なし"},
+                {10,"部分的"},
+                {100,"全面的"}};
+        public new string 情報漏えい { get { return 情報漏えいmap[(int)base.情報漏えい]; } }
+
+        static Dictionary<int, string> 情報改ざんmap = new Dictionary<int, string>(){
+                {0,""},
+                {1,"影響なし"},
+                {10,"部分的"},
+                {100,"全面的"}};
+        public new string 情報改ざん { get { return 情報改ざんmap[(int)base.情報改ざん]; } }
+
+        static Dictionary<int, string> 業務停止map = new Dictionary<int, string>(){
+                {0,""},
+                {1,"影響なし"},
+                {10,"部分的"},
+                {100,"全面的"}};
+        public new string 業務停止 { get { return 業務停止map[(int)base.業務停止]; } }
+
         public new string 攻撃コードの有無
         {
             get
             {
-                if (base.攻撃コードの有無 == 1)
-                {
-                    return "あり";
-                }
-                else
-                {
-                    return "なし";
-                }
+                return (base.攻撃コードの有無 == 1) ? "あり" : "なし";
             }
         }
         public new string 対象製品名
