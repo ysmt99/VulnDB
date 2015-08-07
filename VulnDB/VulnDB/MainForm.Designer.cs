@@ -33,19 +33,19 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewSearch = new System.Windows.Forms.DataGridView();
             this.sIDfmDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sIDfmDataSet = new SIDfmContext.SIDfmDataSet();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.progressBarRegist = new System.Windows.Forms.ProgressBar();
+            this.textBoxRegistLog = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerRegist = new System.ComponentModel.BackgroundWorker();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -74,7 +74,7 @@
             // 
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.dataGridViewSearch);
             this.tabPage2.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
@@ -86,16 +86,16 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewSearch.AllowUserToOrderColumns = true;
+            this.dataGridViewSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 78);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(864, 285);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSearch.Location = new System.Drawing.Point(6, 78);
+            this.dataGridViewSearch.Name = "dataGridView1";
+            this.dataGridViewSearch.RowTemplate.Height = 21;
+            this.dataGridViewSearch.Size = new System.Drawing.Size(864, 285);
+            this.dataGridViewSearch.TabIndex = 0;
             // 
             // sIDfmDataSetBindingSource
             // 
@@ -109,8 +109,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.progressBar1);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.progressBarRegist);
+            this.tabPage1.Controls.Add(this.textBoxRegistLog);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
@@ -123,24 +123,24 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(186, 23);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(665, 35);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 2;
+            this.progressBarRegist.Location = new System.Drawing.Point(186, 23);
+            this.progressBarRegist.Name = "progressBar1";
+            this.progressBarRegist.Size = new System.Drawing.Size(665, 35);
+            this.progressBarRegist.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBarRegist.TabIndex = 2;
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBoxRegistLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(22, 80);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(829, 273);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TabStop = false;
-            this.textBox1.Text = "ファイルを選択してください。";
+            this.textBoxRegistLog.Location = new System.Drawing.Point(22, 80);
+            this.textBoxRegistLog.Multiline = true;
+            this.textBoxRegistLog.Name = "textBox1";
+            this.textBoxRegistLog.Size = new System.Drawing.Size(829, 273);
+            this.textBoxRegistLog.TabIndex = 1;
+            this.textBoxRegistLog.TabStop = false;
+            this.textBoxRegistLog.Text = "ファイルを選択してください。";
             // 
             // button1
             // 
@@ -154,8 +154,8 @@
             // 
             // backgroundWorker1
             // 
-            this.backgroundWorker1.WorkerReportsProgress = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorkerRegist.WorkerReportsProgress = true;
+            this.backgroundWorkerRegist.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // button2
             // 
@@ -165,7 +165,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "最新の情報に更新";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.buttonSerch_Click);
             // 
             // label1
             // 
@@ -186,7 +186,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).EndInit();
             this.tabPage1.ResumeLayout(false);
@@ -201,13 +201,13 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ProgressBar progressBarRegist;
+        private System.Windows.Forms.TextBox textBoxRegistLog;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewSearch;
         private System.Windows.Forms.BindingSource sIDfmDataSetBindingSource;
         private SIDfmContext.SIDfmDataSet sIDfmDataSet;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerRegist;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
 
