@@ -23,7 +23,7 @@ namespace VulnDB
 //                      orderby x.情報登録日 descending, x.SIDfmId, x.CVE番号
 //                      select x);
 
-                    List<SIDfm> beans = en.SIDfm.OrderBy(x => x.CVE番号).OrderBy(x => x.SIDfmId).OrderByDescending(x => x.情報登録日).ToList();
+                    var beans = en.SIDfm.OrderBy(x => x.CVE番号).OrderBy(x => x.SIDfmId).OrderByDescending(x => x.情報登録日);
                     List<SIDfmView> views = new List<SIDfmView>();
                     foreach (var o in beans)
                     {
