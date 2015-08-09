@@ -8,15 +8,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System;
+using log4net;
 
 namespace VulnDB
 {
     public partial class MainForm : Form
     {
+        readonly log4net.ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        
         public MainForm()
         {
             InitializeComponent();
-
+            // 連続してCSVファイルを読むとエラー。ログに出ない。。
             backgroundWorkerRegist.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
             backgroundWorkerRegist.ProgressChanged += backgroundWorker1_ProgressChanged;
         }
@@ -28,7 +31,6 @@ namespace VulnDB
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     backgroundWorkerRegist.RunWorkerAsync(openFileDialog1.FileName);
-
                     this.textBoxRegistLog.Text = "登録処理中。。。";
                 }
             }
@@ -36,6 +38,7 @@ namespace VulnDB
             {
                 Console.WriteLine(ex.Message);
                 this.textBoxRegistLog.Text = ex.ToString();
+                logger.Error(ex.ToString());
             }
         }
 
@@ -52,6 +55,9 @@ namespace VulnDB
                 this.textBoxRegistLog.Text = string.Join("\r\n", (List<string>)e.Result);
             else
                 this.textBoxRegistLog.Text = string.Empty;
+
+            // 登録完了時に値をクリアしないと連続でCSVファイルを読み込んだときにindexエラーになる
+            progressBarRegist.Value = 0;
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -64,7 +70,6 @@ namespace VulnDB
         {
             backgroundWorkerRegist.ReportProgress(i, j);
         }
-
         private void buttonSerch_Click(object sender, EventArgs e)
         {
             this.dataGridViewSearch.DataSource = SIDfmSearch.search();
