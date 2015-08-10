@@ -8,7 +8,7 @@ using Tools;
 
 namespace VulnDB
 {
-    class SIDfmView
+    public class SIDfmView
     {
         SIDfm bean;
         public SIDfmView(SIDfm o)
@@ -109,6 +109,50 @@ namespace VulnDB
             }
             set { ;}
         }
+        // CVSS環境値：SIDfmから情報が取得できないので固定値をセットする
+        public string 攻撃される可能性
+        {
+            get
+            {
+                return String.IsNullOrEmpty(this.CVSS基本値)? "":"実証可能";
+            }
+            set
+            { ;}
+        }
+        public string 利用可能な対策のレベル
+        {
+            get
+            {
+                return String.IsNullOrEmpty(this.CVSS基本値) ? "" : "正式";
+            }
+            set
+            { ;}
+        }
+        public string 脆弱性情報の信頼性
+        {
+            get
+            {
+                return String.IsNullOrEmpty(this.CVSS基本値) ? "" : "確認済";
+            }
+            set
+            { ;}
+        }
+        public string CVSS現状値
+        {
+            get {
+                //return String.IsNullOrEmpty(this.CVSS基本値) ? "" : "正式";
+                decimal d = bean.CVSS基本値.GetValueOrDefault();
+                decimal 攻撃される可能性_E_実証可能 = 1;
+                decimal 利用可能な対策のレベル_RL_正式 = 0.9M;
+                decimal 脆弱性情報の信頼性_RC_確認済 = 1;
+//              現状値 = 基本値 ×E×RL×RC （小数点第 2 位四捨五入）　…式(5)
+                d = d * 攻撃される可能性_E_実証可能 * 利用可能な対策のレベル_RL_正式 * 脆弱性情報の信頼性_RC_確認済;
+                d = Math.Round(d, 1);
+                return d == 0 ? "" : d.ToString();
+            }
+            set { ;}
+        }
+
         public string 対象製品名
         {
             get

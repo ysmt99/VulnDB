@@ -28,27 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewSearch = new System.Windows.Forms.DataGridView();
-            this.sIDfmDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sIDfmDataSet = new SIDfmContext.SIDfmDataSet();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.progressBarRegist = new System.Windows.Forms.ProgressBar();
             this.textBoxRegistLog = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.sIDfmDataSet = new SIDfmContext.SIDfmDataSet();
             this.backgroundWorkerRegist = new System.ComponentModel.BackgroundWorker();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -68,7 +66,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(884, 409);
             this.tabControl1.TabIndex = 0;
-            //this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -84,7 +81,26 @@
             this.tabPage2.Text = "脆弱性一覧";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(656, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(214, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "最終更新日時：2015/08/05 22:42:28";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(22, 23);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(129, 35);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "最新の情報に更新";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.buttonSerch_Click);
+            // 
+            // dataGridViewSearch
             // 
             this.dataGridViewSearch.AllowUserToOrderColumns = true;
             this.dataGridViewSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -92,20 +108,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSearch.Location = new System.Drawing.Point(6, 78);
-            this.dataGridViewSearch.Name = "dataGridView1";
+            this.dataGridViewSearch.Name = "dataGridViewSearch";
             this.dataGridViewSearch.RowTemplate.Height = 21;
             this.dataGridViewSearch.Size = new System.Drawing.Size(864, 285);
             this.dataGridViewSearch.TabIndex = 0;
-            // 
-            // sIDfmDataSetBindingSource
-            // 
-            this.sIDfmDataSetBindingSource.DataSource = this.sIDfmDataSet;
-            this.sIDfmDataSetBindingSource.Position = 0;
-            // 
-            // sIDfmDataSet
-            // 
-            this.sIDfmDataSet.DataSetName = "SIDfmDataSet";
-            this.sIDfmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage1
             // 
@@ -121,22 +127,22 @@
             this.tabPage1.Text = "CSV登録";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
+            // progressBarRegist
             // 
             this.progressBarRegist.Location = new System.Drawing.Point(186, 23);
-            this.progressBarRegist.Name = "progressBar1";
+            this.progressBarRegist.Name = "progressBarRegist";
             this.progressBarRegist.Size = new System.Drawing.Size(665, 35);
             this.progressBarRegist.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBarRegist.TabIndex = 2;
             // 
-            // textBox1
+            // textBoxRegistLog
             // 
             this.textBoxRegistLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRegistLog.Location = new System.Drawing.Point(22, 80);
             this.textBoxRegistLog.Multiline = true;
-            this.textBoxRegistLog.Name = "textBox1";
+            this.textBoxRegistLog.Name = "textBoxRegistLog";
             this.textBoxRegistLog.Size = new System.Drawing.Size(829, 273);
             this.textBoxRegistLog.TabIndex = 1;
             this.textBoxRegistLog.TabStop = false;
@@ -152,29 +158,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // backgroundWorker1
+            // sIDfmDataSet
+            // 
+            this.sIDfmDataSet.DataSetName = "SIDfmDataSet";
+            this.sIDfmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // backgroundWorkerRegist
             // 
             this.backgroundWorkerRegist.WorkerReportsProgress = true;
             this.backgroundWorkerRegist.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
-            // button2
+            // sqLiteCommand1
             // 
-            this.button2.Location = new System.Drawing.Point(22, 23);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 35);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "最新の情報に更新";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.buttonSerch_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(656, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(214, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "最終更新日時：2015/08/05 22:42:28";
+            this.sqLiteCommand1.CommandText = null;
             // 
             // MainForm
             // 
@@ -187,10 +183,9 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,11 +200,11 @@
         private System.Windows.Forms.TextBox textBoxRegistLog;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridViewSearch;
-        private System.Windows.Forms.BindingSource sIDfmDataSetBindingSource;
         private SIDfmContext.SIDfmDataSet sIDfmDataSet;
         private System.ComponentModel.BackgroundWorker backgroundWorkerRegist;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
 
     }
 }
