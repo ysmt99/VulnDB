@@ -68,23 +68,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="db\SIDfm.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfm.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="db\SIDfm.cs">
-      <DependentUpon>SIDfm.tt</DependentUpon>
+      <DependentUpon>VulnDBSQLiteModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="db\SIDfm.Designer.cs">
+    <Compile Include="db\VulnDBSQLiteModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfm.edmx</DependentUpon>
+      <DependentUpon>VulnDBSQLiteModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="db\SIDfm1.cs">
+    <Compile Include="db\VulnDBSQLiteModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfm.tt</DependentUpon>
+      <DependentUpon>VulnDBSQLiteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\VulnDBSQLiteModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VulnDBSQLiteModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -107,22 +107,22 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
-    <EntityDeploy Include="db\SIDfm.edmx">
+    <EntityDeploy Include="db\VulnDBSQLiteModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SIDfm.Designer.cs</LastGenOutput>
+      <LastGenOutput>VulnDBSQLiteModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="db\SIDfm.Context.tt">
+    <None Include="db\VulnDBSQLiteModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfm.edmx</DependentUpon>
-      <LastGenOutput>SIDfm.Context.cs</LastGenOutput>
+      <DependentUpon>VulnDBSQLiteModel.edmx</DependentUpon>
+      <LastGenOutput>VulnDBSQLiteModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="db\SIDfm.edmx.diagram">
-      <DependentUpon>SIDfm.edmx</DependentUpon>
+    <None Include="db\VulnDBSQLiteModel.edmx.diagram">
+      <DependentUpon>VulnDBSQLiteModel.edmx</DependentUpon>
     </None>
-    <None Include="db\SIDfm.tt">
+    <None Include="db\VulnDBSQLiteModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfm.edmx</DependentUpon>
-      <LastGenOutput>SIDfm1.cs</LastGenOutput>
+      <DependentUpon>VulnDBSQLiteModel.edmx</DependentUpon>
+      <LastGenOutput>VulnDBSQLiteModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
