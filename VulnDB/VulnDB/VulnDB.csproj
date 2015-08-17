@@ -29,6 +29,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>561d2d5d</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,21 +63,35 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="SQLite.Designer, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
-    <Reference Include="System.Data.SQLite, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86" />
+    <Reference Include="System.Data.SQLite, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.97.0\lib\net451\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.97.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.97.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
@@ -90,35 +105,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resource.cs">
+      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
+    </Compile>
     <Compile Include="sample\CallOrderSample.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="KeyPair.cs" />
     <Compile Include="MultiDictionary.cs" />
-    <Compile Include="Resource.cs">
-      <DependentUpon>SIDfm.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SIDfm.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfm.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="SIDfm.cs">
-      <DependentUpon>SIDfm.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SIDfm.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfm.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="SIDfm1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfm.tt</DependentUpon>
+      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
     </Compile>
     <Compile Include="SIDfmDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SIDfmSQLite.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfmSQLite.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIDfmSQLite.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIDfmSQLite.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
     </Compile>
     <Compile Include="SIDfmValidator.cs" />
     <Compile Include="SIDfmSearch.cs" />
@@ -160,23 +175,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="SIDfm.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SIDfm.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="SIDfm.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfm.edmx</DependentUpon>
-      <LastGenOutput>SIDfm.Context.cs</LastGenOutput>
-    </None>
-    <None Include="SIDfm.edmx.diagram">
-      <DependentUpon>SIDfm.edmx</DependentUpon>
-    </None>
-    <None Include="SIDfm.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfm.edmx</DependentUpon>
-      <LastGenOutput>SIDfm1.cs</LastGenOutput>
-    </None>
     <None Include="SIDfmDataSet.xsc">
       <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
     </None>
@@ -187,6 +185,23 @@
     </None>
     <None Include="SIDfmDataSet.xss">
       <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="SIDfmSQLite.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SIDfmSQLite.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SIDfmSQLite.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
+      <LastGenOutput>SIDfmSQLite.Context.cs</LastGenOutput>
+    </None>
+    <None Include="SIDfmSQLite.edmx.diagram">
+      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
+    </None>
+    <None Include="SIDfmSQLite.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
+      <LastGenOutput>SIDfmSQLite.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -225,7 +240,17 @@
     </Content>
     <Content Include="仕様.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.97.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.97.0\build\net451\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.97.0\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.97.0\build\net451\System.Data.SQLite.Core.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

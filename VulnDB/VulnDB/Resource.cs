@@ -14,7 +14,7 @@ namespace SIDfmContext
     
     public partial class Resource
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string 対象製品名 { get; set; }
         public string 対象製品見出し名 { get; set; }
         public Nullable<System.DateTime> INSERT_DATE { get; set; }

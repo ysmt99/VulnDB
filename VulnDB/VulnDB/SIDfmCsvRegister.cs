@@ -78,7 +78,7 @@ namespace VulnDB
                     return 実行結果;
                 }
 
-                using (SIDfmEntities en = new SIDfmEntities())
+                using (VulnDBSQLiteEntities3 en = new VulnDBSQLiteEntities3())
                 {
                     readCsvFunc(new Func<string[], bool>(csvFields =>
                     {
@@ -267,8 +267,9 @@ namespace VulnDB
             catch (Exception e)
             {
                 logger.Error(e.ToString());
-                throw;
+          //      throw;
             }
+            return new List<SIDfmView>(); 
         }
 
         // csvレコードは、先頭列が数値の場合を正常なデータ行として識別する
@@ -325,4 +326,16 @@ namespace VulnDB
         public Action<int,int> progressCountUp;
         //public Action<int> progressMax;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }

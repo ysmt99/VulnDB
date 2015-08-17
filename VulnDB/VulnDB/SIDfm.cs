@@ -14,7 +14,7 @@ namespace SIDfmContext
     
     public partial class SIDfm
     {
-        public int SIDfmId { get; set; }
+        public long SIDfmId { get; set; }
         public string タイトル { get; set; }
         public string CVE番号 { get; set; }
         public Nullable<decimal> CVSS基本値 { get; set; }

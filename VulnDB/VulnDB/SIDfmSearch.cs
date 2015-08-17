@@ -16,7 +16,7 @@ namespace VulnDB
         {
             try
             {
-                using (SIDfmEntities en = new SIDfmEntities())
+                using (VulnDBSQLiteEntities3 en = new VulnDBSQLiteEntities3())
                 {
 //                    List<SIDfm> beans =
 //                     (from x in en.SIDfm
@@ -36,8 +36,9 @@ namespace VulnDB
             catch (Exception e)
             {
                 logger.Error(e.ToString());
-                throw;
+               // throw;
             }
+            return  new List<SIDfmView>();
         }
     }
 }
