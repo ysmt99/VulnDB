@@ -269,7 +269,7 @@ namespace VulnDB
                 logger.Error(e.ToString());
           //      throw;
             }
-            return new List<SIDfmView>(); 
+            return new List<string>(); 
         }
 
         // csvレコードは、先頭列が数値の場合を正常なデータ行として識別する
