@@ -1,5 +1,6 @@
 ﻿using log4net;
 using SIDfmContext;
+using SIDfmContext.db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace VulnDB
         {
             try
             {
-                using (VulnDBSQLiteEntities3 en = new VulnDBSQLiteEntities3())
+                using (SIDfmSQLiteEntities en = new SIDfmSQLiteEntities())
                 {
 //                    List<SIDfm> beans =
 //                     (from x in en.SIDfm
@@ -36,9 +37,9 @@ namespace VulnDB
             catch (Exception e)
             {
                 logger.Error(e.ToString());
-               // throw;
+                throw;
             }
-            return  new List<SIDfmView>();
+           // return  new List<SIDfmView>();
         }
     }
 }

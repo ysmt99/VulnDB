@@ -1,6 +1,7 @@
 ﻿using log4net;
 using Microsoft.VisualBasic.FileIO;
 using SIDfmContext;
+using SIDfmContext.db;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -67,7 +68,6 @@ namespace VulnDB
                 logger.Info("＝＝＝＝＝＝＝＝＝＝＝処理開始＝＝＝＝＝＝＝＝＝＝＝");
                 logger.Info(String.Format("ファイル名：{0}", s));
                 取込結果.処理開始日時 = DateTime.Now;
-
                 readCsvFunc(new Func<string[], bool>(values =>
                 {
                     行数++;
@@ -78,7 +78,7 @@ namespace VulnDB
                     return 実行結果;
                 }
 
-                using (VulnDBSQLiteEntities3 en = new VulnDBSQLiteEntities3())
+                using (SIDfmSQLiteEntities en = new SIDfmSQLiteEntities())
                 {
                     readCsvFunc(new Func<string[], bool>(csvFields =>
                     {
@@ -267,9 +267,9 @@ namespace VulnDB
             catch (Exception e)
             {
                 logger.Error(e.ToString());
-          //      throw;
+                throw;
             }
-            return new List<string>(); 
+           // return new List<string>(); 
         }
 
         // csvレコードは、先頭列が数値の場合を正常なデータ行として識別する

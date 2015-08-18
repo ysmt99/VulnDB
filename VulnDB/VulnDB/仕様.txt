@@ -28,6 +28,7 @@ SIDfm.edmx
 		SIDfm1.cs
 
 データセットは不要
+⇒コネクションっぽい？
 xsdは何？
 
 ===== ソフトウェア種類と情報登録日 =====
@@ -77,5 +78,112 @@ CSVValidateError
 	CSV列 <List>
 		ルール＜List＞：エラー＜List＞
 
+===== app.configの中身 =====
+#アプリケーション構成ファイル
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <appSettings>
+        <add key="Application Name" value="MyApplication" />
+        <add key="Application Version" value="1.0.0.0" />
+        <add key="Comment" value="Hoge Hoge" />
+    </appSettings>
+</configuration>
+
+https://msdn.microsoft.com/ja-jp/library/1fk1t1t0(v=vs.110).aspx
+
+https://msdn.microsoft.com/ja-jp/data/jj556606.aspx
+※EF4.3の資料
+
+Entity Framework では、多数の設定を構成ファイルで指定できます。
+通常、EF は「設定より規約」の原則に従います。
+この投稿で説明されているすべての設定には既定の動作があり、
+考慮する必要があるのは、既定の動作では要件を満たさない場合に設定を変更することだけです。
+
+https://msdn.microsoft.com/ja-jp/data/jj614582
+用語集
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+entityFramework セクションは、EntityFramework NuGet パッケージをインストールしたときに、
+プロジェクトの構成ファイルに自動的に追加されています。
+
+<?xml version="1.0" encoding="utf-8"?> 
+<configuration> 
+  <configSections> 
+    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 --> 
+    <section name="entityFramework" 
+       type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" /> 
+  </configSections> 
+</configuration>
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+接続文字列は標準の connectionStrings 要素に含まれ、entityFramework セクションは必要ありません。
+
+Code First ベースのモデルは、通常の ADO.NET 接続文字列を使用します。次に例を示します。
+
+<connectionStrings> 
+  <add name="BlogContext"  
+        providerName="System.Data.SqlClient"  
+        connectionString="Server=.\SQLEXPRESS;Database=Blogging;Integrated Security=True;"/> 
+</connectionStrings>
+EF デザイナー ベースのモデルは、特殊な EF 接続文字列を使用します。次に例を示します。
+
+<connectionStrings> 
+  <add name="BlogContext"  
+        connectionString="metadata=res://*/BloggingModel.csdl| 
+                                   res://*/BloggingModel.ssdl| 
+                                   res://*/BloggingModel.msl; 
+                                           provider=System.Data.SqlClient 
+                                           provider connection string= 
+                                               &quot;data source=(localdb)\v11.0; 
+                                               initial catalog=Blogging; 
+                                               integrated security=True; 
+                                               multipleactiveresultsets=True;&quot;" 
+     providerName="System.Data.EntityClient" /> 
+</connectionStrings>
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+このトピックでは、Entity Framework で使用するデータベース接続がどのように検出されるか、およびその変更方法について説明します。ここでは、Code First で作成されるモデルと、EF デザイナーで作成されるモデルの両方について取り上げます。
+
+通常、Entity Framework アプリケーションでは DbContext から派生したクラスを使用します。この派生クラスは、基本 DbContext クラスのコンストラクターの 1 つを呼び出して、次の動作を制御します。
+
+コンテキストからデータベースへの接続方法 (接続文字列がどのように検出および使用されるか)
+コンテキストで Code First を使用してモデルを計算するのか、それとも EF デザイナーで作成されたモデルを読み込むのか
+その他の高度なオプション
 
 
+アプリケーションで他の構成をまったく行っていない場合は、
+使用するデータベース名を指定して DbContext の文字列コンストラクターを呼び出すと、
+その名前のデータベースへの接続が規約によって作成され、
+その接続を使用して DbContext が Code First モードで実行されます。
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+ファクトリ ベースのクラスをサポートする各 .NET Framework データ プロバイダーは、
+ローカル コンピューターの machine.config ファイルの 
+DbProviderFactories セクションに構成情報を登録します。
+
+<system.data>
+  <DbProviderFactories>
+    <add name="SqlClient Data Provider"
+     invariant="System.Data.SqlClient" 
+     description=".Net Framework Data Provider for SqlServer" 
+     type="System.Data.SqlClient.SqlClientFactory, System.Data, 
+     Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+    />
+  </DbProviderFactories>
+</system.data>
+基になるデータ プロバイダーは invariant 属性によって識別されます。 
+この 3 つの部分から成る命名構文は、
+新しいファクトリを作成するときのほか、
+プロバイダー名とそれに関連付けられた接続文字列を実行時に取得できるようにするために、
+アプリケーションの構成ファイルでプロバイダーを指定するときにも使用されます。
+
+name
+データ プロバイダーの読み取り可能な名前
+description
+データ プロバイダーの読み取り可能な説明
+InvariantName
+プログラムでデータ プロバイダーの参照に使用できる名前
+AssemblyQualifiedName
+オブジェクトをインスタンス化するための十分な情報を保持している、ファクトリ クラスの完全修飾名
+例：System.Data.SqlClient.SqlClientFactory, System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089

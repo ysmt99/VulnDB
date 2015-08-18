@@ -42,14 +42,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorkerRegist = new System.ComponentModel.BackgroundWorker();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
-            this.vulnDBSQLiteDataSet = new SIDfmContext.VulnDBSQLiteDataSet();
-            this.vulnDBSQLiteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sIDfmSQLiteDataSet = new SIDfmContext.SIDfmSQLiteDataSet();
+            this.sIDfmSQLiteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vulnDBSQLiteDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vulnDBSQLiteDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -111,7 +111,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSearch.AutoGenerateColumns = false;
             this.dataGridViewSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSearch.DataSource = this.vulnDBSQLiteDataSetBindingSource;
+            this.dataGridViewSearch.DataSource = this.sIDfmSQLiteDataSetBindingSource;
             this.dataGridViewSearch.Location = new System.Drawing.Point(6, 78);
             this.dataGridViewSearch.Name = "dataGridViewSearch";
             this.dataGridViewSearch.RowTemplate.Height = 21;
@@ -172,15 +172,15 @@
             // 
             this.sqLiteCommand1.CommandText = null;
             // 
-            // vulnDBSQLiteDataSet
+            // sIDfmSQLiteDataSet
             // 
-            this.vulnDBSQLiteDataSet.DataSetName = "VulnDBSQLiteDataSet";
-            this.vulnDBSQLiteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.sIDfmSQLiteDataSet.DataSetName = "SIDfmSQLiteDataSet";
+            this.sIDfmSQLiteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // vulnDBSQLiteDataSetBindingSource
+            // sIDfmSQLiteDataSetBindingSource
             // 
-            this.vulnDBSQLiteDataSetBindingSource.DataSource = this.vulnDBSQLiteDataSet;
-            this.vulnDBSQLiteDataSetBindingSource.Position = 0;
+            this.sIDfmSQLiteDataSetBindingSource.DataSource = this.sIDfmSQLiteDataSet;
+            this.sIDfmSQLiteDataSetBindingSource.Position = 0;
             // 
             // MainForm
             // 
@@ -189,14 +189,15 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "脆弱性／パッチ管理DB";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vulnDBSQLiteDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vulnDBSQLiteDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,8 +216,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
-        private System.Windows.Forms.BindingSource vulnDBSQLiteDataSetBindingSource;
-        private SIDfmContext.VulnDBSQLiteDataSet vulnDBSQLiteDataSet;
+        private System.Windows.Forms.BindingSource sIDfmSQLiteDataSetBindingSource;
+        private SIDfmContext.SIDfmSQLiteDataSet sIDfmSQLiteDataSet;
 
     }
 }

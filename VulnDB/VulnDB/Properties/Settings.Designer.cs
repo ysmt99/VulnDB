@@ -43,5 +43,15 @@ namespace SIDfmContext.Properties {
                 return ((string)(this["VulnDBSQLiteConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\13_git\\VulnDB\\VulnDB\\db\\SIDfmSQLite.db")]
+        public string SIDfmSQLiteConnectionString {
+            get {
+                return ((string)(this["SIDfmSQLiteConnectionString"]));
+            }
+        }
     }
 }

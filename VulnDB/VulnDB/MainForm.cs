@@ -74,5 +74,10 @@ namespace VulnDB
         {
             this.dataGridViewSearch.DataSource = SIDfmSearch.search();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

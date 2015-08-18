@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SIDfmContext</RootNamespace>
     <AssemblyName>SIDfmApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <NuGetPackageImportStamp>561d2d5d</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>522b0306</NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -40,6 +41,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,6 +51,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>C2AEED3BE9B74FC96D29A729A3A7588EFA3DDB6B</ManifestCertificateThumbprint>
@@ -75,21 +78,20 @@
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="SQLite.Designer, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.SQLite, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Core.1.0.97.0\lib\net451\System.Data.SQLite.dll</HintPath>
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.97.0\lib\net45\System.Data.SQLite.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SQLite.EF6, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.97.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.97.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SQLite.Linq, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.97.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.97.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
@@ -105,30 +107,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Resource.cs">
+    <Compile Include="db\Resource.cs">
       <DependentUpon>SIDfmSQLite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\SIDfm.cs">
+      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\SIDfmSQLite.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfmSQLite.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\SIDfmSQLite.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\SIDfmSQLite.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="db\SIDfmSQLiteDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="sample\CallOrderSample.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="KeyPair.cs" />
     <Compile Include="MultiDictionary.cs" />
-    <Compile Include="SIDfm.cs">
-      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SIDfmSQLite.Context.cs">
+    <Compile Include="SIDfmSQLiteDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmSQLite.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SIDfmSQLite.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SIDfmSQLite.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
+      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SIDfmValidator.cs" />
     <Compile Include="SIDfmSearch.cs" />
@@ -145,11 +157,6 @@
     <Compile Include="Util.cs" />
     <Compile Include="ErrorsByForm.cs" />
     <Compile Include="view\SIDfmView.cs" />
-    <Compile Include="VulnDBSQLiteDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>VulnDBSQLiteDataSet.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +170,35 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="db\SIDfmSQLite.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
+      <LastGenOutput>SIDfmSQLite.Context.cs</LastGenOutput>
+    </None>
+    <None Include="db\SIDfmSQLite.db" />
+    <EntityDeploy Include="db\SIDfmSQLite.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SIDfmSQLite.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="db\SIDfmSQLite.edmx.diagram">
+      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
+    </None>
+    <None Include="db\SIDfmSQLite.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
+      <LastGenOutput>SIDfmSQLite.cs</LastGenOutput>
+    </None>
+    <None Include="db\SIDfmSQLiteDataSet.xsc">
+      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db\SIDfmSQLiteDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SIDfmSQLiteDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="db\SIDfmSQLiteDataSet.xss">
+      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SIDfmContext.view.SIDfmView.datasource" />
     <None Include="Properties\DataSources\VulnDB.SIDfmView.datasource" />
@@ -175,33 +211,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="SIDfmSQLite.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SIDfmSQLite.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="SIDfmSQLite.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
-      <LastGenOutput>SIDfmSQLite.Context.cs</LastGenOutput>
+    <None Include="SIDfmSQLiteDataSet.xsc">
+      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
     </None>
-    <None Include="SIDfmSQLite.edmx.diagram">
-      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
-    </None>
-    <None Include="SIDfmSQLite.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
-      <LastGenOutput>SIDfmSQLite.cs</LastGenOutput>
-    </None>
-    <None Include="VulnDBSQLiteDataSet.xsc">
-      <DependentUpon>VulnDBSQLiteDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="VulnDBSQLiteDataSet.xsd">
+    <None Include="SIDfmSQLiteDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>VulnDBSQLiteDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>SIDfmSQLiteDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="VulnDBSQLiteDataSet.xss">
-      <DependentUpon>VulnDBSQLiteDataSet.xsd</DependentUpon>
+    <None Include="SIDfmSQLiteDataSet.xss">
+      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -239,16 +258,14 @@
     </Content>
     <Content Include="仕様.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\System.Data.SQLite.Core.1.0.97.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.97.0\build\net451\System.Data.SQLite.Core.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.97.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.97.0\build\net45\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.97.0\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.97.0\build\net451\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.97.0\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.97.0\build\net45\System.Data.SQLite.Core.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
