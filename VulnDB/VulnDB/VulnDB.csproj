@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>561d2d5d</NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,7 +30,6 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>561d2d5d</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -115,11 +115,6 @@
     <Compile Include="SIDfm.cs">
       <DependentUpon>SIDfmSQLite.tt</DependentUpon>
     </Compile>
-    <Compile Include="SIDfmDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SIDfmSQLite.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,6 +145,11 @@
     <Compile Include="Util.cs" />
     <Compile Include="ErrorsByForm.cs" />
     <Compile Include="view\SIDfmView.cs" />
+    <Compile Include="VulnDBSQLiteDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VulnDBSQLiteDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,17 +175,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SIDfmDataSet.xsc">
-      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SIDfmDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SIDfmDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SIDfmDataSet.xss">
-      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
-    </None>
     <EntityDeploy Include="SIDfmSQLite.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SIDfmSQLite.Designer.cs</LastGenOutput>
@@ -202,6 +191,17 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
       <LastGenOutput>SIDfmSQLite.cs</LastGenOutput>
+    </None>
+    <None Include="VulnDBSQLiteDataSet.xsc">
+      <DependentUpon>VulnDBSQLiteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="VulnDBSQLiteDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VulnDBSQLiteDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VulnDBSQLiteDataSet.xss">
+      <DependentUpon>VulnDBSQLiteDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -235,7 +235,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SIDfm_log.ldf">
-      <DependentUpon>SIDfm.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="仕様.txt" />

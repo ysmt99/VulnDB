@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -39,14 +40,16 @@
             this.progressBarRegist = new System.Windows.Forms.ProgressBar();
             this.textBoxRegistLog = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.sIDfmDataSet = new SIDfmContext.SIDfmDataSet();
             this.backgroundWorkerRegist = new System.ComponentModel.BackgroundWorker();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
+            this.vulnDBSQLiteDataSet = new SIDfmContext.VulnDBSQLiteDataSet();
+            this.vulnDBSQLiteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vulnDBSQLiteDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vulnDBSQLiteDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -106,7 +109,9 @@
             this.dataGridViewSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewSearch.AutoGenerateColumns = false;
             this.dataGridViewSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSearch.DataSource = this.vulnDBSQLiteDataSetBindingSource;
             this.dataGridViewSearch.Location = new System.Drawing.Point(6, 78);
             this.dataGridViewSearch.Name = "dataGridViewSearch";
             this.dataGridViewSearch.RowTemplate.Height = 21;
@@ -158,11 +163,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // sIDfmDataSet
-            // 
-            this.sIDfmDataSet.DataSetName = "SIDfmDataSet";
-            this.sIDfmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // backgroundWorkerRegist
             // 
             this.backgroundWorkerRegist.WorkerReportsProgress = true;
@@ -171,6 +171,16 @@
             // sqLiteCommand1
             // 
             this.sqLiteCommand1.CommandText = null;
+            // 
+            // vulnDBSQLiteDataSet
+            // 
+            this.vulnDBSQLiteDataSet.DataSetName = "VulnDBSQLiteDataSet";
+            this.vulnDBSQLiteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vulnDBSQLiteDataSetBindingSource
+            // 
+            this.vulnDBSQLiteDataSetBindingSource.DataSource = this.vulnDBSQLiteDataSet;
+            this.vulnDBSQLiteDataSetBindingSource.Position = 0;
             // 
             // MainForm
             // 
@@ -185,7 +195,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vulnDBSQLiteDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vulnDBSQLiteDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,11 +211,12 @@
         private System.Windows.Forms.TextBox textBoxRegistLog;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridViewSearch;
-        private SIDfmContext.SIDfmDataSet sIDfmDataSet;
         private System.ComponentModel.BackgroundWorker backgroundWorkerRegist;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
+        private System.Windows.Forms.BindingSource vulnDBSQLiteDataSetBindingSource;
+        private SIDfmContext.VulnDBSQLiteDataSet vulnDBSQLiteDataSet;
 
     }
 }

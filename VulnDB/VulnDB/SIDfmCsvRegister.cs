@@ -324,7 +324,6 @@ namespace VulnDB
             }
         }
         public Action<int,int> progressCountUp;
-        //public Action<int> progressMax;
     }
 
 
