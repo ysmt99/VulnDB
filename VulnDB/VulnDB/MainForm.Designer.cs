@@ -36,19 +36,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewSearch = new System.Windows.Forms.DataGridView();
+            this.sIDfmSQLiteDataSet = new SIDfmContext.db.SIDfmSQLiteDataSet();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.progressBarRegist = new System.Windows.Forms.ProgressBar();
             this.textBoxRegistLog = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.sIDfmSQLiteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.backgroundWorkerRegist = new System.ComponentModel.BackgroundWorker();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
-            this.sIDfmSQLiteDataSet = new SIDfmContext.SIDfmSQLiteDataSet();
-            this.sIDfmSQLiteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
-            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSet)).BeginInit();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,12 +111,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSearch.AutoGenerateColumns = false;
             this.dataGridViewSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSearch.DataSource = this.sIDfmSQLiteDataSetBindingSource;
+            this.dataGridViewSearch.DataSource = this.sIDfmSQLiteDataSet;
             this.dataGridViewSearch.Location = new System.Drawing.Point(6, 78);
             this.dataGridViewSearch.Name = "dataGridViewSearch";
             this.dataGridViewSearch.RowTemplate.Height = 21;
             this.dataGridViewSearch.Size = new System.Drawing.Size(864, 285);
             this.dataGridViewSearch.TabIndex = 0;
+            // 
+            // sIDfmSQLiteDataSet
+            // 
+            this.sIDfmSQLiteDataSet.DataSetName = "SIDfmSQLiteDataSet";
+            this.sIDfmSQLiteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage1
             // 
@@ -163,6 +168,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // sIDfmSQLiteDataSetBindingSource
+            // 
+            this.sIDfmSQLiteDataSetBindingSource.DataSource = this.sIDfmSQLiteDataSet;
+            this.sIDfmSQLiteDataSetBindingSource.Position = 0;
+            // 
             // backgroundWorkerRegist
             // 
             this.backgroundWorkerRegist.WorkerReportsProgress = true;
@@ -171,16 +181,6 @@
             // sqLiteCommand1
             // 
             this.sqLiteCommand1.CommandText = null;
-            // 
-            // sIDfmSQLiteDataSet
-            // 
-            this.sIDfmSQLiteDataSet.DataSetName = "SIDfmSQLiteDataSet";
-            this.sIDfmSQLiteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // sIDfmSQLiteDataSetBindingSource
-            // 
-            this.sIDfmSQLiteDataSetBindingSource.DataSource = this.sIDfmSQLiteDataSet;
-            this.sIDfmSQLiteDataSetBindingSource.Position = 0;
             // 
             // MainForm
             // 
@@ -194,9 +194,9 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSet)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -217,7 +217,7 @@
         private System.Windows.Forms.Button button2;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
         private System.Windows.Forms.BindingSource sIDfmSQLiteDataSetBindingSource;
-        private SIDfmContext.SIDfmSQLiteDataSet sIDfmSQLiteDataSet;
+        private SIDfmContext.db.SIDfmSQLiteDataSet sIDfmSQLiteDataSet;
 
     }
 }

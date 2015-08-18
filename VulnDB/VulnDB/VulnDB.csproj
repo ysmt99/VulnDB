@@ -137,11 +137,6 @@
     <Compile Include="Const.cs" />
     <Compile Include="KeyPair.cs" />
     <Compile Include="MultiDictionary.cs" />
-    <Compile Include="SIDfmSQLiteDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SIDfmValidator.cs" />
     <Compile Include="SIDfmSearch.cs" />
     <Compile Include="MainForm.cs">
@@ -211,17 +206,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="SIDfmSQLiteDataSet.xsc">
-      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SIDfmSQLiteDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SIDfmSQLiteDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SIDfmSQLiteDataSet.xss">
-      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
