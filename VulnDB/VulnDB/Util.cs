@@ -124,7 +124,7 @@ namespace Tools
         }
         public static string DateToStr(DateTime d)
         {
-            return (d != null ? d.ToString("yyyy/mm/dd") : "");
+            return (d != null ? d.ToString("yyyy/MM/dd") : "");
         }
     }
 }

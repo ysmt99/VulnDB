@@ -76,5 +76,9 @@ namespace VulnDB
         {
             必須, 整数, 数値_小数点あり, 日付, スイッチ_0か1
         }
+        public enum アクション種類
+        {
+            起動, CSV登録, SIDfm一覧表示
+        }
     }
 }

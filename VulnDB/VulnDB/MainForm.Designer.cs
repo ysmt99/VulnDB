@@ -109,11 +109,12 @@
             this.dataGridViewSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewSearch.AutoGenerateColumns = false;
+            this.dataGridViewSearch.AutoGenerateColumns = true;
             this.dataGridViewSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSearch.DataSource = this.sIDfmSQLiteDataSet;
             this.dataGridViewSearch.Location = new System.Drawing.Point(6, 78);
             this.dataGridViewSearch.Name = "dataGridViewSearch";
+            this.dataGridViewSearch.ReadOnly = true;
             this.dataGridViewSearch.RowTemplate.Height = 21;
             this.dataGridViewSearch.Size = new System.Drawing.Size(864, 285);
             this.dataGridViewSearch.TabIndex = 0;
