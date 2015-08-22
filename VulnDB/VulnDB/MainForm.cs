@@ -1,14 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.IO;
+﻿using log4net;
 using System;
-using log4net;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace VulnDB
 {
@@ -22,6 +16,8 @@ namespace VulnDB
             // 連続してCSVファイルを読むとエラー。ログに出ない。。
             backgroundWorkerRegist.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
             backgroundWorkerRegist.ProgressChanged += backgroundWorker1_ProgressChanged;
+            ///脆弱性一覧のDataGridViewの並び替えデリゲータ登録
+            dataGridViewSearch.ColumnHeaderMouseClick +=  new DataGridViewCellMouseEventHandler(dataGridViewSearch_ColumnHeaderMouseClick);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -75,16 +71,80 @@ namespace VulnDB
             try
             {
                 this.dataGridViewSearch.DataSource = SIDfmSearch.search();
+                foreach(DataGridViewColumn col in dataGridViewSearch.Columns)
+                    col.SortMode = DataGridViewColumnSortMode.Programmatic;
             }
-            catch
+            catch(Exception ex)
             {
+                logger.Error(ex.ToString());
                 MessageBox.Show("エラーが発生しました。詳細はログファイルを確認してください。", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
+        #region 脆弱性一覧のDataGridViewの並び替え
+        ///脆弱性一覧のDataGridViewの並び替え
+        ///以下のURLを参考にして実装追加
+        ///http://dobon.net/vb/dotnet/datagridview/autosort.html
+        ///
 
+        /// <summary>
+        /// 脆弱性一覧のDataGridViewの並び替えデリゲータ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void dataGridViewSearch_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewColumn clickedColumn = dataGridViewSearch.Columns[e.ColumnIndex];
+            if (clickedColumn.SortMode != DataGridViewColumnSortMode.Automatic)
+                this.SortRows(clickedColumn, true);
         }
+
+        /// <summary>
+        /// 指定された列を基準にして並び替えを行う
+        /// </summary>
+        /// <param name="sortColumn">基準にする列</param>
+        /// <param name="orderToggle">並び替えの方向をトグルで変更する</param>
+        private void SortRows(DataGridViewColumn sortColumn, bool orderToggle)
+        {
+            if (sortColumn == null)
+                return;
+
+            //今までの並び替えグリフを消す
+            if (sortColumn.SortMode == DataGridViewColumnSortMode.Programmatic &&
+                dataGridViewSearch.SortedColumn != null &&
+                !dataGridViewSearch.SortedColumn.Equals(sortColumn))
+            {
+                dataGridViewSearch.SortedColumn.HeaderCell.SortGlyphDirection =
+                    SortOrder.None;
+            }
+
+            //並び替えの方向（昇順か降順か）を決める
+            ListSortDirection sortDirection;
+            if (orderToggle)
+            {
+                sortDirection =
+                    dataGridViewSearch.SortOrder == SortOrder.Descending ?
+                    ListSortDirection.Ascending : ListSortDirection.Descending;
+            }
+            else
+            {
+                sortDirection =
+                    dataGridViewSearch.SortOrder == SortOrder.Descending ?
+                    ListSortDirection.Descending : ListSortDirection.Ascending;
+            }
+            SortOrder sortOrder =
+                sortDirection == ListSortDirection.Ascending ?
+                SortOrder.Ascending : SortOrder.Descending;
+
+            //並び替えを行う
+            dataGridViewSearch.Sort(sortColumn, sortDirection);
+
+            if (sortColumn.SortMode == DataGridViewColumnSortMode.Programmatic)
+            {
+                //並び替えグリフを変更
+                sortColumn.HeaderCell.SortGlyphDirection = sortOrder;
+            }
+        }
+        #endregion 脆弱性一覧のDataGridViewの並び替え
     }
 }
