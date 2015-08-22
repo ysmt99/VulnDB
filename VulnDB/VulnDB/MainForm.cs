@@ -72,7 +72,14 @@ namespace VulnDB
         }
         private void buttonSerch_Click(object sender, EventArgs e)
         {
-            this.dataGridViewSearch.DataSource = SIDfmSearch.search();
+            try
+            {
+                this.dataGridViewSearch.DataSource = SIDfmSearch.search();
+            }
+            catch
+            {
+                MessageBox.Show("エラーが発生しました。詳細はログファイルを確認してください。", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)

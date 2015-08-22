@@ -3,8 +3,10 @@ using SIDfmContext;
 using SIDfmContext.db;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace VulnDB
@@ -19,6 +21,18 @@ namespace VulnDB
             {
                 using (SIDfmSQLiteEntities en = new SIDfmSQLiteEntities())
                 {
+                    var connectionString = en.Database.Connection.ConnectionString;
+                    var matchCollection = Regex.Matches(connectionString, "source=(?<value>.*)", RegexOptions.IgnoreCase);
+                    if (matchCollection.Count > 0)
+                    {
+                        foreach (Match match in matchCollection)
+                        {
+                            var fileName = match.Groups["value"].Value;
+                            if (!File.Exists(fileName))
+                                throw new ArgumentException("DBファイルが存在しません：" + fileName);
+                            break;
+                        }
+                    }
 //                    List<SIDfm> beans =
 //                     (from x in en.SIDfm
 //                      orderby x.情報登録日 descending, x.SIDfmId, x.CVE番号
