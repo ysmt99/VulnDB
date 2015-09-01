@@ -170,11 +170,11 @@ namespace VulnDB
             }
             set { ;}
         }
-        public string 情報登録日
+        public DateTime 情報登録日
         {
             get
             {
-                return Util.DateToStr(bean.情報登録日.GetValueOrDefault());
+                return bean.情報登録日.GetValueOrDefault();
             }
             set { ;}
         }

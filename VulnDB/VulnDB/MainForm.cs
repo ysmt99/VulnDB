@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using System.Windows.Forms;
 
 namespace VulnDB
@@ -70,7 +71,8 @@ namespace VulnDB
         {
             try
             {
-                this.dataGridViewSearch.DataSource = SIDfmSearch.search();
+                this.sIDfmSQLiteDataSetBindingSource.DataSource = SIDfmSearch.search();
+                this.sIDfmSQLiteDataSetBindingSource.RemoveFilter();
                 foreach(DataGridViewColumn col in dataGridViewSearch.Columns)
                     col.SortMode = DataGridViewColumnSortMode.Programmatic;
             }
@@ -144,7 +146,35 @@ namespace VulnDB
                 //並び替えグリフを変更
                 sortColumn.HeaderCell.SortGlyphDirection = sortOrder;
             }
+
         }
         #endregion 脆弱性一覧のDataGridViewの並び替え
+
+        private void Filter()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (checkBoxFilter情報登録日検索開始日.Checked == true)
+                sb.AppendLine(" AND 情報登録日 >= '" + dateTimePicker1.Value.ToString("yyyy/MM/dd") + "'");
+            if (checkBoxFilter情報登録日検索終了日.Checked == true)
+                sb.AppendLine(" AND 情報登録日 <= '" + dateTimePicker2.Value.ToString("yyyy/MM/dd") + "'");
+            if (!string.IsNullOrEmpty(textBoxFilter登録製品名.Text))
+                sb.AppendLine(" AND 対象製品名 = '" + textBoxFilter登録製品名.Text + "'");
+
+            if (sb.Length > 4)
+                sIDfmSQLiteDataSetBindingSource.Filter = sb.ToString(4, sb.Length - 4);
+        }
+
+        private void checkBoxFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxFilter.Checked)
+            {
+                Filter();
+            }
+            else
+            {
+                sIDfmSQLiteDataSetBindingSource.RemoveFilter();
+            }
+        }
+
     }
 }
