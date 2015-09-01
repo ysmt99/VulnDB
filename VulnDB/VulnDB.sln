@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VulnDB", "VulnDB\VulnDB.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VulnDBSQLite", "VulnDBSQLite\VulnDBSQLite.csproj", "{058BCF23-81B1-4F07-8BF9-0171F0A0F0BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMDB", "CMDB\CMDB.csproj", "{4742CF5C-FF95-40DA-8579-26D534F794F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{058BCF23-81B1-4F07-8BF9-0171F0A0F0BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058BCF23-81B1-4F07-8BF9-0171F0A0F0BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058BCF23-81B1-4F07-8BF9-0171F0A0F0BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4742CF5C-FF95-40DA-8579-26D534F794F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4742CF5C-FF95-40DA-8579-26D534F794F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4742CF5C-FF95-40DA-8579-26D534F794F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4742CF5C-FF95-40DA-8579-26D534F794F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
