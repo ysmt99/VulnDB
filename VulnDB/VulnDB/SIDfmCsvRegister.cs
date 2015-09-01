@@ -1,17 +1,12 @@
 ﻿using log4net;
 using Microsoft.VisualBasic.FileIO;
-using SIDfmContext;
 using SIDfmContext.db;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Tools;
 using CSV列 = VulnDB.Const.CSV列;
-using 入力規則 = VulnDB.Const.入力規則;
 
 namespace VulnDB
 {
@@ -244,11 +239,18 @@ namespace VulnDB
                         }
                         return true;
                     }));
+
+                    取込結果.処理終了日時 = DateTime.Now;
+                    ActionLog actionLog = new ActionLog();
+                    actionLog.アクション = 1;
+                    actionLog.処理開始日時 = 取込結果.処理開始日時;
+                    actionLog.処理終了日時 = 取込結果.処理終了日時;
+                    en.ActionLog.Add(actionLog);
+
                     //登録処理を実行。1件ずつCommitしないことで実行速度をあげる
                     en.SaveChanges();
                 }
 
-                取込結果.処理終了日時 = DateTime.Now;
                 実行結果.Add("＝＝＝＝＝＝＝＝＝＝＝処理結果＝＝＝＝＝＝＝＝＝＝＝");
                 実行結果.Add(
                     String.Format("処理時間：{0} ({1}～{2})",

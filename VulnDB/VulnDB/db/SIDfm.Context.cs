@@ -25,6 +25,8 @@ namespace SIDfmContext.db
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ActionItems> ActionItems { get; set; }
+        public virtual DbSet<ActionLog> ActionLog { get; set; }
         public virtual DbSet<Resource> Resource { get; set; }
         public virtual DbSet<SIDfm> SIDfm { get; set; }
     }

@@ -70,6 +70,8 @@ namespace VulnDB
             ErrorOfForm errorOfForm = new ErrorOfForm();
             foreach (CSV列 c in ValidateParams.param.Keys.ToList())
             {
+                // TODO この修正はないなぁ。。。
+                if ((int)c >= form.values.Count()) { break; }
                 errorOfForm.addError(c, new SIDfmColumnValidator(c, form.values[c]).validate());
             }
             return errorOfForm;

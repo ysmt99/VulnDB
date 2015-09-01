@@ -107,36 +107,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionLogger.cs" />
+    <Compile Include="db\ActionItems.cs">
+      <DependentUpon>SIDfm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\ActionLog.cs">
+      <DependentUpon>SIDfm.tt</DependentUpon>
+    </Compile>
     <Compile Include="db\Resource.cs">
-      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
+      <DependentUpon>SIDfm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\SIDfm.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfm.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="db\SIDfm.cs">
-      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
+      <DependentUpon>SIDfm.tt</DependentUpon>
     </Compile>
-    <Compile Include="db\SIDfmSQLite.Context.cs">
+    <Compile Include="db\SIDfm.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmSQLite.Context.tt</DependentUpon>
+      <DependentUpon>SIDfm.edmx</DependentUpon>
     </Compile>
-    <Compile Include="db\SIDfmSQLite.cs">
+    <Compile Include="db\SIDfm1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmSQLite.tt</DependentUpon>
-    </Compile>
-    <Compile Include="db\SIDfmSQLite.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="db\SIDfmSQLiteDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
+      <DependentUpon>SIDfm.tt</DependentUpon>
     </Compile>
     <Compile Include="sample\CallOrderSample.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="KeyPair.cs" />
     <Compile Include="MultiDictionary.cs" />
+    <Compile Include="db\SIDfmDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SIDfmValidator.cs" />
     <Compile Include="SIDfmSearch.cs" />
     <Compile Include="MainForm.cs">
@@ -165,35 +172,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="db\SIDfmSQLite.Context.tt">
+    <None Include="cmdb\cmdb.db" />
+    <EntityDeploy Include="db\SIDfm.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SIDfm.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="db\SIDfm.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
-      <LastGenOutput>SIDfmSQLite.Context.cs</LastGenOutput>
+      <DependentUpon>SIDfm.edmx</DependentUpon>
+      <LastGenOutput>SIDfm.Context.cs</LastGenOutput>
+    </None>
+    <None Include="db\SIDfm.edmx.diagram">
+      <DependentUpon>SIDfm.edmx</DependentUpon>
+    </None>
+    <None Include="db\SIDfm.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SIDfm.edmx</DependentUpon>
+      <LastGenOutput>SIDfm1.cs</LastGenOutput>
     </None>
     <None Include="db\SIDfmSQLite.db" />
-    <EntityDeploy Include="db\SIDfmSQLite.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SIDfmSQLite.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="db\SIDfmSQLite.edmx.diagram">
-      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
-    </None>
-    <None Include="db\SIDfmSQLite.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfmSQLite.edmx</DependentUpon>
-      <LastGenOutput>SIDfmSQLite.cs</LastGenOutput>
-    </None>
-    <None Include="db\SIDfmSQLiteDataSet.xsc">
-      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="db\SIDfmSQLiteDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SIDfmSQLiteDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="db\SIDfmSQLiteDataSet.xss">
-      <DependentUpon>SIDfmSQLiteDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SIDfmContext.view.SIDfmView.datasource" />
     <None Include="Properties\DataSources\VulnDB.SIDfmView.datasource" />
@@ -206,6 +203,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="db\SIDfmDataSet.xsc">
+      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db\SIDfmDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SIDfmDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db\SIDfmDataSet.xss">
+      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

@@ -5,11 +5,31 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="SIDfmSQLiteModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\13_git\VulnDB\VulnDB\db\SIDfmSQLite.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActionItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionLogId" Type="integer" Nullable="false" />
+          <Property Name="key" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="INSERT_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActionLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="アクション" Type="integer" Nullable="false" />
+          <Property Name="処理開始日時" Type="datetime" Nullable="false" />
+          <Property Name="処理終了日時" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Resource">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="integer" Nullable="false" />
+          <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="対象製品名" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="対象製品見出し名" Type="nvarchar" MaxLength="2147483647" />
           <Property Name="INSERT_DATE" Type="datetime" />
@@ -38,6 +58,8 @@
           <Property Name="UPDATE_DATE" Type="datetime" />
         </EntityType>
         <EntityContainer Name="SIDfmSQLiteModelStoreContainer">
+          <EntitySet Name="ActionItems" EntityType="Self.ActionItems" store:Type="Tables" />
+          <EntitySet Name="ActionLog" EntityType="Self.ActionLog" store:Type="Tables" />
           <EntitySet Name="Resource" EntityType="Self.Resource" store:Type="Tables" />
           <EntitySet Name="SIDfm" EntityType="Self.SIDfm" store:Type="Tables" />
         </EntityContainer>
@@ -46,11 +68,31 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SIDfmSQLiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActionItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionLogId" Type="Int64" Nullable="false" />
+          <Property Name="key" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="INSERT_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActionLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="アクション" Type="Int64" Nullable="false" />
+          <Property Name="処理開始日時" Type="DateTime" Nullable="false" />
+          <Property Name="処理終了日時" Type="DateTime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Resource">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="対象製品名" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="対象製品見出し名" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="INSERT_DATE" Type="DateTime" />
@@ -79,6 +121,8 @@
           <Property Name="UPDATE_DATE" Type="DateTime" />
         </EntityType>
         <EntityContainer Name="SIDfmSQLiteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActionItems" EntityType="Self.ActionItems" />
+          <EntitySet Name="ActionLog" EntityType="Self.ActionLog" />
           <EntitySet Name="Resource" EntityType="Self.Resource" />
           <EntitySet Name="SIDfm" EntityType="Self.SIDfm" />
         </EntityContainer>
@@ -88,6 +132,28 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SIDfmSQLiteModelStoreContainer" CdmEntityContainer="SIDfmSQLiteEntities">
+          <EntitySetMapping Name="ActionItems">
+            <EntityTypeMapping TypeName="SIDfmSQLiteModel.ActionItems">
+              <MappingFragment StoreEntitySet="ActionItems">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActionLogId" ColumnName="ActionLogId" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActionLog">
+            <EntityTypeMapping TypeName="SIDfmSQLiteModel.ActionLog">
+              <MappingFragment StoreEntitySet="ActionLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="アクション" ColumnName="アクション" />
+                <ScalarProperty Name="処理開始日時" ColumnName="処理開始日時" />
+                <ScalarProperty Name="処理終了日時" ColumnName="処理終了日時" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Resource">
             <EntityTypeMapping TypeName="SIDfmSQLiteModel.Resource">
               <MappingFragment StoreEntitySet="Resource">
