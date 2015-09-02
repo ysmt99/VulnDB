@@ -1,4 +1,5 @@
-﻿using SIDfmContext.db;
+﻿using SIDfmContext;
+using SIDfmContext.db;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace VulnDB
 {
-    class SIDfmSearch
+    class SIDfmVulnSearch
     {
         internal static DataTable search()
         {
@@ -29,11 +30,11 @@ namespace VulnDB
                     }
                 }
 
-                var beans = en.SIDfm.OrderBy(x => x.CVE番号).OrderBy(x => x.SIDfmId).OrderByDescending(x => x.情報登録日);
+                var beans = en.SIDfmVuln.OrderBy(x => x.CVE番号).OrderBy(x => x.SIDfmVulnId).OrderByDescending(x => x.情報登録日);
 
 
                 var tbl = new DataTable();
-                var t = typeof(SIDfmView);
+                var t = typeof(SIDfmVulnView);
                 var proplist = t.GetProperties();
                 foreach (var prop in proplist)
                 {
@@ -43,7 +44,7 @@ namespace VulnDB
                 foreach (var o in beans)
                 {
                     var row = tbl.NewRow();
-                    SIDfmView view = new SIDfmView(o);
+                    SIDfmVulnView view = new SIDfmVulnView(o);
                     foreach (var prop in proplist)
                         row[prop.Name] = prop.GetValue(view);
 

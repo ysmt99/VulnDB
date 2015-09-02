@@ -14,7 +14,7 @@ namespace VulnDB
     /// csvを読む
     /// dbに保存する
     /// </summary>
-    class SIDfmCsvRegister
+    class SIDfmVulnCsvRegister
     {
         struct 取込結果
         {
@@ -77,11 +77,11 @@ namespace VulnDB
                 {
                     readCsvFunc(new Func<string[], bool>(csvFields =>
                     {
-                        SIDfm obj;          // 現在のオブジェクト
-                        SIDfm objBefore;    // 変更前のオブジェクト
-                        SIDfmForm form;     // カンマ区切りのデータをセットしたform
+                        SIDfmVuln obj;          // 現在のオブジェクト
+                        SIDfmVuln objBefore;    // 変更前のオブジェクト
+                        SIDfmVulnForm form;     // カンマ区切りのデータをセットしたform
 
-                        int SIDfmId;
+                        int SIDfmVulnId;
                         string CVE番号;
 
                         progressCountUp(1, 行数);
@@ -100,12 +100,12 @@ namespace VulnDB
                                 // 表示用の短縮名をセット。登録されていなかったらCSVの名称をセット。
                                 // 通常はリソースマスタに未登録の製品名が来ることはないが、
                                 // ・脆弱性情報の収集対象を変更するために、フィルタの追加削除を行った場合
-                                // ・SIDfm側の仕様変更
+                                // ・SIDfmVuln側の仕様変更
                                 // などの理由で来る場合があるかも。
                                 string name = csvFields[i];
-                                対象製品名[i] = en.Resource
+                                対象製品名[i] = en.SIDfmSoftware
                                     .Where(x => x.対象製品名 == name) 
-                                    .Select( x=>x.対象製品見出し名)
+                                    .Select( x=>x.対象製品短縮名)
                                     .FirstOrDefault() ?? name;
                             }
                         }
@@ -114,7 +114,7 @@ namespace VulnDB
                         {
                             取込結果.商品件数++;
                             // フォームの中で必須条件と書式のチェックを行う
-                            form = new SIDfmForm(csvFields);
+                            form = new SIDfmVulnForm(csvFields);
                             // 1行分の内容をチェック
                             errorOfLine = form.validate(取込結果.csv行番号);
                             // この行にエラーがあったらこの行を飛ばして次に移動
@@ -125,23 +125,23 @@ namespace VulnDB
                                 return true;
                             }
 
-                            SIDfmId = Int32.Parse(csvFields[(int)CSV列.SIDfmId]);
+                            SIDfmVulnId = Int32.Parse(csvFields[(int)CSV列.SIDfmVulnId]);
                             CVE番号 = csvFields[(int)CSV列.CVE番号];
                             // データ行なら処理を継続
-                            // SIDfmId＋CVE番号が一意キーなので、同じデータが登録済の場合は上書きする。
+                            // SIDfmVulnId＋CVE番号が一意キーなので、同じデータが登録済の場合は上書きする。
                             // データがあったら更新
                             // データが無ければ新規作成
-                            var rowdata = en.SIDfm.Where(x => x.SIDfmId == SIDfmId && x.CVE番号 == CVE番号);
+                            var rowdata = en.SIDfmVuln.Where(x => x.SIDfmVulnId == SIDfmVulnId && x.CVE番号 == CVE番号);
 
                             // データが0件⇒新規
                             if (rowdata.Count() == 0)
                             {
-                                obj = new SIDfm();
-                                // SIDfmIdとCVE番号はキー項目なので新規の場合のみセットする
-                                obj.SIDfmId = SIDfmId;
+                                obj = new SIDfmVuln();
+                                // SIDfmVulnIdとCVE番号はキー項目なので新規の場合のみセットする
+                                obj.SIDfmVulnId = SIDfmVulnId;
                                 obj.CVE番号 = CVE番号;
                                 obj.INSERT_DATE = DateTime.Now;
-                                en.SIDfm.Add(obj);
+                                en.SIDfmVuln.Add(obj);
 
                                 取込結果.登録件数_新規++;
                             }
@@ -296,11 +296,11 @@ namespace VulnDB
             i3 = Int32.TryParse(v2, out r) ? Int32.Parse(v3) * 100 : 0;
             return i1 + i2 + i3;
         }
-        bool isChange(SIDfm before, SIDfm after)
+        bool isChange(SIDfmVuln before, SIDfmVuln after)
         {
             // 更新時の項目だけを確認するので、
             // IDやINSERT_DATEは対象外
-            // obj.SIDfmId = SIDfmId;
+            // obj.SIDfmVulnId = SIDfmVulnId;
             // obj.CVE番号 = CVE番号;
             // obj.INSERT_DATE = DateTime.Now;
             if (before.タイトル != after.タイトル) return true;

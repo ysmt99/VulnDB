@@ -67,7 +67,7 @@ namespace VulnDB
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            SIDfmCsvRegister register = new SIDfmCsvRegister();
+            SIDfmVulnCsvRegister register = new SIDfmVulnCsvRegister();
             register.progressCountUp += progressCountUp;
             e.Result = register.doRegist((string)e.Argument);
         }
@@ -79,7 +79,7 @@ namespace VulnDB
         {
             try
             {
-                this.cmdbDataSetBindingSource.DataSource = SIDfmSearch.search();
+                this.cmdbDataSetBindingSource.DataSource = SIDfmVulnSearch.search();
                 this.cmdbDataSetBindingSource.RemoveFilter();
                 foreach(DataGridViewColumn col in dataGridViewSearch.Columns)
                     col.SortMode = DataGridViewColumnSortMode.Programmatic;

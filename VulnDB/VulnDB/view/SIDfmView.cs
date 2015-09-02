@@ -1,5 +1,5 @@
-﻿using SIDfmContext;
-using SIDfmContext.db;
+﻿using SIDfmContext.db;
+using SIDfmContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +9,13 @@ using Tools;
 
 namespace VulnDB
 {
-    public class SIDfmView
+    public class SIDfmVulnView
     {
-        SIDfm bean;
-        public SIDfmView(SIDfm o)
+        SIDfmVuln bean;
+        public SIDfmVulnView(SIDfmVuln o)
         {
             bean = o;
-            //var t = typeof(SIDfm);
+            //var t = typeof(SIDfmVuln);
             //var proplist = t.GetProperties();
             //foreach (var prop in proplist)
             //{
@@ -23,9 +23,9 @@ namespace VulnDB
             //}
         }
         
-        public string SIDfmId
+        public string SIDfmVulnId
         {
-            get { return bean.SIDfmId.ToString(); }
+            get { return bean.SIDfmVulnId.ToString(); }
             set { ; }
         }
         public string タイトル
@@ -110,7 +110,7 @@ namespace VulnDB
             }
             set { ;}
         }
-        // CVSS環境値：SIDfmから情報が取得できないので固定値をセットする
+        // CVSS環境値：SIDfmVulnから情報が取得できないので固定値をセットする
         public string 攻撃される可能性
         {
             get

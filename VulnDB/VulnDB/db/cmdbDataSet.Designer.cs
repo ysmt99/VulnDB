@@ -30,7 +30,7 @@ namespace SIDfmContext.db {
         
         private ResourceDataTable tableResource;
         
-        private SIDfmDataTable tableSIDfm;
+        private SIDfmVulnDataTable tableSIDfmVuln;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -69,8 +69,8 @@ namespace SIDfmContext.db {
                 if ((ds.Tables["Resource"] != null)) {
                     base.Tables.Add(new ResourceDataTable(ds.Tables["Resource"]));
                 }
-                if ((ds.Tables["SIDfm"] != null)) {
-                    base.Tables.Add(new SIDfmDataTable(ds.Tables["SIDfm"]));
+                if ((ds.Tables["SIDfmVuln"] != null)) {
+                    base.Tables.Add(new SIDfmVulnDataTable(ds.Tables["SIDfmVuln"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -124,9 +124,9 @@ namespace SIDfmContext.db {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SIDfmDataTable SIDfm {
+        public SIDfmVulnDataTable SIDfmVuln {
             get {
-                return this.tableSIDfm;
+                return this.tableSIDfmVuln;
             }
         }
         
@@ -206,8 +206,8 @@ namespace SIDfmContext.db {
                 if ((ds.Tables["Resource"] != null)) {
                     base.Tables.Add(new ResourceDataTable(ds.Tables["Resource"]));
                 }
-                if ((ds.Tables["SIDfm"] != null)) {
-                    base.Tables.Add(new SIDfmDataTable(ds.Tables["SIDfm"]));
+                if ((ds.Tables["SIDfmVuln"] != null)) {
+                    base.Tables.Add(new SIDfmVulnDataTable(ds.Tables["SIDfmVuln"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -260,10 +260,10 @@ namespace SIDfmContext.db {
                     this.tableResource.InitVars();
                 }
             }
-            this.tableSIDfm = ((SIDfmDataTable)(base.Tables["SIDfm"]));
+            this.tableSIDfmVuln = ((SIDfmVulnDataTable)(base.Tables["SIDfmVuln"]));
             if ((initTable == true)) {
-                if ((this.tableSIDfm != null)) {
-                    this.tableSIDfm.InitVars();
+                if ((this.tableSIDfmVuln != null)) {
+                    this.tableSIDfmVuln.InitVars();
                 }
             }
         }
@@ -282,8 +282,8 @@ namespace SIDfmContext.db {
             base.Tables.Add(this.tableActionLog);
             this.tableResource = new ResourceDataTable();
             base.Tables.Add(this.tableResource);
-            this.tableSIDfm = new SIDfmDataTable();
-            base.Tables.Add(this.tableSIDfm);
+            this.tableSIDfmVuln = new SIDfmVulnDataTable();
+            base.Tables.Add(this.tableSIDfmVuln);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -306,7 +306,7 @@ namespace SIDfmContext.db {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeSIDfm() {
+        private bool ShouldSerializeSIDfmVuln() {
             return false;
         }
         
@@ -375,7 +375,7 @@ namespace SIDfmContext.db {
         public delegate void ResourceRowChangeEventHandler(object sender, ResourceRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void SIDfmRowChangeEventHandler(object sender, SIDfmRowChangeEvent e);
+        public delegate void SIDfmVulnRowChangeEventHandler(object sender, SIDfmVulnRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1346,9 +1346,9 @@ namespace SIDfmContext.db {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SIDfmDataTable : global::System.Data.TypedTableBase<SIDfmRow> {
+        public partial class SIDfmVulnDataTable : global::System.Data.TypedTableBase<SIDfmVulnRow> {
             
-            private global::System.Data.DataColumn columnSIDfmId;
+            private global::System.Data.DataColumn columnSIDfmVulnId;
             
             private global::System.Data.DataColumn columnタイトル;
             
@@ -1382,8 +1382,8 @@ namespace SIDfmContext.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SIDfmDataTable() {
-                this.TableName = "SIDfm";
+            public SIDfmVulnDataTable() {
+                this.TableName = "SIDfmVuln";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1391,7 +1391,7 @@ namespace SIDfmContext.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal SIDfmDataTable(global::System.Data.DataTable table) {
+            internal SIDfmVulnDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1408,16 +1408,16 @@ namespace SIDfmContext.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected SIDfmDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SIDfmVulnDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SIDfmIdColumn {
+            public global::System.Data.DataColumn SIDfmVulnIdColumn {
                 get {
-                    return this.columnSIDfmId;
+                    return this.columnSIDfmVulnId;
                 }
             }
             
@@ -1552,34 +1552,34 @@ namespace SIDfmContext.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SIDfmRow this[int index] {
+            public SIDfmVulnRow this[int index] {
                 get {
-                    return ((SIDfmRow)(this.Rows[index]));
+                    return ((SIDfmVulnRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SIDfmRowChangeEventHandler SIDfmRowChanging;
+            public event SIDfmVulnRowChangeEventHandler SIDfmVulnRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SIDfmRowChangeEventHandler SIDfmRowChanged;
+            public event SIDfmVulnRowChangeEventHandler SIDfmVulnRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SIDfmRowChangeEventHandler SIDfmRowDeleting;
+            public event SIDfmVulnRowChangeEventHandler SIDfmVulnRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event SIDfmRowChangeEventHandler SIDfmRowDeleted;
+            public event SIDfmVulnRowChangeEventHandler SIDfmVulnRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddSIDfmRow(SIDfmRow row) {
+            public void AddSIDfmVulnRow(SIDfmVulnRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SIDfmRow AddSIDfmRow(
-                        long SIDfmId, 
+            public SIDfmVulnRow AddSIDfmVulnRow(
+                        long SIDfmVulnId, 
                         string タイトル, 
                         string CVE番号, 
                         decimal CVSS基本値, 
@@ -1595,9 +1595,9 @@ namespace SIDfmContext.db {
                         string 対象製品パッチ登録日, 
                         System.DateTime INSERT_DATE, 
                         System.DateTime UPDATE_DATE) {
-                SIDfmRow rowSIDfmRow = ((SIDfmRow)(this.NewRow()));
+                SIDfmVulnRow rowSIDfmVulnRow = ((SIDfmVulnRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        SIDfmId,
+                        SIDfmVulnId,
                         タイトル,
                         CVE番号,
                         CVSS基本値,
@@ -1613,23 +1613,23 @@ namespace SIDfmContext.db {
                         対象製品パッチ登録日,
                         INSERT_DATE,
                         UPDATE_DATE};
-                rowSIDfmRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSIDfmRow);
-                return rowSIDfmRow;
+                rowSIDfmVulnRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSIDfmVulnRow);
+                return rowSIDfmVulnRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SIDfmRow FindBySIDfmIdCVE番号(long SIDfmId, string CVE番号) {
-                return ((SIDfmRow)(this.Rows.Find(new object[] {
-                            SIDfmId,
+            public SIDfmVulnRow FindBySIDfmVulnIdCVE番号(long SIDfmVulnId, string CVE番号) {
+                return ((SIDfmVulnRow)(this.Rows.Find(new object[] {
+                            SIDfmVulnId,
                             CVE番号})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                SIDfmDataTable cln = ((SIDfmDataTable)(base.Clone()));
+                SIDfmVulnDataTable cln = ((SIDfmVulnDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1637,13 +1637,13 @@ namespace SIDfmContext.db {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new SIDfmDataTable();
+                return new SIDfmVulnDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnSIDfmId = base.Columns["SIDfmId"];
+                this.columnSIDfmVulnId = base.Columns["SIDfmVulnId"];
                 this.columnタイトル = base.Columns["タイトル"];
                 this.columnCVE番号 = base.Columns["CVE番号"];
                 this.columnCVSS基本値 = base.Columns["CVSS基本値"];
@@ -1664,8 +1664,8 @@ namespace SIDfmContext.db {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnSIDfmId = new global::System.Data.DataColumn("SIDfmId", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSIDfmId);
+                this.columnSIDfmVulnId = new global::System.Data.DataColumn("SIDfmVulnId", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSIDfmVulnId);
                 this.columnタイトル = new global::System.Data.DataColumn("タイトル", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnタイトル);
                 this.columnCVE番号 = new global::System.Data.DataColumn("CVE番号", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1697,9 +1697,9 @@ namespace SIDfmContext.db {
                 this.columnUPDATE_DATE = new global::System.Data.DataColumn("UPDATE_DATE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUPDATE_DATE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnSIDfmId,
+                                this.columnSIDfmVulnId,
                                 this.columnCVE番号}, true));
-                this.columnSIDfmId.AllowDBNull = false;
+                this.columnSIDfmVulnId.AllowDBNull = false;
                 this.columnタイトル.AllowDBNull = false;
                 this.columnタイトル.MaxLength = 2147483647;
                 this.columnCVE番号.AllowDBNull = false;
@@ -1710,28 +1710,28 @@ namespace SIDfmContext.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SIDfmRow NewSIDfmRow() {
-                return ((SIDfmRow)(this.NewRow()));
+            public SIDfmVulnRow NewSIDfmVulnRow() {
+                return ((SIDfmVulnRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SIDfmRow(builder);
+                return new SIDfmVulnRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(SIDfmRow);
+                return typeof(SIDfmVulnRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.SIDfmRowChanged != null)) {
-                    this.SIDfmRowChanged(this, new SIDfmRowChangeEvent(((SIDfmRow)(e.Row)), e.Action));
+                if ((this.SIDfmVulnRowChanged != null)) {
+                    this.SIDfmVulnRowChanged(this, new SIDfmVulnRowChangeEvent(((SIDfmVulnRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1739,8 +1739,8 @@ namespace SIDfmContext.db {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.SIDfmRowChanging != null)) {
-                    this.SIDfmRowChanging(this, new SIDfmRowChangeEvent(((SIDfmRow)(e.Row)), e.Action));
+                if ((this.SIDfmVulnRowChanging != null)) {
+                    this.SIDfmVulnRowChanging(this, new SIDfmVulnRowChangeEvent(((SIDfmVulnRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1748,8 +1748,8 @@ namespace SIDfmContext.db {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.SIDfmRowDeleted != null)) {
-                    this.SIDfmRowDeleted(this, new SIDfmRowChangeEvent(((SIDfmRow)(e.Row)), e.Action));
+                if ((this.SIDfmVulnRowDeleted != null)) {
+                    this.SIDfmVulnRowDeleted(this, new SIDfmVulnRowChangeEvent(((SIDfmVulnRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1757,14 +1757,14 @@ namespace SIDfmContext.db {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.SIDfmRowDeleting != null)) {
-                    this.SIDfmRowDeleting(this, new SIDfmRowChangeEvent(((SIDfmRow)(e.Row)), e.Action));
+                if ((this.SIDfmVulnRowDeleting != null)) {
+                    this.SIDfmVulnRowDeleting(this, new SIDfmVulnRowChangeEvent(((SIDfmVulnRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveSIDfmRow(SIDfmRow row) {
+            public void RemoveSIDfmVulnRow(SIDfmVulnRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1791,7 +1791,7 @@ namespace SIDfmContext.db {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SIDfmDataTable";
+                attribute2.FixedValue = "SIDfmVulnDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2096,25 +2096,25 @@ namespace SIDfmContext.db {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class SIDfmRow : global::System.Data.DataRow {
+        public partial class SIDfmVulnRow : global::System.Data.DataRow {
             
-            private SIDfmDataTable tableSIDfm;
+            private SIDfmVulnDataTable tableSIDfmVuln;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal SIDfmRow(global::System.Data.DataRowBuilder rb) : 
+            internal SIDfmVulnRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableSIDfm = ((SIDfmDataTable)(this.Table));
+                this.tableSIDfmVuln = ((SIDfmVulnDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long SIDfmId {
+            public long SIDfmVulnId {
                 get {
-                    return ((long)(this[this.tableSIDfm.SIDfmIdColumn]));
+                    return ((long)(this[this.tableSIDfmVuln.SIDfmVulnIdColumn]));
                 }
                 set {
-                    this[this.tableSIDfm.SIDfmIdColumn] = value;
+                    this[this.tableSIDfmVuln.SIDfmVulnIdColumn] = value;
                 }
             }
             
@@ -2122,10 +2122,10 @@ namespace SIDfmContext.db {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string タイトル {
                 get {
-                    return ((string)(this[this.tableSIDfm.タイトルColumn]));
+                    return ((string)(this[this.tableSIDfmVuln.タイトルColumn]));
                 }
                 set {
-                    this[this.tableSIDfm.タイトルColumn] = value;
+                    this[this.tableSIDfmVuln.タイトルColumn] = value;
                 }
             }
             
@@ -2133,10 +2133,10 @@ namespace SIDfmContext.db {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string CVE番号 {
                 get {
-                    return ((string)(this[this.tableSIDfm.CVE番号Column]));
+                    return ((string)(this[this.tableSIDfmVuln.CVE番号Column]));
                 }
                 set {
-                    this[this.tableSIDfm.CVE番号Column] = value;
+                    this[this.tableSIDfmVuln.CVE番号Column] = value;
                 }
             }
             
@@ -2145,14 +2145,14 @@ namespace SIDfmContext.db {
             public decimal CVSS基本値 {
                 get {
                     try {
-                        return ((decimal)(this[this.tableSIDfm.CVSS基本値Column]));
+                        return ((decimal)(this[this.tableSIDfmVuln.CVSS基本値Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'CVSS基本値\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'CVSS基本値\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.CVSS基本値Column] = value;
+                    this[this.tableSIDfmVuln.CVSS基本値Column] = value;
                 }
             }
             
@@ -2161,14 +2161,14 @@ namespace SIDfmContext.db {
             public int 攻撃元 {
                 get {
                     try {
-                        return ((int)(this[this.tableSIDfm.攻撃元Column]));
+                        return ((int)(this[this.tableSIDfmVuln.攻撃元Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'攻撃元\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'攻撃元\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.攻撃元Column] = value;
+                    this[this.tableSIDfmVuln.攻撃元Column] = value;
                 }
             }
             
@@ -2177,14 +2177,14 @@ namespace SIDfmContext.db {
             public int 攻撃成立条件 {
                 get {
                     try {
-                        return ((int)(this[this.tableSIDfm.攻撃成立条件Column]));
+                        return ((int)(this[this.tableSIDfmVuln.攻撃成立条件Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'攻撃成立条件\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'攻撃成立条件\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.攻撃成立条件Column] = value;
+                    this[this.tableSIDfmVuln.攻撃成立条件Column] = value;
                 }
             }
             
@@ -2193,14 +2193,14 @@ namespace SIDfmContext.db {
             public int 攻撃前の認証 {
                 get {
                     try {
-                        return ((int)(this[this.tableSIDfm.攻撃前の認証Column]));
+                        return ((int)(this[this.tableSIDfmVuln.攻撃前の認証Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'攻撃前の認証\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'攻撃前の認証\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.攻撃前の認証Column] = value;
+                    this[this.tableSIDfmVuln.攻撃前の認証Column] = value;
                 }
             }
             
@@ -2209,14 +2209,14 @@ namespace SIDfmContext.db {
             public int 情報漏えい {
                 get {
                     try {
-                        return ((int)(this[this.tableSIDfm.情報漏えいColumn]));
+                        return ((int)(this[this.tableSIDfmVuln.情報漏えいColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'情報漏えい\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'情報漏えい\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.情報漏えいColumn] = value;
+                    this[this.tableSIDfmVuln.情報漏えいColumn] = value;
                 }
             }
             
@@ -2225,14 +2225,14 @@ namespace SIDfmContext.db {
             public int 情報改ざん {
                 get {
                     try {
-                        return ((int)(this[this.tableSIDfm.情報改ざんColumn]));
+                        return ((int)(this[this.tableSIDfmVuln.情報改ざんColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'情報改ざん\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'情報改ざん\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.情報改ざんColumn] = value;
+                    this[this.tableSIDfmVuln.情報改ざんColumn] = value;
                 }
             }
             
@@ -2241,14 +2241,14 @@ namespace SIDfmContext.db {
             public int 業務停止 {
                 get {
                     try {
-                        return ((int)(this[this.tableSIDfm.業務停止Column]));
+                        return ((int)(this[this.tableSIDfmVuln.業務停止Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'業務停止\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'業務停止\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.業務停止Column] = value;
+                    this[this.tableSIDfmVuln.業務停止Column] = value;
                 }
             }
             
@@ -2257,14 +2257,14 @@ namespace SIDfmContext.db {
             public int 攻撃コードの有無 {
                 get {
                     try {
-                        return ((int)(this[this.tableSIDfm.攻撃コードの有無Column]));
+                        return ((int)(this[this.tableSIDfmVuln.攻撃コードの有無Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'攻撃コードの有無\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'攻撃コードの有無\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.攻撃コードの有無Column] = value;
+                    this[this.tableSIDfmVuln.攻撃コードの有無Column] = value;
                 }
             }
             
@@ -2273,14 +2273,14 @@ namespace SIDfmContext.db {
             public System.DateTime 情報登録日 {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableSIDfm.情報登録日Column]));
+                        return ((global::System.DateTime)(this[this.tableSIDfmVuln.情報登録日Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'情報登録日\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'情報登録日\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.情報登録日Column] = value;
+                    this[this.tableSIDfmVuln.情報登録日Column] = value;
                 }
             }
             
@@ -2289,14 +2289,14 @@ namespace SIDfmContext.db {
             public string 対象製品名 {
                 get {
                     try {
-                        return ((string)(this[this.tableSIDfm.対象製品名Column]));
+                        return ((string)(this[this.tableSIDfmVuln.対象製品名Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'対象製品名\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'対象製品名\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.対象製品名Column] = value;
+                    this[this.tableSIDfmVuln.対象製品名Column] = value;
                 }
             }
             
@@ -2305,14 +2305,14 @@ namespace SIDfmContext.db {
             public string 対象製品パッチ登録日 {
                 get {
                     try {
-                        return ((string)(this[this.tableSIDfm.対象製品パッチ登録日Column]));
+                        return ((string)(this[this.tableSIDfmVuln.対象製品パッチ登録日Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'対象製品パッチ登録日\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'対象製品パッチ登録日\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.対象製品パッチ登録日Column] = value;
+                    this[this.tableSIDfmVuln.対象製品パッチ登録日Column] = value;
                 }
             }
             
@@ -2321,14 +2321,14 @@ namespace SIDfmContext.db {
             public System.DateTime INSERT_DATE {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableSIDfm.INSERT_DATEColumn]));
+                        return ((global::System.DateTime)(this[this.tableSIDfmVuln.INSERT_DATEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'INSERT_DATE\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'INSERT_DATE\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.INSERT_DATEColumn] = value;
+                    this[this.tableSIDfmVuln.INSERT_DATEColumn] = value;
                 }
             }
             
@@ -2337,171 +2337,171 @@ namespace SIDfmContext.db {
             public System.DateTime UPDATE_DATE {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableSIDfm.UPDATE_DATEColumn]));
+                        return ((global::System.DateTime)(this[this.tableSIDfmVuln.UPDATE_DATEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfm\' にある列 \'UPDATE_DATE\' の値は DBNull です。", e);
+                        throw new global::System.Data.StrongTypingException("テーブル \'SIDfmVuln\' にある列 \'UPDATE_DATE\' の値は DBNull です。", e);
                     }
                 }
                 set {
-                    this[this.tableSIDfm.UPDATE_DATEColumn] = value;
+                    this[this.tableSIDfmVuln.UPDATE_DATEColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCVSS基本値Null() {
-                return this.IsNull(this.tableSIDfm.CVSS基本値Column);
+                return this.IsNull(this.tableSIDfmVuln.CVSS基本値Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCVSS基本値Null() {
-                this[this.tableSIDfm.CVSS基本値Column] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.CVSS基本値Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is攻撃元Null() {
-                return this.IsNull(this.tableSIDfm.攻撃元Column);
+                return this.IsNull(this.tableSIDfmVuln.攻撃元Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set攻撃元Null() {
-                this[this.tableSIDfm.攻撃元Column] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.攻撃元Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is攻撃成立条件Null() {
-                return this.IsNull(this.tableSIDfm.攻撃成立条件Column);
+                return this.IsNull(this.tableSIDfmVuln.攻撃成立条件Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set攻撃成立条件Null() {
-                this[this.tableSIDfm.攻撃成立条件Column] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.攻撃成立条件Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is攻撃前の認証Null() {
-                return this.IsNull(this.tableSIDfm.攻撃前の認証Column);
+                return this.IsNull(this.tableSIDfmVuln.攻撃前の認証Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set攻撃前の認証Null() {
-                this[this.tableSIDfm.攻撃前の認証Column] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.攻撃前の認証Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is情報漏えいNull() {
-                return this.IsNull(this.tableSIDfm.情報漏えいColumn);
+                return this.IsNull(this.tableSIDfmVuln.情報漏えいColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set情報漏えいNull() {
-                this[this.tableSIDfm.情報漏えいColumn] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.情報漏えいColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is情報改ざんNull() {
-                return this.IsNull(this.tableSIDfm.情報改ざんColumn);
+                return this.IsNull(this.tableSIDfmVuln.情報改ざんColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set情報改ざんNull() {
-                this[this.tableSIDfm.情報改ざんColumn] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.情報改ざんColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is業務停止Null() {
-                return this.IsNull(this.tableSIDfm.業務停止Column);
+                return this.IsNull(this.tableSIDfmVuln.業務停止Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set業務停止Null() {
-                this[this.tableSIDfm.業務停止Column] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.業務停止Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is攻撃コードの有無Null() {
-                return this.IsNull(this.tableSIDfm.攻撃コードの有無Column);
+                return this.IsNull(this.tableSIDfmVuln.攻撃コードの有無Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set攻撃コードの有無Null() {
-                this[this.tableSIDfm.攻撃コードの有無Column] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.攻撃コードの有無Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is情報登録日Null() {
-                return this.IsNull(this.tableSIDfm.情報登録日Column);
+                return this.IsNull(this.tableSIDfmVuln.情報登録日Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set情報登録日Null() {
-                this[this.tableSIDfm.情報登録日Column] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.情報登録日Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is対象製品名Null() {
-                return this.IsNull(this.tableSIDfm.対象製品名Column);
+                return this.IsNull(this.tableSIDfmVuln.対象製品名Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set対象製品名Null() {
-                this[this.tableSIDfm.対象製品名Column] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.対象製品名Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Is対象製品パッチ登録日Null() {
-                return this.IsNull(this.tableSIDfm.対象製品パッチ登録日Column);
+                return this.IsNull(this.tableSIDfmVuln.対象製品パッチ登録日Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set対象製品パッチ登録日Null() {
-                this[this.tableSIDfm.対象製品パッチ登録日Column] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.対象製品パッチ登録日Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsINSERT_DATENull() {
-                return this.IsNull(this.tableSIDfm.INSERT_DATEColumn);
+                return this.IsNull(this.tableSIDfmVuln.INSERT_DATEColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetINSERT_DATENull() {
-                this[this.tableSIDfm.INSERT_DATEColumn] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.INSERT_DATEColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsUPDATE_DATENull() {
-                return this.IsNull(this.tableSIDfm.UPDATE_DATEColumn);
+                return this.IsNull(this.tableSIDfmVuln.UPDATE_DATEColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetUPDATE_DATENull() {
-                this[this.tableSIDfm.UPDATE_DATEColumn] = global::System.Convert.DBNull;
+                this[this.tableSIDfmVuln.UPDATE_DATEColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2611,22 +2611,22 @@ namespace SIDfmContext.db {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class SIDfmRowChangeEvent : global::System.EventArgs {
+        public class SIDfmVulnRowChangeEvent : global::System.EventArgs {
             
-            private SIDfmRow eventRow;
+            private SIDfmVulnRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SIDfmRowChangeEvent(SIDfmRow row, global::System.Data.DataRowAction action) {
+            public SIDfmVulnRowChangeEvent(SIDfmVulnRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SIDfmRow Row {
+            public SIDfmVulnRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4060,7 +4060,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SIDfmTableAdapter : global::System.ComponentModel.Component {
+    public partial class SIDfmVulnTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
         
@@ -4074,7 +4074,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public SIDfmTableAdapter() {
+        public SIDfmVulnTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -4171,8 +4171,8 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
             this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SIDfm";
-            tableMapping.ColumnMappings.Add("SIDfmId", "SIDfmId");
+            tableMapping.DataSetTable = "SIDfmVuln";
+            tableMapping.ColumnMappings.Add("SIDfmVulnId", "SIDfmVulnId");
             tableMapping.ColumnMappings.Add("タイトル", "タイトル");
             tableMapping.ColumnMappings.Add("CVE番号", "CVE番号");
             tableMapping.ColumnMappings.Add("CVSS基本値", "CVSS基本値");
@@ -4191,13 +4191,13 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[SIDfm] WHERE (([SIDfmId] = @Original_SIDfmId) AND ([タイトル] = @Original_タイトル) AND ([CVE番号] = @Original_CVE番号) AND ((@IsNull_CVSS基本値 = 1 AND [CVSS基本値] IS NULL) OR ([CVSS基本値] = @Original_CVSS基本値)) AND ((@IsNull_攻撃元 = 1 AND [攻撃元] IS NULL) OR ([攻撃元] = @Original_攻撃元)) AND ((@IsNull_攻撃成立条件 = 1 AND [攻撃成立条件] IS NULL) OR ([攻撃成立条件] = @Original_攻撃成立条件)) AND ((@IsNull_攻撃前の認証 = 1 AND [攻撃前の認証] IS NULL) OR ([攻撃前の認証] = @Original_攻撃前の認証)) AND ((@IsNull_情報漏えい = 1 AND [情報漏えい] IS NULL) OR ([情報漏えい] = @Original_情報漏えい)) AND ((@IsNull_情報改ざん = 1 AND [情報改ざん] IS NULL) OR ([情報改ざん] = @Original_情報改ざん)) AND ((@IsNull_業務停止 = 1 AND [業務停止] IS NULL) OR ([業務停止] = @Original_業務停止)) AND ((@IsNull_攻撃コードの有無 = 1 AND [攻撃コードの有無] IS NULL) OR ([攻撃コードの有無] = @Original_攻撃コードの有無)) AND ((@IsNull_情報登録日 = 1 AND [情報登録日] IS NULL) OR ([情報登録日] = @Original_情報登録日)) AND ((@IsNull_対象製品名 = 1 AND [対象製品名] IS NULL) OR ([対象製品名] = @Original_対象製品名)) AND ((@IsNull_対象製品パッチ登録日 = 1 AND [対象製品パッチ登録日] IS NULL) OR ([対象製品パッチ登録日] = @Original_対象製品パッチ登録日)) AND ((@IsNull_INSERT_DATE = 1 AND [INSERT_DATE] IS NULL) OR ([INSERT_DATE] = @Original_INSERT_DATE)) AND ((@IsNull_UPDATE_DATE = 1 AND [UPDATE_DATE] IS NULL) OR ([UPDATE_DATE] = @Original_UPDATE_DATE)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[SIDfmVuln] WHERE (([SIDfmVulnId] = @Original_SIDfmVulnId) AND ([タイトル] = @Original_タイトル) AND ([CVE番号] = @Original_CVE番号) AND ((@IsNull_CVSS基本値 = 1 AND [CVSS基本値] IS NULL) OR ([CVSS基本値] = @Original_CVSS基本値)) AND ((@IsNull_攻撃元 = 1 AND [攻撃元] IS NULL) OR ([攻撃元] = @Original_攻撃元)) AND ((@IsNull_攻撃成立条件 = 1 AND [攻撃成立条件] IS NULL) OR ([攻撃成立条件] = @Original_攻撃成立条件)) AND ((@IsNull_攻撃前の認証 = 1 AND [攻撃前の認証] IS NULL) OR ([攻撃前の認証] = @Original_攻撃前の認証)) AND ((@IsNull_情報漏えい = 1 AND [情報漏えい] IS NULL) OR ([情報漏えい] = @Original_情報漏えい)) AND ((@IsNull_情報改ざん = 1 AND [情報改ざん] IS NULL) OR ([情報改ざん] = @Original_情報改ざん)) AND ((@IsNull_業務停止 = 1 AND [業務停止] IS NULL) OR ([業務停止] = @Original_業務停止)) AND ((@IsNull_攻撃コードの有無 = 1 AND [攻撃コードの有無] IS NULL) OR ([攻撃コードの有無] = @Original_攻撃コードの有無)) AND ((@IsNull_情報登録日 = 1 AND [情報登録日] IS NULL) OR ([情報登録日] = @Original_情報登録日)) AND ((@IsNull_対象製品名 = 1 AND [対象製品名] IS NULL) OR ([対象製品名] = @Original_対象製品名)) AND ((@IsNull_対象製品パッチ登録日 = 1 AND [対象製品パッチ登録日] IS NULL) OR ([対象製品パッチ登録日] = @Original_対象製品パッチ登録日)) AND ((@IsNull_INSERT_DATE = 1 AND [INSERT_DATE] IS NULL) OR ([INSERT_DATE] = @Original_INSERT_DATE)) AND ((@IsNull_UPDATE_DATE = 1 AND [UPDATE_DATE] IS NULL) OR ([UPDATE_DATE] = @Original_UPDATE_DATE)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_SIDfmId";
+            param.ParameterName = "@Original_SIDfmVulnId";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "SIDfmId";
+            param.SourceColumn = "SIDfmVulnId";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -4407,13 +4407,13 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[SIDfm] ([SIDfmId], [タイトル], [CVE番号], [CVSS基本値], [攻撃元], [攻撃成立条件], [攻撃前の認証], [情報漏えい], [情報改ざん], [業務停止], [攻撃コードの有無], [情報登録日], [対象製品名], [対象製品パッチ登録日], [INSERT_DATE], [UPDATE_DATE]) VALUES (@SIDfmId, @タイトル, @CVE番号, @CVSS基本値, @攻撃元, @攻撃成立条件, @攻撃前の認証, @情報漏えい, @情報改ざん, @業務停止, @攻撃コードの有無, @情報登録日, @対象製品名, @対象製品パッチ登録日, @INSERT_DATE, @UPDATE_DATE)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[SIDfmVuln] ([SIDfmVulnId], [タイトル], [CVE番号], [CVSS基本値], [攻撃元], [攻撃成立条件], [攻撃前の認証], [情報漏えい], [情報改ざん], [業務停止], [攻撃コードの有無], [情報登録日], [対象製品名], [対象製品パッチ登録日], [INSERT_DATE], [UPDATE_DATE]) VALUES (@SIDfmVulnId, @タイトル, @CVE番号, @CVSS基本値, @攻撃元, @攻撃成立条件, @攻撃前の認証, @情報漏えい, @情報改ざん, @業務停止, @攻撃コードの有無, @情報登録日, @対象製品名, @対象製品パッチ登録日, @INSERT_DATE, @UPDATE_DATE)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@SIDfmId";
+            param.ParameterName = "@SIDfmVulnId";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "SIDfmId";
+            param.SourceColumn = "SIDfmVulnId";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@タイトル";
@@ -4503,12 +4503,12 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[SIDfm] SET [SIDfmId] = @SIDfmId, [タイトル] = " +
+            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[SIDfmVuln] SET [SIDfmVulnId] = @SIDfmVulnId, [タイトル] = " +
                 "@タイトル, [CVE番号] = @CVE番号, [CVSS基本値] = @CVSS基本値, [攻撃元] = @攻撃元, [攻撃成立条件] = @攻撃成立条件," +
                 " [攻撃前の認証] = @攻撃前の認証, [情報漏えい] = @情報漏えい, [情報改ざん] = @情報改ざん, [業務停止] = @業務停止, [攻撃コードの" +
                 "有無] = @攻撃コードの有無, [情報登録日] = @情報登録日, [対象製品名] = @対象製品名, [対象製品パッチ登録日] = @対象製品パッチ登録日," +
-                " [INSERT_DATE] = @INSERT_DATE, [UPDATE_DATE] = @UPDATE_DATE WHERE (([SIDfmId] = " +
-                "@Original_SIDfmId) AND ([タイトル] = @Original_タイトル) AND ([CVE番号] = @Original_CVE番号)" +
+                " [INSERT_DATE] = @INSERT_DATE, [UPDATE_DATE] = @UPDATE_DATE WHERE (([SIDfmVulnId] = " +
+                "@Original_SIDfmVulnId) AND ([タイトル] = @Original_タイトル) AND ([CVE番号] = @Original_CVE番号)" +
                 " AND ((@IsNull_CVSS基本値 = 1 AND [CVSS基本値] IS NULL) OR ([CVSS基本値] = @Original_CVSS" +
                 "基本値)) AND ((@IsNull_攻撃元 = 1 AND [攻撃元] IS NULL) OR ([攻撃元] = @Original_攻撃元)) AND (" +
                 "(@IsNull_攻撃成立条件 = 1 AND [攻撃成立条件] IS NULL) OR ([攻撃成立条件] = @Original_攻撃成立条件)) AND " +
@@ -4525,10 +4525,10 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                 ") OR ([UPDATE_DATE] = @Original_UPDATE_DATE)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@SIDfmId";
+            param.ParameterName = "@SIDfmVulnId";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "SIDfmId";
+            param.SourceColumn = "SIDfmVulnId";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@タイトル";
@@ -4617,10 +4617,10 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
             param.SourceColumn = "UPDATE_DATE";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_SIDfmId";
+            param.ParameterName = "@Original_SIDfmVulnId";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "SIDfmId";
+            param.SourceColumn = "SIDfmVulnId";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -4843,9 +4843,9 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [SIDfmId], [タイトル], [CVE番号], [CVSS基本値], [攻撃元], [攻撃成立条件], [攻撃前の認証], [情報漏えい]," +
+            this._commandCollection[0].CommandText = "SELECT [SIDfmVulnId], [タイトル], [CVE番号], [CVSS基本値], [攻撃元], [攻撃成立条件], [攻撃前の認証], [情報漏えい]," +
                 " [情報改ざん], [業務停止], [攻撃コードの有無], [情報登録日], [対象製品名], [対象製品パッチ登録日], [INSERT_DATE], [UP" +
-                "DATE_DATE] FROM [SIDfm]";
+                "DATE_DATE] FROM [SIDfmVuln]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4853,7 +4853,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(cmdbDataSet.SIDfmDataTable dataTable) {
+        public virtual int Fill(cmdbDataSet.SIDfmVulnDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4866,9 +4866,9 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual cmdbDataSet.SIDfmDataTable GetData() {
+        public virtual cmdbDataSet.SIDfmVulnDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            cmdbDataSet.SIDfmDataTable dataTable = new cmdbDataSet.SIDfmDataTable();
+            cmdbDataSet.SIDfmVulnDataTable dataTable = new cmdbDataSet.SIDfmVulnDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4876,7 +4876,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(cmdbDataSet.SIDfmDataTable dataTable) {
+        public virtual int Update(cmdbDataSet.SIDfmVulnDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -4884,7 +4884,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(cmdbDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "SIDfm");
+            return this.Adapter.Update(dataSet, "SIDfmVuln");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4907,7 +4907,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
-                    long Original_SIDfmId, 
+                    long Original_SIDfmVulnId, 
                     string Original_タイトル, 
                     string Original_CVE番号, 
                     global::System.Nullable<decimal> Original_CVSS基本値, 
@@ -4923,7 +4923,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                     string Original_対象製品パッチ登録日, 
                     global::System.Nullable<global::System.DateTime> Original_INSERT_DATE, 
                     global::System.Nullable<global::System.DateTime> Original_UPDATE_DATE) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_SIDfmId));
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_SIDfmVulnId));
             if ((Original_タイトル == null)) {
                 throw new global::System.ArgumentNullException("Original_タイトル");
             }
@@ -5061,7 +5061,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    long SIDfmId, 
+                    long SIDfmVulnId, 
                     string タイトル, 
                     string CVE番号, 
                     global::System.Nullable<decimal> CVSS基本値, 
@@ -5077,7 +5077,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                     string 対象製品パッチ登録日, 
                     global::System.Nullable<global::System.DateTime> INSERT_DATE, 
                     global::System.Nullable<global::System.DateTime> UPDATE_DATE) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(SIDfmId));
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(SIDfmVulnId));
             if ((タイトル == null)) {
                 throw new global::System.ArgumentNullException("タイトル");
             }
@@ -5189,7 +5189,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    long SIDfmId, 
+                    long SIDfmVulnId, 
                     string タイトル, 
                     string CVE番号, 
                     global::System.Nullable<decimal> CVSS基本値, 
@@ -5205,7 +5205,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                     string 対象製品パッチ登録日, 
                     global::System.Nullable<global::System.DateTime> INSERT_DATE, 
                     global::System.Nullable<global::System.DateTime> UPDATE_DATE, 
-                    long Original_SIDfmId, 
+                    long Original_SIDfmVulnId, 
                     string Original_タイトル, 
                     string Original_CVE番号, 
                     global::System.Nullable<decimal> Original_CVSS基本値, 
@@ -5221,7 +5221,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                     string Original_対象製品パッチ登録日, 
                     global::System.Nullable<global::System.DateTime> Original_INSERT_DATE, 
                     global::System.Nullable<global::System.DateTime> Original_UPDATE_DATE) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(SIDfmId));
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(SIDfmVulnId));
             if ((タイトル == null)) {
                 throw new global::System.ArgumentNullException("タイトル");
             }
@@ -5312,7 +5312,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((long)(Original_SIDfmId));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((long)(Original_SIDfmVulnId));
             if ((Original_タイトル == null)) {
                 throw new global::System.ArgumentNullException("Original_タイトル");
             }
@@ -5464,7 +5464,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                     string 対象製品パッチ登録日, 
                     global::System.Nullable<global::System.DateTime> INSERT_DATE, 
                     global::System.Nullable<global::System.DateTime> UPDATE_DATE, 
-                    long Original_SIDfmId, 
+                    long Original_SIDfmVulnId, 
                     string Original_タイトル, 
                     string Original_CVE番号, 
                     global::System.Nullable<decimal> Original_CVSS基本値, 
@@ -5480,7 +5480,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                     string Original_対象製品パッチ登録日, 
                     global::System.Nullable<global::System.DateTime> Original_INSERT_DATE, 
                     global::System.Nullable<global::System.DateTime> Original_UPDATE_DATE) {
-            return this.Update(Original_SIDfmId, タイトル, Original_CVE番号, CVSS基本値, 攻撃元, 攻撃成立条件, 攻撃前の認証, 情報漏えい, 情報改ざん, 業務停止, 攻撃コードの有無, 情報登録日, 対象製品名, 対象製品パッチ登録日, INSERT_DATE, UPDATE_DATE, Original_SIDfmId, Original_タイトル, Original_CVE番号, Original_CVSS基本値, Original_攻撃元, Original_攻撃成立条件, Original_攻撃前の認証, Original_情報漏えい, Original_情報改ざん, Original_業務停止, Original_攻撃コードの有無, Original_情報登録日, Original_対象製品名, Original_対象製品パッチ登録日, Original_INSERT_DATE, Original_UPDATE_DATE);
+            return this.Update(Original_SIDfmVulnId, タイトル, Original_CVE番号, CVSS基本値, 攻撃元, 攻撃成立条件, 攻撃前の認証, 情報漏えい, 情報改ざん, 業務停止, 攻撃コードの有無, 情報登録日, 対象製品名, 対象製品パッチ登録日, INSERT_DATE, UPDATE_DATE, Original_SIDfmVulnId, Original_タイトル, Original_CVE番号, Original_CVSS基本値, Original_攻撃元, Original_攻撃成立条件, Original_攻撃前の認証, Original_情報漏えい, Original_情報改ざん, Original_業務停止, Original_攻撃コードの有無, Original_情報登録日, Original_対象製品名, Original_対象製品パッチ登録日, Original_INSERT_DATE, Original_UPDATE_DATE);
         }
     }
     
@@ -5502,7 +5502,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         
         private ResourceTableAdapter _resourceTableAdapter;
         
-        private SIDfmTableAdapter _sIDfmTableAdapter;
+        private SIDfmVulnTableAdapter _SIDfmVulnTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -5566,12 +5566,12 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public SIDfmTableAdapter SIDfmTableAdapter {
+        public SIDfmVulnTableAdapter SIDfmVulnTableAdapter {
             get {
-                return this._sIDfmTableAdapter;
+                return this._SIDfmVulnTableAdapter;
             }
             set {
-                this._sIDfmTableAdapter = value;
+                this._SIDfmVulnTableAdapter = value;
             }
         }
         
@@ -5606,9 +5606,9 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                             && (this._resourceTableAdapter.Connection != null))) {
                     return this._resourceTableAdapter.Connection;
                 }
-                if (((this._sIDfmTableAdapter != null) 
-                            && (this._sIDfmTableAdapter.Connection != null))) {
-                    return this._sIDfmTableAdapter.Connection;
+                if (((this._SIDfmVulnTableAdapter != null) 
+                            && (this._SIDfmVulnTableAdapter.Connection != null))) {
+                    return this._SIDfmVulnTableAdapter.Connection;
                 }
                 return null;
             }
@@ -5632,7 +5632,7 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                 if ((this._resourceTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._sIDfmTableAdapter != null)) {
+                if ((this._SIDfmVulnTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -5673,12 +5673,12 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._sIDfmTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SIDfm.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._SIDfmVulnTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SIDfmVuln.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._sIDfmTableAdapter.Update(updatedRows));
+                    result = (result + this._SIDfmVulnTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5716,11 +5716,11 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._sIDfmTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SIDfm.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._SIDfmVulnTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SIDfmVuln.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._sIDfmTableAdapter.Update(addedRows));
+                    result = (result + this._SIDfmVulnTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5734,11 +5734,11 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(cmdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._sIDfmTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SIDfm.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._SIDfmVulnTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SIDfmVuln.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._sIDfmTableAdapter.Update(deletedRows));
+                    result = (result + this._SIDfmVulnTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5817,8 +5817,8 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                         && (this.MatchTableAdapterConnection(this._resourceTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
             }
-            if (((this._sIDfmTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._sIDfmTableAdapter.Connection) == false))) {
+            if (((this._SIDfmVulnTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._SIDfmVulnTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
@@ -5879,13 +5879,13 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._resourceTableAdapter.Adapter);
                     }
                 }
-                if ((this._sIDfmTableAdapter != null)) {
-                    revertConnections.Add(this._sIDfmTableAdapter, this._sIDfmTableAdapter.Connection);
-                    this._sIDfmTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
-                    this._sIDfmTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
-                    if (this._sIDfmTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._sIDfmTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._sIDfmTableAdapter.Adapter);
+                if ((this._SIDfmVulnTableAdapter != null)) {
+                    revertConnections.Add(this._SIDfmVulnTableAdapter, this._SIDfmVulnTableAdapter.Connection);
+                    this._SIDfmVulnTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(workConnection));
+                    this._SIDfmVulnTableAdapter.Transaction = ((global::System.Data.SQLite.SQLiteTransaction)(workTransaction));
+                    if (this._SIDfmVulnTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._SIDfmVulnTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._SIDfmVulnTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -5958,9 +5958,9 @@ namespace SIDfmContext.db.cmdbDataSetTableAdapters {
                     this._resourceTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._resourceTableAdapter]));
                     this._resourceTableAdapter.Transaction = null;
                 }
-                if ((this._sIDfmTableAdapter != null)) {
-                    this._sIDfmTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._sIDfmTableAdapter]));
-                    this._sIDfmTableAdapter.Transaction = null;
+                if ((this._SIDfmVulnTableAdapter != null)) {
+                    this._SIDfmVulnTableAdapter.Connection = ((global::System.Data.SQLite.SQLiteConnection)(revertConnections[this._SIDfmVulnTableAdapter]));
+                    this._SIDfmVulnTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

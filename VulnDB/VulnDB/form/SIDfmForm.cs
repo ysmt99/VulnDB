@@ -10,14 +10,14 @@ using 入力規則 = VulnDB.Const.入力規則;
 
 namespace VulnDB
 {
-    public class SIDfmForm
+    public class SIDfmVulnForm
     {
         public Dictionary<CSV列,string> values{get; set;}
 
-        public SIDfmForm()
+        public SIDfmVulnForm()
         {
         }
-        public SIDfmForm(string[] ss)
+        public SIDfmVulnForm(string[] ss)
         {
             values = new Dictionary<CSV列,string>();
             // CSVファイルの値をセット
@@ -33,7 +33,7 @@ namespace VulnDB
         }
         public ErrorOfForm validate(int lineNo)
         {
-            SIDfmLineValidator v = new SIDfmLineValidator(lineNo,this);
+            SIDfmVulnLineValidator v = new SIDfmVulnLineValidator(lineNo,this);
             return v.validate();
         }
     }

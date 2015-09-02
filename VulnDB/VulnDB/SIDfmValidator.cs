@@ -13,7 +13,7 @@ namespace VulnDB
         public static Dictionary<CSV列, List<入力規則>> param;
         static ValidateParams() {
             param = new Dictionary<CSV列, List<入力規則>>();
-            param.Add(CSV列.SIDfmId, new List<入力規則>() { 入力規則.必須, 入力規則.整数 });
+            param.Add(CSV列.SIDfmVulnId, new List<入力規則>() { 入力規則.必須, 入力規則.整数 });
             param.Add(CSV列.タイトル, new List<入力規則>() { 入力規則.必須 });
             param.Add(CSV列.CVE番号, new List<入力規則>() { 入力規則.必須 });
             param.Add(CSV列.CVSS基本値, new List<入力規則>() { 入力規則.数値_小数点あり });
@@ -49,12 +49,12 @@ namespace VulnDB
             param.Add(CSV列.アイテム10, new List<入力規則>() { 入力規則.日付 });
         }
     }
-    public class SIDfmLineValidator
+    public class SIDfmVulnLineValidator
     {
         public int lineNo { set; get; }
-        public SIDfmForm form { set; get; }
-        public SIDfmLineValidator() { }
-        public SIDfmLineValidator(int i, SIDfmForm f)
+        public SIDfmVulnForm form { set; get; }
+        public SIDfmVulnLineValidator() { }
+        public SIDfmVulnLineValidator(int i, SIDfmVulnForm f)
         {
             lineNo = i;
             form = f;
@@ -63,7 +63,7 @@ namespace VulnDB
         {
             List<string> list = new List<string>();
             list.Add("行番号："+lineNo.ToString());
-            list.Add("SIDfm番号：" + form.values[CSV列.SIDfmId]);
+            list.Add("SIDfmVuln番号：" + form.values[CSV列.SIDfmVulnId]);
             list.Add("CVE番号：" + form.values[CSV列.CVE番号]);
 
 
@@ -72,17 +72,17 @@ namespace VulnDB
             {
                 // TODO この修正はないなぁ。。。
                 if ((int)c >= form.values.Count()) { break; }
-                errorOfForm.addError(c, new SIDfmColumnValidator(c, form.values[c]).validate());
+                errorOfForm.addError(c, new SIDfmVulnColumnValidator(c, form.values[c]).validate());
             }
             return errorOfForm;
         }
     }
-    public class SIDfmColumnValidator
+    public class SIDfmVulnColumnValidator
     {
         public CSV列 column { set; get; }
         public string value { set; get; }
-        public SIDfmColumnValidator() { }
-        public SIDfmColumnValidator(CSV列 c, string s) {
+        public SIDfmVulnColumnValidator() { }
+        public SIDfmVulnColumnValidator(CSV列 c, string s) {
             column = c;
             value = s;
         }
@@ -92,18 +92,18 @@ namespace VulnDB
             List<入力規則> rules = ValidateParams.param[column];
             foreach (入力規則 r in rules)
             {
-                errorOfColumn.addError(r, new SIDfmRuleValidator(column,r, this.value).validate());
+                errorOfColumn.addError(r, new SIDfmVulnRuleValidator(column,r, this.value).validate());
             }
             return errorOfColumn;
         }
     }
-    public class SIDfmRuleValidator
+    public class SIDfmVulnRuleValidator
     {
         public CSV列 column { set; get; }
         public 入力規則 rule { set; get; }
         public string value { set; get; }
-        public SIDfmRuleValidator() { }
-        public SIDfmRuleValidator(CSV列 c,入力規則 r, string s)
+        public SIDfmVulnRuleValidator() { }
+        public SIDfmVulnRuleValidator(CSV列 c,入力規則 r, string s)
         {
             column = c;
             rule = r;

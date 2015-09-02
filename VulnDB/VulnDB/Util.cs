@@ -11,10 +11,10 @@ namespace Tools
 {
     static class Util
     {
-        //public static SIDfm deepCopy(SIDfm src)
+        //public static SIDfmVuln deepCopy(SIDfmVuln src)
         //{
-        //    SIDfm dest = new SIDfm();
-        //    var proplist = typeof(SIDfm).GetProperties();
+        //    SIDfmVuln dest = new SIDfmVuln();
+        //    var proplist = typeof(SIDfmVuln).GetProperties();
         //    foreach (var prop in proplist)
         //    {
         //        prop.SetValue(dest, prop.GetValue(src), null);

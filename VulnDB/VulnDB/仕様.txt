@@ -1,7 +1,7 @@
 ﻿項目名の定義
 
-＝＝＝＝＝ SIDfm ＝＝＝＝＝
-SIDfmId
+＝＝＝＝＝ SIDfmVuln ＝＝＝＝＝
+SIDfmVulnId
 タイトル
 CVE番号
 CVSS基本値
@@ -18,14 +18,14 @@ CVSS基本値
 
 edmxを削除してプロジェクトから追加で作成した。
 ＝＝＝＝＝ ADO.Net Entity Data Modelでできるもの ＝＝＝＝＝
-SIDfm.edmx
-	SIDfm.Context.tt ⇒ contextクラスファイルのテンプレート
-		SIDfm.Context.cs(SIDfmEntitiesクラス)
-	SIDfm.Disigner.cs
-	SIDfm.edmx.diagram
-	SIDfm.tt ⇒ beanクラスファイルのテンプレート
-		SIDfm.cs(SIDfmクラス)
-		SIDfm1.cs
+SIDfmVuln.edmx
+	SIDfmVuln.Context.tt ⇒ contextクラスファイルのテンプレート
+		SIDfmVuln.Context.cs(SIDfmVulnEntitiesクラス)
+	SIDfmVuln.Disigner.cs
+	SIDfmVuln.edmx.diagram
+	SIDfmVuln.tt ⇒ beanクラスファイルのテンプレート
+		SIDfmVuln.cs(SIDfmVulnクラス)
+		SIDfmVuln1.cs
 
 データセットは不要
 ⇒コネクションっぽい？
@@ -41,7 +41,7 @@ xsdは何？
 結果⇒Validator
 
 ===== CSVの入力項目 =====
-        public string SIDfmId { get; set; }                  // 必須、数値
+        public string SIDfmVulnId { get; set; }                  // 必須、数値
         public string タイトル { get; set; }                // 必須
         public string CVE番号 { get; set; }               // 必須
         public string CVSS基本値 { get; set; }             // 数値(小数点未満あり)

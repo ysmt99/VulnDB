@@ -25,22 +25,22 @@
           <Property Name="処理開始日時" Type="datetime" Nullable="false" />
           <Property Name="処理終了日時" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="Resource">
+        <EntityType Name="SIDfmSoftware">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="対象製品名" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="対象製品見出し名" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="対象製品短縮名" Type="nvarchar" MaxLength="2147483647" />
           <Property Name="INSERT_DATE" Type="datetime" />
           <Property Name="UPDATE_DATE" Type="datetime" />
         </EntityType>
-        <EntityType Name="SIDfm">
+        <EntityType Name="SIDfmVuln">
           <Key>
-            <PropertyRef Name="SIDfmId" />
+            <PropertyRef Name="SIDfmVulnId" />
             <PropertyRef Name="CVE番号" />
           </Key>
-          <Property Name="SIDfmId" Type="integer" Nullable="false" />
+          <Property Name="SIDfmVulnId" Type="integer" Nullable="false" />
           <Property Name="タイトル" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="CVE番号" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="CVSS基本値" Type="decimal" Precision="53" Scale="0" />
@@ -60,8 +60,8 @@
         <EntityContainer Name="cmdbModelStoreContainer">
           <EntitySet Name="ActionItems" EntityType="Self.ActionItems" store:Type="Tables" />
           <EntitySet Name="ActionLog" EntityType="Self.ActionLog" store:Type="Tables" />
-          <EntitySet Name="Resource" EntityType="Self.Resource" store:Type="Tables" />
-          <EntitySet Name="SIDfm" EntityType="Self.SIDfm" store:Type="Tables" />
+          <EntitySet Name="SIDfmSoftware" EntityType="Self.SIDfmSoftware" store:Type="Tables" />
+          <EntitySet Name="SIDfmVuln" EntityType="Self.SIDfmVuln" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -88,22 +88,22 @@
           <Property Name="処理開始日時" Type="DateTime" Nullable="false" />
           <Property Name="処理終了日時" Type="DateTime" Nullable="false" />
         </EntityType>
-        <EntityType Name="Resource">
+        <EntityType Name="SIDfmSoftware">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="対象製品名" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="対象製品見出し名" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="対象製品短縮名" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="INSERT_DATE" Type="DateTime" />
           <Property Name="UPDATE_DATE" Type="DateTime" />
         </EntityType>
-        <EntityType Name="SIDfm">
+        <EntityType Name="SIDfmVuln">
           <Key>
-            <PropertyRef Name="SIDfmId" />
+            <PropertyRef Name="SIDfmVulnId" />
             <PropertyRef Name="CVE番号" />
           </Key>
-          <Property Name="SIDfmId" Type="Int64" Nullable="false" />
+          <Property Name="SIDfmVulnId" Type="Int64" Nullable="false" />
           <Property Name="タイトル" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CVE番号" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CVSS基本値" Type="Decimal" Precision="53" Scale="0" />
@@ -123,8 +123,8 @@
         <EntityContainer Name="cmdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ActionItems" EntityType="Self.ActionItems" />
           <EntitySet Name="ActionLog" EntityType="Self.ActionLog" />
-          <EntitySet Name="Resource" EntityType="Self.Resource" />
-          <EntitySet Name="SIDfm" EntityType="Self.SIDfm" />
+          <EntitySet Name="SIDfmSoftware" EntityType="Self.SIDfmSoftware" />
+          <EntitySet Name="SIDfmVuln" EntityType="Self.SIDfmVuln" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -154,21 +154,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Resource">
-            <EntityTypeMapping TypeName="cmdbModel.Resource">
-              <MappingFragment StoreEntitySet="Resource">
+          <EntitySetMapping Name="SIDfmSoftware">
+            <EntityTypeMapping TypeName="cmdbModel.SIDfmSoftware">
+              <MappingFragment StoreEntitySet="SIDfmSoftware">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="対象製品名" ColumnName="対象製品名" />
-                <ScalarProperty Name="対象製品見出し名" ColumnName="対象製品見出し名" />
+                <ScalarProperty Name="対象製品短縮名" ColumnName="対象製品短縮名" />
                 <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
                 <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SIDfm">
-            <EntityTypeMapping TypeName="cmdbModel.SIDfm">
-              <MappingFragment StoreEntitySet="SIDfm">
-                <ScalarProperty Name="SIDfmId" ColumnName="SIDfmId" />
+          <EntitySetMapping Name="SIDfmVuln">
+            <EntityTypeMapping TypeName="cmdbModel.SIDfmVuln">
+              <MappingFragment StoreEntitySet="SIDfmVuln">
+                <ScalarProperty Name="SIDfmVulnId" ColumnName="SIDfmVulnId" />
                 <ScalarProperty Name="タイトル" ColumnName="タイトル" />
                 <ScalarProperty Name="CVE番号" ColumnName="CVE番号" />
                 <ScalarProperty Name="CVSS基本値" ColumnName="CVSS基本値" />

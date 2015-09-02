@@ -27,7 +27,7 @@ namespace SIDfmContext.db
     
         public virtual DbSet<ActionItems> ActionItems { get; set; }
         public virtual DbSet<ActionLog> ActionLog { get; set; }
-        public virtual DbSet<Resource> Resource { get; set; }
-        public virtual DbSet<SIDfm> SIDfm { get; set; }
+        public virtual DbSet<SIDfmSoftware> SIDfmSoftware { get; set; }
+        public virtual DbSet<SIDfmVuln> SIDfmVuln { get; set; }
     }
 }

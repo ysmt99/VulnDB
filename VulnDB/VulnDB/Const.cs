@@ -59,7 +59,7 @@ namespace VulnDB
 
         public enum CSV列:int
         {
-            SIDfmId,                    タイトル,            CVE番号,            CVSS基本値,
+            SIDfmVulnId,               タイトル,            CVE番号,            CVSS基本値,
             攻撃元_ローカル,            攻撃元_隣接,            攻撃元_ネットワーク,
             攻撃成立条件_難しい,            攻撃成立条件_やや難,            攻撃成立条件_簡単,
             攻撃前の認証_複数,            攻撃前の認証_単一,            攻撃前の認証_不要,

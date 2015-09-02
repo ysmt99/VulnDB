@@ -26,11 +26,11 @@ namespace SIDfmContext.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\SIDfm.mdf;Integrated" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\SIDfmVuln.mdf;Integrated" +
             " Security=True")]
-        public string SIDfmConnectionString {
+        public string SIDfmVulnConnectionString {
             get {
-                return ((string)(this["SIDfmConnectionString"]));
+                return ((string)(this["SIDfmVulnConnectionString"]));
             }
         }
         
@@ -47,10 +47,10 @@ namespace SIDfmContext.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\13_git\\VulnDB\\VulnDB\\db\\SIDfmSQLite.db")]
-        public string SIDfmSQLiteConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\13_git\\VulnDB\\VulnDB\\db\\SIDfmVulnSQLite.db")]
+        public string SIDfmVulnSQLiteConnectionString {
             get {
-                return ((string)(this["SIDfmSQLiteConnectionString"]));
+                return ((string)(this["SIDfmVulnSQLiteConnectionString"]));
             }
         }
         
