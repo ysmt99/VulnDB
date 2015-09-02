@@ -20,7 +20,5 @@ namespace SIDfmContext.db
         public string value { get; set; }
         public System.DateTime INSERT_DATE { get; set; }
         public System.DateTime UPDATE_DATE { get; set; }
-    
-        public virtual ActionLog ActionLog { get; set; }
     }
 }
