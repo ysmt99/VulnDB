@@ -33,6 +33,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkedListBoxResources = new System.Windows.Forms.CheckedListBox();
+            this.checkBoxFilter = new System.Windows.Forms.CheckBox();
             this.checkBoxFilter情報登録日検索終了日 = new System.Windows.Forms.CheckBox();
             this.checkBoxFilter情報登録日検索開始日 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,8 +54,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorkerRegist = new System.ComponentModel.BackgroundWorker();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
-            this.checkBoxFilter = new System.Windows.Forms.CheckBox();
-            this.checkedListBoxResources = new System.Windows.Forms.CheckedListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
@@ -100,20 +100,40 @@
             this.tabPage2.Text = "脆弱性一覧";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // comboBoxResources
+            // 
+            this.checkedListBoxResources.FormattingEnabled = true;
+            this.checkedListBoxResources.Location = new System.Drawing.Point(688, 5);
+            this.checkedListBoxResources.Name = "comboBoxResources";
+            this.checkedListBoxResources.Size = new System.Drawing.Size(173, 44);
+            this.checkedListBoxResources.TabIndex = 8;
+            // 
+            // checkBoxFilter
+            // 
+            this.checkBoxFilter.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxFilter.AutoSize = true;
+            this.checkBoxFilter.Location = new System.Drawing.Point(186, 11);
+            this.checkBoxFilter.Name = "checkBoxFilter";
+            this.checkBoxFilter.Size = new System.Drawing.Size(90, 28);
+            this.checkBoxFilter.TabIndex = 7;
+            this.checkBoxFilter.Text = "検索フィルタ";
+            this.checkBoxFilter.UseVisualStyleBackColor = true;
+            this.checkBoxFilter.CheckedChanged += new System.EventHandler(this.checkBoxFilter_CheckedChanged);
+            // 
+            // checkBoxFilter情報登録日検索終了日
             // 
             this.checkBoxFilter情報登録日検索終了日.AutoSize = true;
             this.checkBoxFilter情報登録日検索終了日.Location = new System.Drawing.Point(532, 11);
-            this.checkBoxFilter情報登録日検索終了日.Name = "checkBox2";
+            this.checkBoxFilter情報登録日検索終了日.Name = "checkBoxFilter情報登録日検索終了日";
             this.checkBoxFilter情報登録日検索終了日.Size = new System.Drawing.Size(15, 14);
             this.checkBoxFilter情報登録日検索終了日.TabIndex = 6;
             this.checkBoxFilter情報登録日検索終了日.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // checkBoxFilter情報登録日検索開始日
             // 
             this.checkBoxFilter情報登録日検索開始日.AutoSize = true;
             this.checkBoxFilter情報登録日検索開始日.Location = new System.Drawing.Point(356, 11);
-            this.checkBoxFilter情報登録日検索開始日.Name = "checkBox1";
+            this.checkBoxFilter情報登録日検索開始日.Name = "checkBoxFilter情報登録日検索開始日";
             this.checkBoxFilter情報登録日検索開始日.Size = new System.Drawing.Size(15, 14);
             this.checkBoxFilter情報登録日検索開始日.TabIndex = 6;
             this.checkBoxFilter情報登録日検索開始日.UseVisualStyleBackColor = true;
@@ -145,11 +165,11 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "情報登録日";
             // 
-            // textBox1
+            // textBoxFilter登録製品名
             // 
-            this.textBoxFilter登録製品名.Location = new System.Drawing.Point(356, 33);
-            this.textBoxFilter登録製品名.Name = "textBox1";
-            this.textBoxFilter登録製品名.Size = new System.Drawing.Size(326, 25);
+            this.textBoxFilter登録製品名.Location = new System.Drawing.Point(377, 37);
+            this.textBoxFilter登録製品名.Name = "textBoxFilter登録製品名";
+            this.textBoxFilter登録製品名.Size = new System.Drawing.Size(305, 25);
             this.textBoxFilter登録製品名.TabIndex = 4;
             // 
             // dateTimePicker2
@@ -207,7 +227,7 @@
             this.sIDfmSQLiteDataSetBindingSource.DataSource = this.sIDfmDataSet;
             this.sIDfmSQLiteDataSetBindingSource.Position = 0;
             // 
-            // sIDfmSQLiteDataSet
+            // sIDfmDataSet
             // 
             this.sIDfmDataSet.DataSetName = "SIDfmDataSet";
             this.sIDfmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
@@ -265,28 +285,6 @@
             // sqLiteCommand1
             // 
             this.sqLiteCommand1.CommandText = null;
-            // 
-            // checkBoxFilter
-            // 
-            this.checkBoxFilter.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxFilter.AutoSize = true;
-            this.checkBoxFilter.Checked = false;
-            this.checkBoxFilter.CheckState = System.Windows.Forms.CheckState.Unchecked;
-            this.checkBoxFilter.Location = new System.Drawing.Point(186, 11);
-            this.checkBoxFilter.Name = "checkBox3";
-            this.checkBoxFilter.Size = new System.Drawing.Size(90, 28);
-            this.checkBoxFilter.TabIndex = 7;
-            this.checkBoxFilter.Text = "検索フィルタ";
-            this.checkBoxFilter.UseVisualStyleBackColor = true;
-            this.checkBoxFilter.CheckedChanged += new System.EventHandler(this.checkBoxFilter_CheckedChanged);
-            // 
-            // checkedListBoxResources
-            // 
-            this.checkedListBoxResources.FormattingEnabled = true;
-            this.checkedListBoxResources.Location = new System.Drawing.Point(704, 6);
-            this.checkedListBoxResources.Name = "checkedListBoxResources";
-            this.checkedListBoxResources.Size = new System.Drawing.Size(169, 91);
-            this.checkedListBoxResources.TabIndex = 8;
             // 
             // MainForm
             // 
