@@ -28,6 +28,14 @@ namespace VulnDB
             dataGridViewSearch.ColumnHeaderMouseClick +=  new DataGridViewCellMouseEventHandler(dataGridViewSearch_ColumnHeaderMouseClick);
         }
 
+        List<string> resourceList_;
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            resourceList_ = SIDfmResourceSearch.search();
+            foreach(var item in resourceList_)
+                this.checkedListBoxResources.Items.Add(item);
+        }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             try

@@ -55,4 +55,30 @@ namespace VulnDB
             }
         }
     }
+
+    class SIDfmResourceSearch
+    {
+        internal static List<string> search()
+        {
+            using (SIDfmSQLiteEntities en = new SIDfmSQLiteEntities())
+            {
+                var connectionString = en.Database.Connection.ConnectionString;
+                var matchCollection = Regex.Matches(connectionString, "source=(?<value>.*)", RegexOptions.IgnoreCase);
+                if (matchCollection.Count > 0)
+                {
+                    foreach (Match match in matchCollection)
+                    {
+                        var fileName = match.Groups["value"].Value;
+                        if (!File.Exists(fileName))
+                            throw new ArgumentException("DBファイルが存在しません：" + fileName);
+                        break;
+                    }
+                }
+
+                var resources = from x in en.Resource 
+                                select x.対象製品見出し名;
+                return resources.ToList();
+            }
+        }
+    }
 }
