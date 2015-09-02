@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="cmdbModel.ActionLog" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cmdbModel.Resource" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cmdbModel.SIDfm" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="cmdbModel.ActionLogActionItems" />
+        <AssociationConnector Association="cmdbModel.ActionLogActionItems" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

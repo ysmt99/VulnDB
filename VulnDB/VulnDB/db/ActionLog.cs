@@ -14,9 +14,18 @@ namespace SIDfmContext.db
     
     public partial class ActionLog
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ActionLog()
+        {
+            this.ActionItems = new HashSet<ActionItems>();
+        }
+    
         public long Id { get; set; }
         public long アクション { get; set; }
         public System.DateTime 処理開始日時 { get; set; }
         public System.DateTime 処理終了日時 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ActionItems> ActionItems { get; set; }
     }
 }

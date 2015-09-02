@@ -78,6 +78,7 @@
           <Property Name="value" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="INSERT_DATE" Type="DateTime" Nullable="false" />
           <Property Name="UPDATE_DATE" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ActionLog" Relationship="cmdbModel.ActionLogActionItems" FromRole="ActionItems" ToRole="ActionLog" />
         </EntityType>
         <EntityType Name="ActionLog">
           <Key>
@@ -87,6 +88,7 @@
           <Property Name="アクション" Type="Int64" Nullable="false" />
           <Property Name="処理開始日時" Type="DateTime" Nullable="false" />
           <Property Name="処理終了日時" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ActionItems" Relationship="cmdbModel.ActionLogActionItems" FromRole="ActionLog" ToRole="ActionItems" />
         </EntityType>
         <EntityType Name="Resource">
           <Key>
@@ -125,7 +127,15 @@
           <EntitySet Name="ActionLog" EntityType="Self.ActionLog" />
           <EntitySet Name="Resource" EntityType="Self.Resource" />
           <EntitySet Name="SIDfm" EntityType="Self.SIDfm" />
+          <AssociationSet Name="ActionLogActionItems" Association="cmdbModel.ActionLogActionItems">
+            <End Role="ActionItems" EntitySet="ActionItems" />
+            <End Role="ActionLog" EntitySet="ActionLog" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="ActionLogActionItems">
+          <End Type="cmdbModel.ActionItems" Role="ActionItems" Multiplicity="*" />
+          <End Type="cmdbModel.ActionLog" Role="ActionLog" Multiplicity="1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
