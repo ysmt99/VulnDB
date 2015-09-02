@@ -142,6 +142,7 @@
     <Compile Include="db\SIDfmSoftware.cs">
       <DependentUpon>CMDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="SIDfmValidator.cs" />
     <Compile Include="SIDfmSearch.cs" />
     <Compile Include="MainForm.cs">

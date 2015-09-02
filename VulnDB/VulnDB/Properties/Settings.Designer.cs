@@ -26,38 +26,7 @@ namespace SIDfmContext.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\SIDfmVuln.mdf;Integrated" +
-            " Security=True")]
-        public string SIDfmVulnConnectionString {
-            get {
-                return ((string)(this["SIDfmVulnConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\13_git\\VulnDB\\VulnDB\\db\\VulnDBSQLite.db")]
-        public string VulnDBSQLiteConnectionString {
-            get {
-                return ((string)(this["VulnDBSQLiteConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\13_git\\VulnDB\\VulnDB\\db\\SIDfmVulnSQLite.db")]
-        public string SIDfmVulnSQLiteConnectionString {
-            get {
-                return ((string)(this["SIDfmVulnSQLiteConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\13_git\\db\\cmdb.db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=..\\..\\..\\..\\db\\cmdb.db")]
         public string cmdbConnectionString {
             get {
                 return ((string)(this["cmdbConnectionString"]));
