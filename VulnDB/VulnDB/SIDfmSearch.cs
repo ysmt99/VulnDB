@@ -60,7 +60,7 @@ namespace VulnDB
     {
         internal static List<string> search()
         {
-            using (SIDfmSQLiteEntities en = new SIDfmSQLiteEntities())
+            using (cmdbEntities en = new cmdbEntities())
             {
                 var connectionString = en.Database.Connection.ConnectionString;
                 var matchCollection = Regex.Matches(connectionString, "source=(?<value>.*)", RegexOptions.IgnoreCase);
