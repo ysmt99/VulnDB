@@ -53,6 +53,7 @@
             this.backgroundWorkerRegist = new System.ComponentModel.BackgroundWorker();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.checkBoxFilter = new System.Windows.Forms.CheckBox();
+            this.checkedListBoxResources = new System.Windows.Forms.CheckedListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
@@ -77,6 +78,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkedListBoxResources);
             this.tabPage2.Controls.Add(this.checkBoxFilter);
             this.tabPage2.Controls.Add(this.checkBoxFilter情報登録日検索終了日);
             this.tabPage2.Controls.Add(this.checkBoxFilter情報登録日検索開始日);
@@ -264,7 +266,7 @@
             // 
             this.sqLiteCommand1.CommandText = null;
             // 
-            // checkBox3
+            // checkBoxFilter
             // 
             this.checkBoxFilter.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBoxFilter.AutoSize = true;
@@ -278,6 +280,14 @@
             this.checkBoxFilter.UseVisualStyleBackColor = true;
             this.checkBoxFilter.CheckedChanged += new System.EventHandler(this.checkBoxFilter_CheckedChanged);
             // 
+            // checkedListBoxResources
+            // 
+            this.checkedListBoxResources.FormattingEnabled = true;
+            this.checkedListBoxResources.Location = new System.Drawing.Point(704, 6);
+            this.checkedListBoxResources.Name = "checkedListBoxResources";
+            this.checkedListBoxResources.Size = new System.Drawing.Size(169, 91);
+            this.checkedListBoxResources.TabIndex = 8;
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(908, 433);
@@ -285,6 +295,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "脆弱性／パッチ管理DB";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -322,6 +333,7 @@
         private System.Windows.Forms.CheckBox checkBoxFilter情報登録日検索開始日;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBoxFilter;
+        private System.Windows.Forms.CheckedListBox checkedListBoxResources;
 
     }
 }
