@@ -1,4 +1,4 @@
-﻿// T4 コード生成がモデル 'C:\_d\VulnDB\VulnDB\VulnDBSQLite\db\VulnDBSQLiteModel.edmx' に対して有効です。 
+﻿// T4 コード生成がモデル 'C:\13_git\VulnDB\VulnDB\db\CMDB.edmx' に対して有効です。 
 // レガシ コード生成を有効にするには、'コード生成方法' デザイナー
 // プロパティの値を 'レガシ ObjectContext' に変更します。このプロパティは、デザイナーでモデルが開かれている場合に [プロパティ] ウィンドウ
 // で使用できます。

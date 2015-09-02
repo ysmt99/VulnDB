@@ -1,9 +1,11 @@
 ﻿using log4net;
+using SIDfmContext;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Forms;
+using Tools;
 
 namespace VulnDB
 {
@@ -14,6 +16,11 @@ namespace VulnDB
         public MainForm()
         {
             InitializeComponent();
+
+            LogWriter log = new LogWriter(Const.アクション種類.起動);
+            log.writeLog();
+            SetLastUpdate(); 
+
             // 連続してCSVファイルを読むとエラー。ログに出ない。。
             backgroundWorkerRegist.RunWorkerCompleted += backgroundWorker1_RunWorkerCompleted;
             backgroundWorkerRegist.ProgressChanged += backgroundWorker1_ProgressChanged;
@@ -61,6 +68,7 @@ namespace VulnDB
             else
                 this.textBoxRegistLog.Text = string.Empty;
 
+            SetLastUpdate();
             // 登録完了時に値をクリアしないと連続でCSVファイルを読み込んだときにindexエラーになる
             progressBarRegist.Value = 0;
         }
@@ -79,8 +87,8 @@ namespace VulnDB
         {
             try
             {
-                this.sIDfmSQLiteDataSetBindingSource.DataSource = SIDfmSearch.search();
-                this.sIDfmSQLiteDataSetBindingSource.RemoveFilter();
+                this.cmdbDataSetBindingSource.DataSource = SIDfmSearch.search();
+                this.cmdbDataSetBindingSource.RemoveFilter();
                 foreach(DataGridViewColumn col in dataGridViewSearch.Columns)
                     col.SortMode = DataGridViewColumnSortMode.Programmatic;
             }
@@ -176,7 +184,7 @@ namespace VulnDB
             }
 
             if (sb.Length > 4)
-                sIDfmSQLiteDataSetBindingSource.Filter = sb.ToString(4, sb.Length - 4);
+                cmdbDataSetBindingSource.Filter = sb.ToString(4, sb.Length - 4);
         }
 
         private void checkBoxFilter_CheckedChanged(object sender, EventArgs e)
@@ -187,9 +195,14 @@ namespace VulnDB
             }
             else
             {
-                sIDfmSQLiteDataSetBindingSource.RemoveFilter();
+                cmdbDataSetBindingSource.RemoveFilter();
             }
         }
-
+        private void SetLastUpdate()
+        {
+            LogSearch search = new LogSearch();
+            DateTime dt = search.getLastTimeOfCSVUpload();
+            label1.Text = Util.LastUpdate(dt);
+        }
     }
 }

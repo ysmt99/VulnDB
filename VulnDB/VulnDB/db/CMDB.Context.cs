@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VulnDBSQLite.db
+namespace SIDfmContext.db
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VulnDBSQLiteEntities : DbContext
+    public partial class cmdbEntities : DbContext
     {
-        public VulnDBSQLiteEntities()
-            : base("name=VulnDBSQLiteEntities")
+        public cmdbEntities()
+            : base("name=cmdbEntities")
         {
         }
     
@@ -25,6 +25,9 @@ namespace VulnDBSQLite.db
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ActionItems> ActionItems { get; set; }
+        public virtual DbSet<ActionLog> ActionLog { get; set; }
+        public virtual DbSet<Resource> Resource { get; set; }
         public virtual DbSet<SIDfm> SIDfm { get; set; }
     }
 }

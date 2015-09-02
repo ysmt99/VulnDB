@@ -107,43 +107,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionLogger.cs" />
+    <Compile Include="db\cmdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cmdbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="db\ActionItems.cs">
-      <DependentUpon>SIDfm.tt</DependentUpon>
+      <DependentUpon>CMDB.tt</DependentUpon>
     </Compile>
     <Compile Include="db\ActionLog.cs">
-      <DependentUpon>SIDfm.tt</DependentUpon>
+      <DependentUpon>CMDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\CMDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\CMDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db\CMDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="db\Resource.cs">
-      <DependentUpon>SIDfm.tt</DependentUpon>
-    </Compile>
-    <Compile Include="db\SIDfm.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfm.Context.tt</DependentUpon>
+      <DependentUpon>CMDB.tt</DependentUpon>
     </Compile>
     <Compile Include="db\SIDfm.cs">
-      <DependentUpon>SIDfm.tt</DependentUpon>
+      <DependentUpon>CMDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="db\SIDfm.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfm.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="db\SIDfm1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfm.tt</DependentUpon>
-    </Compile>
+    <Compile Include="LogSearch.cs" />
+    <Compile Include="LogWriter.cs" />
     <Compile Include="sample\CallOrderSample.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="KeyPair.cs" />
     <Compile Include="MultiDictionary.cs" />
-    <Compile Include="db\SIDfmDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SIDfmValidator.cs" />
     <Compile Include="SIDfmSearch.cs" />
     <Compile Include="MainForm.cs">
@@ -172,25 +173,34 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="cmdb\cmdb.db" />
-    <EntityDeploy Include="db\SIDfm.edmx">
+    <EntityDeploy Include="db\CMDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SIDfm.Designer.cs</LastGenOutput>
+      <LastGenOutput>CMDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="db\SIDfm.Context.tt">
+    <None Include="db\cmdbDataSet.xsc">
+      <DependentUpon>cmdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db\cmdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cmdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db\cmdbDataSet.xss">
+      <DependentUpon>cmdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db\CMDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfm.edmx</DependentUpon>
-      <LastGenOutput>SIDfm.Context.cs</LastGenOutput>
+      <DependentUpon>CMDB.edmx</DependentUpon>
+      <LastGenOutput>CMDB.Context.cs</LastGenOutput>
     </None>
-    <None Include="db\SIDfm.edmx.diagram">
-      <DependentUpon>SIDfm.edmx</DependentUpon>
+    <None Include="db\CMDB.edmx.diagram">
+      <DependentUpon>CMDB.edmx</DependentUpon>
     </None>
-    <None Include="db\SIDfm.tt">
+    <None Include="db\CMDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SIDfm.edmx</DependentUpon>
-      <LastGenOutput>SIDfm1.cs</LastGenOutput>
+      <DependentUpon>CMDB.edmx</DependentUpon>
+      <LastGenOutput>CMDB.cs</LastGenOutput>
     </None>
-    <None Include="db\SIDfmSQLite.db" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SIDfmContext.view.SIDfmView.datasource" />
     <None Include="Properties\DataSources\VulnDB.SIDfmView.datasource" />
@@ -203,17 +213,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="db\SIDfmDataSet.xsc">
-      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="db\SIDfmDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SIDfmDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="db\SIDfmDataSet.xss">
-      <DependentUpon>SIDfmDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -242,12 +241,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SIDfm.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SIDfm_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="仕様.txt" />
   </ItemGroup>
   <ItemGroup />
