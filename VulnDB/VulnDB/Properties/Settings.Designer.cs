@@ -53,5 +53,15 @@ namespace SIDfmContext.Properties {
                 return ((string)(this["SIDfmSQLiteConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\13_git\\db\\cmdb.db")]
+        public string cmdbConnectionString {
+            get {
+                return ((string)(this["cmdbConnectionString"]));
+            }
+        }
     }
 }

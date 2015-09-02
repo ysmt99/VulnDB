@@ -126,5 +126,9 @@ namespace Tools
         {
             return (d != null ? d.ToString("yyyy/MM/dd") : "");
         }
+        public static string LastUpdate(DateTime d)
+        {
+            return "最終更新日時：" + (d != null ? d.ToString("yyyy/MM/dd hh:mm:ss") : "");
+        }
     }
 }

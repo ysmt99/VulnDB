@@ -78,7 +78,7 @@ namespace VulnDB
         }
         public enum アクション種類
         {
-            起動, CSV登録, SIDfm一覧表示
+            起動, CSV登録, 脆弱性一覧, 脆弱性検索
         }
     }
 }

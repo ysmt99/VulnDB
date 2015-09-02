@@ -73,7 +73,7 @@ namespace VulnDB
                     return 実行結果;
                 }
 
-                using (SIDfmSQLiteEntities en = new SIDfmSQLiteEntities())
+                using (cmdbEntities en = new cmdbEntities())
                 {
                     readCsvFunc(new Func<string[], bool>(csvFields =>
                     {
@@ -242,7 +242,7 @@ namespace VulnDB
 
                     取込結果.処理終了日時 = DateTime.Now;
                     ActionLog actionLog = new ActionLog();
-                    actionLog.アクション = 1;
+                    actionLog.アクション = (long)Const.アクション種類.CSV登録;
                     actionLog.処理開始日時 = 取込結果.処理開始日時;
                     actionLog.処理終了日時 = 取込結果.処理終了日時;
                     en.ActionLog.Add(actionLog);

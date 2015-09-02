@@ -33,6 +33,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBoxFilter = new System.Windows.Forms.CheckBox();
             this.checkBoxFilter情報登録日検索終了日 = new System.Windows.Forms.CheckBox();
             this.checkBoxFilter情報登録日検索開始日 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,20 +45,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewSearch = new System.Windows.Forms.DataGridView();
-            this.sIDfmSQLiteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sIDfmDataSet = new SIDfmContext.db.SIDfmDataSet();
+            this.cmdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmdbDataSet = new SIDfmContext.db.cmdbDataSet();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.progressBarRegist = new System.Windows.Forms.ProgressBar();
             this.textBoxRegistLog = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorkerRegist = new System.ComponentModel.BackgroundWorker();
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
-            this.checkBoxFilter = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdbDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdbDataSet)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,20 +98,32 @@
             this.tabPage2.Text = "脆弱性一覧";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxFilter
+            // 
+            this.checkBoxFilter.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxFilter.AutoSize = true;
+            this.checkBoxFilter.Location = new System.Drawing.Point(186, 11);
+            this.checkBoxFilter.Name = "checkBoxFilter";
+            this.checkBoxFilter.Size = new System.Drawing.Size(90, 28);
+            this.checkBoxFilter.TabIndex = 7;
+            this.checkBoxFilter.Text = "検索フィルタ";
+            this.checkBoxFilter.UseVisualStyleBackColor = true;
+            this.checkBoxFilter.CheckedChanged += new System.EventHandler(this.checkBoxFilter_CheckedChanged);
+            // 
+            // checkBoxFilter情報登録日検索終了日
             // 
             this.checkBoxFilter情報登録日検索終了日.AutoSize = true;
             this.checkBoxFilter情報登録日検索終了日.Location = new System.Drawing.Point(532, 11);
-            this.checkBoxFilter情報登録日検索終了日.Name = "checkBox2";
+            this.checkBoxFilter情報登録日検索終了日.Name = "checkBoxFilter情報登録日検索終了日";
             this.checkBoxFilter情報登録日検索終了日.Size = new System.Drawing.Size(15, 14);
             this.checkBoxFilter情報登録日検索終了日.TabIndex = 6;
             this.checkBoxFilter情報登録日検索終了日.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // checkBoxFilter情報登録日検索開始日
             // 
             this.checkBoxFilter情報登録日検索開始日.AutoSize = true;
             this.checkBoxFilter情報登録日検索開始日.Location = new System.Drawing.Point(356, 11);
-            this.checkBoxFilter情報登録日検索開始日.Name = "checkBox1";
+            this.checkBoxFilter情報登録日検索開始日.Name = "checkBoxFilter情報登録日検索開始日";
             this.checkBoxFilter情報登録日検索開始日.Size = new System.Drawing.Size(15, 14);
             this.checkBoxFilter情報登録日検索開始日.TabIndex = 6;
             this.checkBoxFilter情報登録日検索開始日.UseVisualStyleBackColor = true;
@@ -143,10 +155,10 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "情報登録日";
             // 
-            // textBox1
+            // textBoxFilter登録製品名
             // 
             this.textBoxFilter登録製品名.Location = new System.Drawing.Point(356, 33);
-            this.textBoxFilter登録製品名.Name = "textBox1";
+            this.textBoxFilter登録製品名.Name = "textBoxFilter登録製品名";
             this.textBoxFilter登録製品名.Size = new System.Drawing.Size(326, 25);
             this.textBoxFilter登録製品名.TabIndex = 4;
             // 
@@ -169,9 +181,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(656, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(214, 18);
+            this.label1.Size = new System.Drawing.Size(92, 18);
             this.label1.TabIndex = 2;
-            this.label1.Text = "最終更新日時：2015/08/05 22:42:28";
+            this.label1.Text = "最終更新日時：";
             // 
             // button2
             // 
@@ -192,7 +204,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSearch.AutoGenerateColumns = true;
             this.dataGridViewSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSearch.DataSource = this.sIDfmSQLiteDataSetBindingSource;
+            this.dataGridViewSearch.DataSource = this.cmdbDataSetBindingSource;
             this.dataGridViewSearch.Location = new System.Drawing.Point(6, 78);
             this.dataGridViewSearch.Name = "dataGridViewSearch";
             this.dataGridViewSearch.ReadOnly = true;
@@ -200,15 +212,15 @@
             this.dataGridViewSearch.Size = new System.Drawing.Size(864, 285);
             this.dataGridViewSearch.TabIndex = 0;
             // 
-            // sIDfmSQLiteDataSetBindingSource
+            // cmdbDataSetBindingSource
             // 
-            this.sIDfmSQLiteDataSetBindingSource.DataSource = this.sIDfmDataSet;
-            this.sIDfmSQLiteDataSetBindingSource.Position = 0;
+            this.cmdbDataSetBindingSource.DataSource = this.cmdbDataSet;
+            this.cmdbDataSetBindingSource.Position = 0;
             // 
-            // sIDfmSQLiteDataSet
+            // cmdbDataSet
             // 
-            this.sIDfmDataSet.DataSetName = "SIDfmDataSet";
-            this.sIDfmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.cmdbDataSet.DataSetName = "cmdbDataSet";
+            this.cmdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage1
             // 
@@ -264,20 +276,6 @@
             // 
             this.sqLiteCommand1.CommandText = null;
             // 
-            // checkBox3
-            // 
-            this.checkBoxFilter.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxFilter.AutoSize = true;
-            this.checkBoxFilter.Checked = false;
-            this.checkBoxFilter.CheckState = System.Windows.Forms.CheckState.Unchecked;
-            this.checkBoxFilter.Location = new System.Drawing.Point(186, 11);
-            this.checkBoxFilter.Name = "checkBox3";
-            this.checkBoxFilter.Size = new System.Drawing.Size(90, 28);
-            this.checkBoxFilter.TabIndex = 7;
-            this.checkBoxFilter.Text = "検索フィルタ";
-            this.checkBoxFilter.UseVisualStyleBackColor = true;
-            this.checkBoxFilter.CheckedChanged += new System.EventHandler(this.checkBoxFilter_CheckedChanged);
-            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(908, 433);
@@ -289,8 +287,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdbDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdbDataSet)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
@@ -311,8 +309,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
-        private System.Windows.Forms.BindingSource sIDfmSQLiteDataSetBindingSource;
-        private SIDfmContext.db.SIDfmDataSet sIDfmDataSet;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBoxFilter登録製品名;
@@ -322,6 +318,8 @@
         private System.Windows.Forms.CheckBox checkBoxFilter情報登録日検索開始日;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox checkBoxFilter;
+        private System.Windows.Forms.BindingSource cmdbDataSetBindingSource;
+        private SIDfmContext.db.cmdbDataSet cmdbDataSet;
 
     }
 }

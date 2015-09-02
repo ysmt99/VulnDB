@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SIDfmSQLiteModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\13_git\VulnDB\VulnDB\db\SIDfmSQLite.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="cmdbModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\13_git\db\cmdb.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ActionItems">
           <Key>
             <PropertyRef Name="Id" />
@@ -57,7 +57,7 @@
           <Property Name="INSERT_DATE" Type="datetime" />
           <Property Name="UPDATE_DATE" Type="datetime" />
         </EntityType>
-        <EntityContainer Name="SIDfmSQLiteModelStoreContainer">
+        <EntityContainer Name="cmdbModelStoreContainer">
           <EntitySet Name="ActionItems" EntityType="Self.ActionItems" store:Type="Tables" />
           <EntitySet Name="ActionLog" EntityType="Self.ActionLog" store:Type="Tables" />
           <EntitySet Name="Resource" EntityType="Self.Resource" store:Type="Tables" />
@@ -67,7 +67,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SIDfmSQLiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="cmdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ActionItems">
           <Key>
             <PropertyRef Name="Id" />
@@ -120,7 +120,7 @@
           <Property Name="INSERT_DATE" Type="DateTime" />
           <Property Name="UPDATE_DATE" Type="DateTime" />
         </EntityType>
-        <EntityContainer Name="SIDfmSQLiteEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="cmdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ActionItems" EntityType="Self.ActionItems" />
           <EntitySet Name="ActionLog" EntityType="Self.ActionLog" />
           <EntitySet Name="Resource" EntityType="Self.Resource" />
@@ -131,9 +131,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SIDfmSQLiteModelStoreContainer" CdmEntityContainer="SIDfmSQLiteEntities">
+        <EntityContainerMapping StorageEntityContainer="cmdbModelStoreContainer" CdmEntityContainer="cmdbEntities">
           <EntitySetMapping Name="ActionItems">
-            <EntityTypeMapping TypeName="SIDfmSQLiteModel.ActionItems">
+            <EntityTypeMapping TypeName="cmdbModel.ActionItems">
               <MappingFragment StoreEntitySet="ActionItems">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ActionLogId" ColumnName="ActionLogId" />
@@ -145,7 +145,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ActionLog">
-            <EntityTypeMapping TypeName="SIDfmSQLiteModel.ActionLog">
+            <EntityTypeMapping TypeName="cmdbModel.ActionLog">
               <MappingFragment StoreEntitySet="ActionLog">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="アクション" ColumnName="アクション" />
@@ -155,7 +155,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Resource">
-            <EntityTypeMapping TypeName="SIDfmSQLiteModel.Resource">
+            <EntityTypeMapping TypeName="cmdbModel.Resource">
               <MappingFragment StoreEntitySet="Resource">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="対象製品名" ColumnName="対象製品名" />
@@ -166,7 +166,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SIDfm">
-            <EntityTypeMapping TypeName="SIDfmSQLiteModel.SIDfm">
+            <EntityTypeMapping TypeName="cmdbModel.SIDfm">
               <MappingFragment StoreEntitySet="SIDfm">
                 <ScalarProperty Name="SIDfmId" ColumnName="SIDfmId" />
                 <ScalarProperty Name="タイトル" ColumnName="タイトル" />

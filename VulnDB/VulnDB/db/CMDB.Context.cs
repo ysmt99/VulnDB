@@ -13,10 +13,10 @@ namespace SIDfmContext.db
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SIDfmSQLiteEntities : DbContext
+    public partial class cmdbEntities : DbContext
     {
-        public SIDfmSQLiteEntities()
-            : base("name=SIDfmSQLiteEntities")
+        public cmdbEntities()
+            : base("name=cmdbEntities")
         {
         }
     

@@ -20,9 +20,9 @@ namespace SIDfmContext.db {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("SIDfmDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("cmdbDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class SIDfmDataSet : global::System.Data.DataSet {
+    public partial class cmdbDataSet : global::System.Data.DataSet {
         
         private ActionItemsDataTable tableActionItems;
         
@@ -36,7 +36,7 @@ namespace SIDfmContext.db {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public SIDfmDataSet() {
+        public cmdbDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -47,7 +47,7 @@ namespace SIDfmContext.db {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected SIDfmDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected cmdbDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -172,7 +172,7 @@ namespace SIDfmContext.db {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            SIDfmDataSet cln = ((SIDfmDataSet)(base.Clone()));
+            cmdbDataSet cln = ((cmdbDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -271,9 +271,9 @@ namespace SIDfmContext.db {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "SIDfmDataSet";
+            this.DataSetName = "cmdbDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/SIDfmDataSet.xsd";
+            this.Namespace = "http://tempuri.org/cmdbDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableActionItems = new ActionItemsDataTable();
@@ -321,7 +321,7 @@ namespace SIDfmContext.db {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            SIDfmDataSet ds = new SIDfmDataSet();
+            cmdbDataSet ds = new cmdbDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -514,10 +514,10 @@ namespace SIDfmContext.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ActionItemsRow AddActionItemsRow(long Id, long ActionLogId, string key, string value, System.DateTime INSERT_DATE, System.DateTime UPDATE_DATE) {
+            public ActionItemsRow AddActionItemsRow(long ActionLogId, string key, string value, System.DateTime INSERT_DATE, System.DateTime UPDATE_DATE) {
                 ActionItemsRow rowActionItemsRow = ((ActionItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id,
+                        null,
                         ActionLogId,
                         key,
                         value,
@@ -577,6 +577,9 @@ namespace SIDfmContext.db {
                 base.Columns.Add(this.columnUPDATE_DATE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
                 this.columnActionLogId.AllowDBNull = false;
@@ -653,7 +656,7 @@ namespace SIDfmContext.db {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SIDfmDataSet ds = new SIDfmDataSet();
+                cmdbDataSet ds = new cmdbDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -829,10 +832,10 @@ namespace SIDfmContext.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ActionLogRow AddActionLogRow(long Id, long アクション, System.DateTime 処理開始日時, System.DateTime 処理終了日時) {
+            public ActionLogRow AddActionLogRow(long アクション, System.DateTime 処理開始日時, System.DateTime 処理終了日時) {
                 ActionLogRow rowActionLogRow = ((ActionLogRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id,
+                        null,
                         アクション,
                         処理開始日時,
                         処理終了日時};
@@ -884,6 +887,9 @@ namespace SIDfmContext.db {
                 base.Columns.Add(this.column処理終了日時);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
                 this.columnアクション.AllowDBNull = false;
@@ -956,7 +962,7 @@ namespace SIDfmContext.db {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SIDfmDataSet ds = new SIDfmDataSet();
+                cmdbDataSet ds = new cmdbDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1142,10 +1148,10 @@ namespace SIDfmContext.db {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ResourceRow AddResourceRow(long Id, string 対象製品名, string 対象製品見出し名, System.DateTime INSERT_DATE, System.DateTime UPDATE_DATE) {
+            public ResourceRow AddResourceRow(string 対象製品名, string 対象製品見出し名, System.DateTime INSERT_DATE, System.DateTime UPDATE_DATE) {
                 ResourceRow rowResourceRow = ((ResourceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id,
+                        null,
                         対象製品名,
                         対象製品見出し名,
                         INSERT_DATE,
@@ -1201,6 +1207,9 @@ namespace SIDfmContext.db {
                 base.Columns.Add(this.columnUPDATE_DATE);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
                 this.column対象製品名.AllowDBNull = false;
@@ -1273,7 +1282,7 @@ namespace SIDfmContext.db {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SIDfmDataSet ds = new SIDfmDataSet();
+                cmdbDataSet ds = new cmdbDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1764,7 +1773,7 @@ namespace SIDfmContext.db {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SIDfmDataSet ds = new SIDfmDataSet();
+                cmdbDataSet ds = new cmdbDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2633,7 +2642,7 @@ namespace SIDfmContext.db {
         }
     }
 }
-namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
+namespace SIDfmContext.db.cmdbDataSetTableAdapters {
     
     
     /// <summary>
@@ -2810,16 +2819,10 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[ActionItems] ([Id], [ActionLogId], [k" +
-                "ey], [value], [INSERT_DATE], [UPDATE_DATE]) VALUES (@Id, @ActionLogId, @key, @va" +
-                "lue, @INSERT_DATE, @UPDATE_DATE)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[ActionItems] ([ActionLogId], [key], [" +
+                "value], [INSERT_DATE], [UPDATE_DATE]) VALUES (@ActionLogId, @key, @value, @INSER" +
+                "T_DATE, @UPDATE_DATE)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "Id";
-            this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@ActionLogId";
             param.DbType = global::System.Data.DbType.Int64;
@@ -2850,14 +2853,8 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[ActionItems] SET [Id] = @Id, [ActionLogId] = @ActionLogId, [key] = @key, [value] = @value, [INSERT_DATE] = @INSERT_DATE, [UPDATE_DATE] = @UPDATE_DATE WHERE (([Id] = @Original_Id) AND ([ActionLogId] = @Original_ActionLogId) AND ([key] = @Original_key) AND ([value] = @Original_value) AND ([INSERT_DATE] = @Original_INSERT_DATE) AND ([UPDATE_DATE] = @Original_UPDATE_DATE))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[ActionItems] SET [ActionLogId] = @ActionLogId, [key] = @key, [value] = @value, [INSERT_DATE] = @INSERT_DATE, [UPDATE_DATE] = @UPDATE_DATE WHERE (([Id] = @Original_Id) AND ([ActionLogId] = @Original_ActionLogId) AND ([key] = @Original_key) AND ([value] = @Original_value) AND ([INSERT_DATE] = @Original_INSERT_DATE) AND ([UPDATE_DATE] = @Original_UPDATE_DATE))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "Id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@ActionLogId";
             param.DbType = global::System.Data.DbType.Int64;
@@ -2932,7 +2929,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::SIDfmContext.Properties.Settings.Default.SIDfmSQLiteConnectionString;
+            this._connection.ConnectionString = global::SIDfmContext.Properties.Settings.Default.cmdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2950,7 +2947,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SIDfmDataSet.ActionItemsDataTable dataTable) {
+        public virtual int Fill(cmdbDataSet.ActionItemsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2963,9 +2960,9 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SIDfmDataSet.ActionItemsDataTable GetData() {
+        public virtual cmdbDataSet.ActionItemsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SIDfmDataSet.ActionItemsDataTable dataTable = new SIDfmDataSet.ActionItemsDataTable();
+            cmdbDataSet.ActionItemsDataTable dataTable = new cmdbDataSet.ActionItemsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2973,14 +2970,14 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SIDfmDataSet.ActionItemsDataTable dataTable) {
+        public virtual int Update(cmdbDataSet.ActionItemsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SIDfmDataSet dataSet) {
+        public virtual int Update(cmdbDataSet dataSet) {
             return this.Adapter.Update(dataSet, "ActionItems");
         }
         
@@ -3040,23 +3037,22 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long Id, long ActionLogId, string key, string value, System.DateTime INSERT_DATE, System.DateTime UPDATE_DATE) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(Id));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(ActionLogId));
+        public virtual int Insert(long ActionLogId, string key, string value, System.DateTime INSERT_DATE, System.DateTime UPDATE_DATE) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(ActionLogId));
             if ((key == null)) {
                 throw new global::System.ArgumentNullException("key");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(key));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(key));
             }
             if ((value == null)) {
                 throw new global::System.ArgumentNullException("value");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(value));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(value));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(INSERT_DATE));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(UPDATE_DATE));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(INSERT_DATE));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(UPDATE_DATE));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3077,39 +3073,38 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long Id, long ActionLogId, string key, string value, System.DateTime INSERT_DATE, System.DateTime UPDATE_DATE, long Original_Id, long Original_ActionLogId, string Original_key, string Original_value, System.DateTime Original_INSERT_DATE, System.DateTime Original_UPDATE_DATE) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(Id));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(ActionLogId));
+        public virtual int Update(long ActionLogId, string key, string value, System.DateTime INSERT_DATE, System.DateTime UPDATE_DATE, long Original_Id, long Original_ActionLogId, string Original_key, string Original_value, System.DateTime Original_INSERT_DATE, System.DateTime Original_UPDATE_DATE) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(ActionLogId));
             if ((key == null)) {
                 throw new global::System.ArgumentNullException("key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(key));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(key));
             }
             if ((value == null)) {
                 throw new global::System.ArgumentNullException("value");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(value));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(value));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(INSERT_DATE));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(UPDATE_DATE));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(Original_ActionLogId));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(INSERT_DATE));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(UPDATE_DATE));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_ActionLogId));
             if ((Original_key == null)) {
                 throw new global::System.ArgumentNullException("Original_key");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_key));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_key));
             }
             if ((Original_value == null)) {
                 throw new global::System.ArgumentNullException("Original_value");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_value));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_INSERT_DATE));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_UPDATE_DATE));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_INSERT_DATE));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_UPDATE_DATE));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3124,14 +3119,6 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long ActionLogId, string key, string value, System.DateTime INSERT_DATE, System.DateTime UPDATE_DATE, long Original_Id, long Original_ActionLogId, string Original_key, string Original_value, System.DateTime Original_INSERT_DATE, System.DateTime Original_UPDATE_DATE) {
-            return this.Update(Original_Id, ActionLogId, key, value, INSERT_DATE, UPDATE_DATE, Original_Id, Original_ActionLogId, Original_key, Original_value, Original_INSERT_DATE, Original_UPDATE_DATE);
         }
     }
     
@@ -3297,15 +3284,9 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[ActionLog] ([Id], [アクション], [処理開始日時], " +
-                "[処理終了日時]) VALUES (@Id, @アクション, @処理開始日時, @処理終了日時)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[ActionLog] ([アクション], [処理開始日時], [処理終了日" +
+                "時]) VALUES (@アクション, @処理開始日時, @処理終了日時)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "Id";
-            this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@アクション";
             param.DbType = global::System.Data.DbType.Int64;
@@ -3326,17 +3307,10 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[ActionLog] SET [Id] = @Id, [アクション] = @アクショ" +
-                "ン, [処理開始日時] = @処理開始日時, [処理終了日時] = @処理終了日時 WHERE (([Id] = @Original_Id) AND ([アクシ" +
-                "ョン] = @Original_アクション) AND ([処理開始日時] = @Original_処理開始日時) AND ([処理終了日時] = @Origin" +
-                "al_処理終了日時))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [main].[sqlite_default_schema].[ActionLog] SET [アクション] = @アクション, [処理開始日時] " +
+                "= @処理開始日時, [処理終了日時] = @処理終了日時 WHERE (([Id] = @Original_Id) AND ([アクション] = @Origi" +
+                "nal_アクション) AND ([処理開始日時] = @Original_処理開始日時) AND ([処理終了日時] = @Original_処理終了日時))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "Id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@アクション";
             param.DbType = global::System.Data.DbType.Int64;
@@ -3389,7 +3363,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::SIDfmContext.Properties.Settings.Default.SIDfmSQLiteConnectionString;
+            this._connection.ConnectionString = global::SIDfmContext.Properties.Settings.Default.cmdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3406,7 +3380,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SIDfmDataSet.ActionLogDataTable dataTable) {
+        public virtual int Fill(cmdbDataSet.ActionLogDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3419,9 +3393,9 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SIDfmDataSet.ActionLogDataTable GetData() {
+        public virtual cmdbDataSet.ActionLogDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SIDfmDataSet.ActionLogDataTable dataTable = new SIDfmDataSet.ActionLogDataTable();
+            cmdbDataSet.ActionLogDataTable dataTable = new cmdbDataSet.ActionLogDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3429,14 +3403,14 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SIDfmDataSet.ActionLogDataTable dataTable) {
+        public virtual int Update(cmdbDataSet.ActionLogDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SIDfmDataSet dataSet) {
+        public virtual int Update(cmdbDataSet dataSet) {
             return this.Adapter.Update(dataSet, "ActionLog");
         }
         
@@ -3484,11 +3458,10 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long Id, long アクション, System.DateTime 処理開始日時, System.DateTime 処理終了日時) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(Id));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((long)(アクション));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(処理開始日時));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(処理終了日時));
+        public virtual int Insert(long アクション, System.DateTime 処理開始日時, System.DateTime 処理終了日時) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(アクション));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(処理開始日時));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(処理終了日時));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3509,15 +3482,14 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long Id, long アクション, System.DateTime 処理開始日時, System.DateTime 処理終了日時, long Original_Id, long Original_アクション, System.DateTime Original_処理開始日時, System.DateTime Original_処理終了日時) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(Id));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(アクション));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(処理開始日時));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(処理終了日時));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(Original_アクション));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_処理開始日時));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_処理終了日時));
+        public virtual int Update(long アクション, System.DateTime 処理開始日時, System.DateTime 処理終了日時, long Original_Id, long Original_アクション, System.DateTime Original_処理開始日時, System.DateTime Original_処理終了日時) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(アクション));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(処理開始日時));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(処理終了日時));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((long)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_アクション));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_処理開始日時));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_処理終了日時));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3532,14 +3504,6 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long アクション, System.DateTime 処理開始日時, System.DateTime 処理終了日時, long Original_Id, long Original_アクション, System.DateTime Original_処理開始日時, System.DateTime Original_処理終了日時) {
-            return this.Update(Original_Id, アクション, 処理開始日時, 処理終了日時, Original_Id, Original_アクション, Original_処理開始日時, Original_処理終了日時);
         }
     }
     
@@ -3733,16 +3697,9 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[Resource] ([Id], [対象製品名], [対象製品見出し名]," +
-                " [INSERT_DATE], [UPDATE_DATE]) VALUES (@Id, @対象製品名, @対象製品見出し名, @INSERT_DATE, @UP" +
-                "DATE_DATE)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[Resource] ([対象製品名], [対象製品見出し名], [INSE" +
+                "RT_DATE], [UPDATE_DATE]) VALUES (@対象製品名, @対象製品見出し名, @INSERT_DATE, @UPDATE_DATE)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "Id";
-            this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@対象製品名";
             param.DbType = global::System.Data.DbType.String;
@@ -3767,14 +3724,8 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Resource] SET [Id] = @Id, [対象製品名] = @対象製品名, [対象製品見出し名] = @対象製品見出し名, [INSERT_DATE] = @INSERT_DATE, [UPDATE_DATE] = @UPDATE_DATE WHERE (([Id] = @Original_Id) AND ([対象製品名] = @Original_対象製品名) AND ((@IsNull_対象製品見出し名 = 1 AND [対象製品見出し名] IS NULL) OR ([対象製品見出し名] = @Original_対象製品見出し名)) AND ((@IsNull_INSERT_DATE = 1 AND [INSERT_DATE] IS NULL) OR ([INSERT_DATE] = @Original_INSERT_DATE)) AND ((@IsNull_UPDATE_DATE = 1 AND [UPDATE_DATE] IS NULL) OR ([UPDATE_DATE] = @Original_UPDATE_DATE)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[Resource] SET [対象製品名] = @対象製品名, [対象製品見出し名] = @対象製品見出し名, [INSERT_DATE] = @INSERT_DATE, [UPDATE_DATE] = @UPDATE_DATE WHERE (([Id] = @Original_Id) AND ([対象製品名] = @Original_対象製品名) AND ((@IsNull_対象製品見出し名 = 1 AND [対象製品見出し名] IS NULL) OR ([対象製品見出し名] = @Original_対象製品見出し名)) AND ((@IsNull_INSERT_DATE = 1 AND [INSERT_DATE] IS NULL) OR ([INSERT_DATE] = @Original_INSERT_DATE)) AND ((@IsNull_UPDATE_DATE = 1 AND [UPDATE_DATE] IS NULL) OR ([UPDATE_DATE] = @Original_UPDATE_DATE)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Id";
-            param.DbType = global::System.Data.DbType.Int64;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "Id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@対象製品名";
             param.DbType = global::System.Data.DbType.String;
@@ -3860,7 +3811,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::SIDfmContext.Properties.Settings.Default.SIDfmSQLiteConnectionString;
+            this._connection.ConnectionString = global::SIDfmContext.Properties.Settings.Default.cmdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3877,7 +3828,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SIDfmDataSet.ResourceDataTable dataTable) {
+        public virtual int Fill(cmdbDataSet.ResourceDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3890,9 +3841,9 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SIDfmDataSet.ResourceDataTable GetData() {
+        public virtual cmdbDataSet.ResourceDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SIDfmDataSet.ResourceDataTable dataTable = new SIDfmDataSet.ResourceDataTable();
+            cmdbDataSet.ResourceDataTable dataTable = new cmdbDataSet.ResourceDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3900,14 +3851,14 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SIDfmDataSet.ResourceDataTable dataTable) {
+        public virtual int Update(cmdbDataSet.ResourceDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SIDfmDataSet dataSet) {
+        public virtual int Update(cmdbDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Resource");
         }
         
@@ -3982,31 +3933,30 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long Id, string 対象製品名, string 対象製品見出し名, global::System.Nullable<global::System.DateTime> INSERT_DATE, global::System.Nullable<global::System.DateTime> UPDATE_DATE) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(Id));
+        public virtual int Insert(string 対象製品名, string 対象製品見出し名, global::System.Nullable<global::System.DateTime> INSERT_DATE, global::System.Nullable<global::System.DateTime> UPDATE_DATE) {
             if ((対象製品名 == null)) {
                 throw new global::System.ArgumentNullException("対象製品名");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(対象製品名));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(対象製品名));
             }
             if ((対象製品見出し名 == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(対象製品見出し名));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(対象製品見出し名));
             }
             if ((INSERT_DATE.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(INSERT_DATE.Value));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(INSERT_DATE.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((UPDATE_DATE.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(UPDATE_DATE.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((UPDATE_DATE.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(UPDATE_DATE.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4028,62 +3978,61 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long Id, string 対象製品名, string 対象製品見出し名, global::System.Nullable<global::System.DateTime> INSERT_DATE, global::System.Nullable<global::System.DateTime> UPDATE_DATE, long Original_Id, string Original_対象製品名, string Original_対象製品見出し名, global::System.Nullable<global::System.DateTime> Original_INSERT_DATE, global::System.Nullable<global::System.DateTime> Original_UPDATE_DATE) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(Id));
+        public virtual int Update(string 対象製品名, string 対象製品見出し名, global::System.Nullable<global::System.DateTime> INSERT_DATE, global::System.Nullable<global::System.DateTime> UPDATE_DATE, long Original_Id, string Original_対象製品名, string Original_対象製品見出し名, global::System.Nullable<global::System.DateTime> Original_INSERT_DATE, global::System.Nullable<global::System.DateTime> Original_UPDATE_DATE) {
             if ((対象製品名 == null)) {
                 throw new global::System.ArgumentNullException("対象製品名");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(対象製品名));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(対象製品名));
             }
             if ((対象製品見出し名 == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(対象製品見出し名));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(対象製品見出し名));
             }
             if ((INSERT_DATE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(INSERT_DATE.Value));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(INSERT_DATE.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((UPDATE_DATE.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(UPDATE_DATE.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((UPDATE_DATE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(UPDATE_DATE.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_Id));
             if ((Original_対象製品名 == null)) {
                 throw new global::System.ArgumentNullException("Original_対象製品名");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_対象製品名));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_対象製品名));
             }
             if ((Original_対象製品見出し名 == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_対象製品見出し名));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_対象製品見出し名));
             }
             if ((Original_INSERT_DATE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_INSERT_DATE.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_INSERT_DATE.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_UPDATE_DATE.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_UPDATE_DATE.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_UPDATE_DATE.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4099,14 +4048,6 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string 対象製品名, string 対象製品見出し名, global::System.Nullable<global::System.DateTime> INSERT_DATE, global::System.Nullable<global::System.DateTime> UPDATE_DATE, long Original_Id, string Original_対象製品名, string Original_対象製品見出し名, global::System.Nullable<global::System.DateTime> Original_INSERT_DATE, global::System.Nullable<global::System.DateTime> Original_UPDATE_DATE) {
-            return this.Update(Original_Id, 対象製品名, 対象製品見出し名, INSERT_DATE, UPDATE_DATE, Original_Id, Original_対象製品名, Original_対象製品見出し名, Original_INSERT_DATE, Original_UPDATE_DATE);
         }
     }
     
@@ -4893,7 +4834,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SQLite.SQLiteConnection();
-            this._connection.ConnectionString = global::SIDfmContext.Properties.Settings.Default.SIDfmSQLiteConnectionString;
+            this._connection.ConnectionString = global::SIDfmContext.Properties.Settings.Default.cmdbConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4912,7 +4853,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SIDfmDataSet.SIDfmDataTable dataTable) {
+        public virtual int Fill(cmdbDataSet.SIDfmDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4925,9 +4866,9 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SIDfmDataSet.SIDfmDataTable GetData() {
+        public virtual cmdbDataSet.SIDfmDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SIDfmDataSet.SIDfmDataTable dataTable = new SIDfmDataSet.SIDfmDataTable();
+            cmdbDataSet.SIDfmDataTable dataTable = new cmdbDataSet.SIDfmDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4935,14 +4876,14 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SIDfmDataSet.SIDfmDataTable dataTable) {
+        public virtual int Update(cmdbDataSet.SIDfmDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SIDfmDataSet dataSet) {
+        public virtual int Update(cmdbDataSet dataSet) {
             return this.Adapter.Update(dataSet, "SIDfm");
         }
         
@@ -5703,7 +5644,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(SIDfmDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(cmdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._actionItemsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ActionItems.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -5749,7 +5690,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(SIDfmDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(cmdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._actionItemsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ActionItems.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -5791,7 +5732,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(SIDfmDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(cmdbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._sIDfmTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.SIDfm.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -5857,7 +5798,7 @@ namespace SIDfmContext.db.SIDfmDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(SIDfmDataSet dataSet) {
+        public virtual int UpdateAll(cmdbDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
