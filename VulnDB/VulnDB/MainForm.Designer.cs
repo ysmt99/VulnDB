@@ -45,7 +45,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewSearch = new System.Windows.Forms.DataGridView();
             this.sIDfmSQLiteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sIDfmSQLiteDataSet = new SIDfmContext.db.SIDfmSQLiteDataSet();
+            this.sIDfmDataSet = new SIDfmContext.db.SIDfmDataSet();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.progressBarRegist = new System.Windows.Forms.ProgressBar();
             this.textBoxRegistLog = new System.Windows.Forms.TextBox();
@@ -57,7 +57,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,13 +202,13 @@
             // 
             // sIDfmSQLiteDataSetBindingSource
             // 
-            this.sIDfmSQLiteDataSetBindingSource.DataSource = this.sIDfmSQLiteDataSet;
+            this.sIDfmSQLiteDataSetBindingSource.DataSource = this.sIDfmDataSet;
             this.sIDfmSQLiteDataSetBindingSource.Position = 0;
             // 
             // sIDfmSQLiteDataSet
             // 
-            this.sIDfmSQLiteDataSet.DataSetName = "SIDfmSQLiteDataSet";
-            this.sIDfmSQLiteDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.sIDfmDataSet.DataSetName = "SIDfmDataSet";
+            this.sIDfmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage1
             // 
@@ -290,7 +290,7 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
@@ -312,7 +312,7 @@
         private System.Windows.Forms.Button button2;
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
         private System.Windows.Forms.BindingSource sIDfmSQLiteDataSetBindingSource;
-        private SIDfmContext.db.SIDfmSQLiteDataSet sIDfmSQLiteDataSet;
+        private SIDfmContext.db.SIDfmDataSet sIDfmDataSet;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBoxFilter登録製品名;
