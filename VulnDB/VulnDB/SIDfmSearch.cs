@@ -75,8 +75,8 @@ namespace VulnDB
                     }
                 }
 
-                var resources = from x in en.Resource 
-                                select x.対象製品見出し名;
+                var resources = from x in en.SIDfmSoftware 
+                                select x.対象製品短縮名;
                 return resources.ToList();
             }
         }
