@@ -44,8 +44,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewSearch = new System.Windows.Forms.DataGridView();
-            this.sIDfmSQLiteDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sIDfmDataSet = new SIDfmContext.db.SIDfmDataSet();
+            this.cmdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmdbDataSet = new SIDfmContext.db.cmdbDataSet();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.progressBarRegist = new System.Windows.Forms.ProgressBar();
             this.textBoxRegistLog = new System.Windows.Forms.TextBox();
@@ -57,8 +57,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmSQLiteDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIDfmDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdbDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdbDataSet)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
