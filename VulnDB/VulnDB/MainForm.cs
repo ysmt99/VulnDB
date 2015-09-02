@@ -158,7 +158,14 @@ namespace VulnDB
             if (checkBoxFilter情報登録日検索終了日.Checked == true)
                 sb.AppendLine(" AND 情報登録日 <= '" + dateTimePicker2.Value.ToString("yyyy/MM/dd") + "'");
             if (!string.IsNullOrEmpty(textBoxFilter登録製品名.Text))
-                sb.AppendLine(" AND 対象製品名 = '" + textBoxFilter登録製品名.Text + "'");
+            {
+                StringBuilder sb2 = new StringBuilder();
+                char[] delimiters = { ' ' };
+                string[] args = textBoxFilter登録製品名.Text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                foreach(var arg in args)
+                    sb2.AppendLine(" OR 対象製品名 LIKE '*" + arg + "*'");
+                sb.AppendLine(" AND ( " + sb2.ToString(4, sb2.Length - 4) + " )");
+            }
 
             if (sb.Length > 4)
                 sIDfmSQLiteDataSetBindingSource.Filter = sb.ToString(4, sb.Length - 4);
